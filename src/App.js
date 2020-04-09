@@ -11,14 +11,16 @@ class App extends Component {
     
     console.log("usando Fetch");
 
-    var myHeaders = new Headers();
+   // var myHeaders = new Headers();
 
     var request = new Request('http://localhost:8080/users');
 
     var options = {
       method: 'POST',
-      headers: myHeaders,
-      mode: 'no-cors',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      mode: 'cors',
       cache: 'default',
       body: JSON.stringify(fields)
     };
@@ -29,7 +31,7 @@ class App extends Component {
     })
     .then(function(response){
       console.log(response);
-      alert("Cadastrado com sucesso")
+      alert("Cadastrado com sucesso");
     });
   };
 
