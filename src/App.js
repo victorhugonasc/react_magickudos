@@ -6,19 +6,31 @@ import Form from './Form.js';
 class App extends Component {
 
   onSubmit = fields => {
-    console.log("app fields: ",fields)
-    const headers = new Headers();
-    headers.append('Content-Type','application/json');
-
-    const options = {
-      method: 'POST',
-      headers,
-      body: JSON.stringify(fields),
-    };
-
-    const request = new Request ('http://localhost:8080/users',options);
     
+    alert(JSON.stringify(fields));
+    
+    console.log("usando Fetch");
 
+    var myHeaders = new Headers();
+
+    var request = new Request('http://localhost:8080/users');
+
+    var options = {
+      method: 'POST',
+      headers: myHeaders,
+      mode: 'no-cors',
+      cache: 'default',
+      body: JSON.stringify(fields)
+    };
+    
+    fetch(request,options)
+    .then(function (response){
+      return response.status;
+    })
+    .then(function(response){
+      console.log(response);
+      alert("Cadastrado com sucesso")
+    });
   };
 
   render() {
