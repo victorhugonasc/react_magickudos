@@ -7,7 +7,7 @@ class App extends Component {
 
   onSubmit = fields => {
     
-    alert(JSON.stringify(fields));
+    //alert(JSON.stringify(fields));
     
     console.log("usando Fetch");
 
@@ -27,11 +27,17 @@ class App extends Component {
     
     fetch(request,options)
     .then(function (response){
-      return response.status;
+        if (response.ok) {
+          return response.json;    
+        }
+        else{
+          throw new Error("a");
+        }
+      
     })
     .then(function(response){
       console.log(response);
-      alert("Cadastrado com sucesso");
+      alert("Cadastrado com sucesso - " + response);
     });
   };
 
