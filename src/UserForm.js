@@ -56,7 +56,7 @@ export default class Form extends React.Component{
         const isValid = this.validade();
 
         if (isValid) {
-            this.props.onSubmit(this.state);
+            this.props.onSubmitUser(this.state);
             this.setState(initialState);
         }
     };
@@ -71,7 +71,7 @@ export default class Form extends React.Component{
                 <input placeholder="email" type="text" value={this.state.email} onChange={event => this.setState({email: event.target.value})} required/><br/>
                 <input placeholder="password" type="password" value={this.state.password} onChange={event => this.setState({password: event.target.value})} required/><br/>
             
-                <br/><button onClick={() => this.onSubmit(event)}>Submit</button>
+                <br/><button onClick={() => this.onSubmit(event)}>Create User</button>
                 <br/><div>{this.state.error}</div>
             </form>
 
