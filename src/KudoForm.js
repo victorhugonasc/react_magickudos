@@ -47,7 +47,7 @@ export default class Form extends React.Component{
         const isValid = this.validade();
 
         if (isValid) {
-            this.props.onSubmitKudo(this.state);
+            this.props.onSubmit(this.state);
             this.setState(initialState);
         }
     };
@@ -56,10 +56,10 @@ export default class Form extends React.Component{
     {
         return(
 
-            <form method="post">
-                <input placeholder="sender" type="text" value={this.state.sender} onChange={event => this.setState({sender: event.target.value})}/><br/>
-                <input placeholder="receiver" type="text" value={this.state.receiver} onChange={event => this.setState({receiver: event.target.value})} /><br/>
-                <input placeholder="message" type="text" value={this.state.message} onChange={event => this.setState({message: event.target.value})} /><br/>
+            <form method="post" noValidate>
+                <input placeholder="sender" type="text" value={this.state.sender} required onChange={event => this.setState({sender: event.target.value})}/><br/>
+                <input placeholder="receiver" type="text" value={this.state.receiver} required onChange={event => this.setState({receiver: event.target.value})} /><br/>
+                <input placeholder="message" type="text" value={this.state.message} required onChange={event => this.setState({message: event.target.value})} /><br/>
                
                 <select id="selectLayout"  defaultValue={"Default"} onChange={event => this.setState({layout: event.target.value})}>
                     <option value="Default" disabled>Layout</option>

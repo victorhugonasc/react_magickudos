@@ -66,10 +66,10 @@ export default class Form extends React.Component{
         return(
 
             <form method="post" noValidate>
-                <input placeholder="name" type="text" value={this.state.name} onChange={event => this.setState({name: event.target.value})} required/><br/>
-                <input placeholder="user" type="text" value={this.state.user} onChange={event => this.setState({user: event.target.value})} required/><br/>
-                <input placeholder="email" type="text" value={this.state.email} onChange={event => this.setState({email: event.target.value})} required/><br/>
-                <input placeholder="password" type="password" value={this.state.password} onChange={event => this.setState({password: event.target.value})} required/><br/>
+                <input placeholder="name" type="text" value={this.state.name} required onChange={event => this.setState({name: event.target.value})}/><br/>
+                <input placeholder="user" type="text" value={this.state.user} required onChange={event => this.setState({user: event.target.value})}/><br/>
+                <input placeholder="email" type="text" value={this.state.email} required onChange={event => this.setState({email: event.target.value})}/><br/>
+                <input placeholder="password" type="password" value={this.state.password} required onChange={event => this.setState({password: event.target.value})}/><br/>
             
                 <br/><button onClick={() => this.onSubmit(event)}>Create User</button>
                 <br/><div>{this.state.error}</div>
