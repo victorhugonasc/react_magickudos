@@ -1,10 +1,23 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 export default class KudoButton extends Component{
 
     onClick = event => {
         event.preventDefault();
-        this.props.onClick(this.state);
+        //this.props.onClick(this.state);
+
+        axios.get('http://localhost:8080/kudos')
+        .then(response => {
+          return response.data;
+        })
+        .then(function(response){
+            console.log(response);
+            
+            alert("Got all kudos");
+            
+        });
+
     };
 
 

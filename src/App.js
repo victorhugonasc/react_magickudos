@@ -3,6 +3,7 @@ import './App.css';
 import Nav from './Nav';
 import User from './User.js';
 import Kudo from './Kudo.js';
+import KudoGet from './KudoGet.js' ;
 import {
   BrowserRouter as Router,
   Switch,
@@ -20,6 +21,7 @@ export default class App extends Component {
           <Switch>
             <Route path="/user" exact component={User}/>
             <Route path="/kudo" exact component={Kudo}/>
+            <Route path="/kudoGet" exact component={KudoGet}/>
           </Switch>
           
         </div>

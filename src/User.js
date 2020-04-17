@@ -35,8 +35,7 @@ export default class User extends Component{
     render() { 
         return (
         <div>
-            <h1>User Page</h1>
-            <h2>Create User</h2>
+            <h3>Create User</h3>
                 <UserForm onSubmitUser={fields => this.onSubmitUser(fields)} />
         </div>
         );

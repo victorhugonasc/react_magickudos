@@ -21,6 +21,9 @@ export default function Nav(){
                 <Link style={navStyle} to="/kudo">
                     <li>Create Kudo</li>
                 </Link>
+                <Link style={navStyle} to="/kudoGet">
+                    <li>Get Kudos</li>
+                </Link>
             </ul>
         </nav>
     );
