@@ -1,19 +1,23 @@
 import React, { Component } from 'react';
 import './App.css';
 import Nav from './Nav';
+
+//pages
 import User from './User.js';
 import Kudo from './Kudo.js';
 import KudoGet from './KudoGet.js' ;
+
 import {
   BrowserRouter as Router,
   Switch,
   Route
 } from "react-router-dom";
 
-
-import {Provider, connect} from 'react-redux';
-
+//Redux
+/*import {Provider, connect} from 'react-redux';
 import {store,mapStateToProps,mapDispatchToProps} from './Store';
+
+
 
 const Counter = (props) => (
 
@@ -25,7 +29,7 @@ const Counter = (props) => (
 
 );
 
-const ConnectedCounter = connect(mapStateToProps,mapDispatchToProps)(Counter)
+const ConnectedCounter = connect(mapStateToProps,mapDispatchToProps)(Counter)*/
 
 
 export default class App extends Component {
@@ -33,6 +37,7 @@ export default class App extends Component {
   render() {
     return (
       <Router>
+         
         <div className="App">
          
           <Nav />   
@@ -41,11 +46,9 @@ export default class App extends Component {
             <Route path="/kudo" exact component={Kudo}/>
             <Route path="/kudoGet" exact component={KudoGet}/>
           </Switch>
-          <Provider store={store}>
-            <ConnectedCounter/>       
-          </Provider>
          
-          
+
+         
         </div>
       </Router>
     );

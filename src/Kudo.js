@@ -4,8 +4,8 @@ import KudoForm from './KudoForm';
 
 export default class Kudo extends Component{
 
-    onSubmit = field => {
-    
+    /*onSubmit = field => {
+      console.log("pai");
         var request = new Request('http://localhost:8080/kudos');
     
         var options = {
@@ -32,14 +32,15 @@ export default class Kudo extends Component{
           console.log(response.toString);
           alert("Kudo created");
         });
-      };
+      };*/
    
     render() { 
 
         return (
         <div>
             <h3>Create Kudo</h3>
-            <KudoForm onSubmit={field => this.onSubmit(field)} />
+            <KudoForm onSubmit={x => this.onSubmit(x)} />
+            
         </div>
         );
     }
