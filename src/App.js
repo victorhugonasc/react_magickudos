@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
 import Nav from './Nav';
-
-//pages
-import User from './User.js';
-import Kudo from './Kudo.js';
-import KudoGet from './KudoGet.js' ;
+import User from './pages/User';
+import Kudo from './pages/Kudo';
+import KudoGet from './pages/KudoGet' ;
 
 import {
   BrowserRouter as Router,

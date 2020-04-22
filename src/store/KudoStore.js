@@ -1,7 +1,6 @@
 
 import {createStore} from 'redux';
 import {rootReducer} from '../reducers/KudoReducer'
-import {addKudo} from '../actions/KudoAction';
 
 
 //Store
@@ -10,20 +9,4 @@ export const store = createStore(
   );
 
 
-//mapStateToProps  
-export function mapStateToProps(state){
-    return{
-        message: state.kudo.message,
-        sender: state.kudo.sender,
-        receiver: state.kudo.receiver,
-        layout: state.kudo.layout,
-      }
-}
-
-//mapDispatchToProps
-export function mapDispatchToProps (dispatch){
-    return{
-        addKudo: () => dispatch(addKudo()),
-    }
-}
 

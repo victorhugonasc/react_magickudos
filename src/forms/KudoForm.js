@@ -2,38 +2,12 @@ import React from 'react';
 
 
 //Redux
-import {Provider, connect} from 'react-redux';
-import {store,mapStateToProps,mapDispatchToProps} from '../store/KudoStore';
+import {connect} from 'react-redux';
+import {addKudo} from '../actions/KudoAction';
 
-const initialState = {
-    sender: "",
-    receiver: "",
-    message: "",
-    layout: "",
-    error: "",
-}
+ class Form extends React.Component{
 
-const Counter = (props) => (
-
- <div>
-    <h4>Sender: {props.sender} </h4>
-    <h4>Receiver: {props.receiver} </h4>
-    <h4>Message: {props.message} </h4>
-    <h4>Layout: {props.layout} </h4>
-    
-    <br/><button onClick={props.addKudo}>Create Kudo</button>
-    
- 
-  </div>
-  
-);
-
-const ConnectedCounter = connect(mapStateToProps,mapDispatchToProps)(Counter)
-
-
-export default class Form extends React.Component{
-
-    state = initialState;
+    state = this.props.kudos.kudo;
 
     validade = () =>{
 
@@ -66,13 +40,13 @@ export default class Form extends React.Component{
 
     onSubmit = (event) => {
         event.preventDefault();
+       
+        this.props.add(this.state);
+       
         const isValid = this.validade();
 
         if (isValid) {
-           // this.props.onSubmit(this.state);
-
-           console.log("filho");
-
+       
            var request = new Request('http://localhost:8080/kudos');
 
            var options = {
@@ -100,15 +74,14 @@ export default class Form extends React.Component{
              alert("Kudo created");
            });
 
-
-            this.setState(initialState);
+            this.setState(this.props.kudos.kudo);
         }
     };
 
     render()
     {
         return(
-            <Provider store={store}>
+         
                 <form method="post" noValidate>
                     <input placeholder="sender" type="text" value={this.state.sender} required onChange={event => this.setState({sender: event.target.value})}/><br/>
                     <input placeholder="receiver" type="text" value={this.state.receiver} required onChange={event => this.setState({receiver: event.target.value})} /><br/>
@@ -122,17 +95,34 @@ export default class Form extends React.Component{
                         <option value="congrats">Congratulations</option>
                         <option value="staySafe">Stay Safe</option>
                     </select>
-                   
+                    <br/><button onClick={() => this.onSubmit(event)}>Create Kudo sem Redux</button>
                     <br/><div>{this.state.error}</div>
+                    <div>
+                        <h4>Sender: {this.props.kudos.kudo.sender} </h4>
+                        <h4>Receiver: {this.props.kudos.kudo.receiver} </h4>
+                        <h4>Message: {this.props.kudos.kudo.message} </h4>
+                        <h4>Layout: {this.props.kudos.kudo.layout} </h4>
+                       
+                    </div>
+
                 </form>
 
-            
-                <ConnectedCounter/>       
-                <br/><button onClick={() => this.onSubmit(event)}>Create Kudo sem Redux</button>
-            </Provider>
-        
-                       
         );
     }
 
 }
+
+
+const mapStateToProps = (state) => {
+    return{
+        kudos: state.kudo
+    }
+}
+
+const mapDispatchToProps = (dispatch) =>{
+    return{
+        add: (data) => dispatch(addKudo(data)),
+    }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps) (Form)

@@ -5,7 +5,7 @@ import './index.css';
 
 //Redux
 import {Provider} from 'react-redux';
-import {store} from './KudoStore';
+import {store} from './store/KudoStore';
 
 ReactDOM.render(
   <Provider store={store}>

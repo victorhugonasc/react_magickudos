@@ -4,12 +4,12 @@ export const ADD_KUDO = "add_kudo";
 
 //Actions 
 
-export function addKudo() {
+export function addKudo(data) {
   return{
     type: ADD_KUDO,
-    sender: "5",
-    receiver: "6",
-    message: "7",
-    layout: "8",
+    sender: data.sender,
+    receiver: data.receiver,
+    message: data.message,
+    layout: data.layout,
   }
 };

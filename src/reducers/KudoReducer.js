@@ -2,18 +2,21 @@
 import {ADD_KUDO} from '../actions/KudoAction';
 import {combineReducers} from 'redux';
 
+
+const inicialState = {
+  kudo:{
+    sender: "10",
+    receiver: "20",
+    message: "30",
+    layout: "",
+    error: "",
+  }
+}
+
 //Reducer
 
-  export function kudoReducer (state={
-  number : 0,
-  sender: "",
-  receiver: "",
-  message: "",
-  layout: "",
-  error: "",
-}
-,action){
-
+  export function kudoReducer (state = inicialState, action){
+    console.log(action);
     switch(action.type)
     {
 
