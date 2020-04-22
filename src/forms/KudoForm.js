@@ -1,6 +1,4 @@
 import React from 'react';
-
-
 //Redux
 import {connect} from 'react-redux';
 import {addKudo} from '../actions/KudoAction';
@@ -9,73 +7,11 @@ import {addKudo} from '../actions/KudoAction';
 
     state = this.props.kudos.kudo;
 
-    validade = () =>{
-
-        this.setState({error: ""});
-
-        if (!this.state.sender) {
-            this.setState({error: "Sender field cannot be blank!"});
-            return false;
-        }
-
-        if (!this.state.receiver) {
-            this.setState({error: "Receiver field cannot be blank!"});
-            return false;
-        }
-
-        if (!this.state.message) {
-            this.setState({error: "Email field cannot be blank!"});
-            return false;
-        }
-
-        if (!this.state.layout) {
-            this.setState({error: "Layout field cannot be blank!"});
-            return false;
-        }
-
-        return true;
-
-    }
-
-
     onSubmit = (event) => {
         event.preventDefault();
-       
         this.props.add(this.state);
-       
-        const isValid = this.validade();
-
-        if (isValid) {
-       
-           var request = new Request('http://localhost:8080/kudos');
-
-           var options = {
-             method: 'POST',
-             headers: {
-               'Content-Type': 'application/json'
-             },
-             mode: 'cors',
-             cache: 'default',
-             body: JSON.stringify(this.state)
-           };
-           
-           fetch(request,options)
-           .then(function (response){
-               if (response.ok) {
-                 return response.json;    
-               }
-               else{
-                 throw new Error("a");
-               }
-             
-           })
-           .then(function(response){
-             console.log(response.toString);
-             alert("Kudo created");
-           });
-
-            this.setState(this.props.kudos.kudo);
-        }
+        this.setState(this.props.kudos.kudo);
+    
     };
 
     render()
