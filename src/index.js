@@ -3,7 +3,13 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import './index.css';
 
+//Redux
+import {Provider} from 'react-redux';
+import {store} from './KudoStore';
+
 ReactDOM.render(
-  <App />,
+  <Provider store={store}>
+    <App />
+  </Provider>,
   document.getElementById('root')
 );

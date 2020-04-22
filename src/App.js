@@ -13,25 +13,6 @@ import {
   Route
 } from "react-router-dom";
 
-//Redux
-/*import {Provider, connect} from 'react-redux';
-import {store,mapStateToProps,mapDispatchToProps} from './Store';
-
-
-
-const Counter = (props) => (
-
-  <div>
-    <h2>Counter: {props.number} </h2>
-    <input type="button" value="add" onClick={props.add}/>
-    <input type="button" value="subtract" onClick={props.subtract}/>
-  </div>
-
-);
-
-const ConnectedCounter = connect(mapStateToProps,mapDispatchToProps)(Counter)*/
-
-
 export default class App extends Component {
 
   render() {

@@ -13,9 +13,6 @@ const initialState = {
     error: "",
 }
 
-//const state = initialState;
-
-
 const Counter = (props) => (
 
  <div>
@@ -24,16 +21,14 @@ const Counter = (props) => (
     <h4>Message: {props.message} </h4>
     <h4>Layout: {props.layout} </h4>
     
-    <br/><button onClick={props.teste}>Create Kudo</button>
+    <br/><button onClick={props.addKudo}>Create Kudo</button>
+    
+ 
   </div>
   
-//<br/><button onClick={() => this.onSubmit(event)}>Create Kudo</button>
-
 );
 
 const ConnectedCounter = connect(mapStateToProps,mapDispatchToProps)(Counter)
-
-
 
 
 export default class Form extends React.Component{
@@ -127,12 +122,13 @@ export default class Form extends React.Component{
                         <option value="congrats">Congratulations</option>
                         <option value="staySafe">Stay Safe</option>
                     </select>
-                    
+                   
                     <br/><div>{this.state.error}</div>
                 </form>
 
             
                 <ConnectedCounter/>       
+                <br/><button onClick={() => this.onSubmit(event)}>Create Kudo sem Redux</button>
             </Provider>
         
                        
