@@ -3,7 +3,7 @@ import React from 'react';
 
 //Redux
 import {Provider, connect} from 'react-redux';
-import {store,mapStateToProps,mapDispatchToProps} from './KudoStore';
+import {store,mapStateToProps,mapDispatchToProps} from '../store/KudoStore';
 
 const initialState = {
     sender: "",

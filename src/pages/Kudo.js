@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import KudoForm from './KudoForm';
+import KudoForm from '../forms/KudoForm';
 
 
 export default class Kudo extends Component{

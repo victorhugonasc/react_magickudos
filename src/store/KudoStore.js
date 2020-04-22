@@ -1,7 +1,7 @@
 
 import {createStore} from 'redux';
-import {rootReducer} from './KudoReducer'
-import {addKudo} from './KudoAction';
+import {rootReducer} from '../reducers/KudoReducer'
+import {addKudo} from '../actions/KudoAction';
 
 
 //Store

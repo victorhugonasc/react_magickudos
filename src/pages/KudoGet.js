@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import KudoButton from './KudoButton';
+import KudoButton from '../buttons/KudoButton';
 
 
 export default class KudoGet extends Component{

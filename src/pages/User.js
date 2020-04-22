@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import UserForm from './UserForm';
+import UserForm from '../forms/UserForm';
 
 
 

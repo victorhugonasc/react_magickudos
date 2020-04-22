@@ -1,5 +1,5 @@
 
-import {ADD_KUDO} from './KudoAction';
+import {ADD_KUDO} from '../actions/KudoAction';
 import {combineReducers} from 'redux';
 
 //Reducer
