@@ -31,7 +31,7 @@ import {addKudo} from '../actions/KudoAction';
                         <option value="congrats">Congratulations</option>
                         <option value="staySafe">Stay Safe</option>
                     </select>
-                    <br/><button onClick={() => this.onSubmit(event)}>Create Kudo sem Redux</button>
+                    <br/><button onClick={() => this.onSubmit(event)}>Create Kudo</button>
                     <br/><div>{this.state.error}</div>
                     <div>
                         <h4>Sender: {this.props.kudos.kudo.sender} </h4>

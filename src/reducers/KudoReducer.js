@@ -1,6 +1,7 @@
 
-import {ADD_KUDO} from '../actions/KudoAction';
+import {ADD_KUDO,GET_KUDOS} from '../actions/KudoAction';
 import {combineReducers} from 'redux';
+
 
 
 const inicialState = {
@@ -16,17 +17,21 @@ const inicialState = {
 //Reducer
 
   export function kudoReducer (state = inicialState, action){
-    console.log(action);
     switch(action.type)
     {
 
     case ADD_KUDO:
       return{
         ...state,
-        sender: action.sender,
-        receiver: action.receiver,
-        message: action.message,
-        layout: action.layout,
+        sender: action.data.sender,
+        receiver: action.data.receiver,
+        message: action.data.message,
+        layout: action.data.layout,
+      }
+
+      case GET_KUDOS:
+      return{
+        ...state,
       }
 
     default:
