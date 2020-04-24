@@ -1,15 +1,13 @@
 import React, { Component } from 'react';
 import './App.css';
 import Nav from './Nav';
-import User from './pages/User';
-import Kudo from './pages/Kudo';
-import KudoGet from './pages/KudoGet' ;
 
 import {
   BrowserRouter as Router,
   Switch,
   Route
 } from "react-router-dom";
+import KudosListPage from './View/Kudo/GetKudos/index'
 
 export default class App extends Component {
 
@@ -21,9 +19,7 @@ export default class App extends Component {
          
           <Nav />   
           <Switch>
-            <Route path="/user" exact component={User}/>
-            <Route path="/kudo" exact component={Kudo}/>
-            <Route path="/kudoGet" exact component={KudoGet}/>
+            <Route path="/getKudos" exact component={KudosListPage}/>
           </Switch>
          
 

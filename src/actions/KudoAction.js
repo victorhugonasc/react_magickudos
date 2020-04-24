@@ -6,6 +6,7 @@ export const GET_KUDOS = "get_kudos"
 export const ERROR = "error";
 
 var state = "";
+var data = [];
 
 function validade() {
 
@@ -64,25 +65,49 @@ function createKudo(){
   });
 }
 
-
-
 function getAllKudos(){
   axios.get('http://localhost:8080/kudos')
   .then(response => {
+    console.log(response.data);
     return response.data;
   })
   .then(function(response){
       console.log(response);
-      
+      data = response;
       alert("Got all kudos");
-      
   });
 }
 
 
+function getAllKudos2(){
+  var request = new Request('http://localhost:8080/kudos');
+
+  var options = {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    mode: 'cors',
+    cache: 'default',
+  };
+  
+  fetch(request,options)
+  .then(function (response){
+      if (response.ok) {
+        return response.json;    
+      }
+      else{
+        throw new Error("a");
+      }
+    
+  })
+  .then(function(response){
+    console.log(response.toString);
+    alert("Got all kudos 2");
+  });
+}
+
 /***************************************************************************************************************************************************************/
-
-
 
 //Actions 
 export function addKudo(data) {
@@ -104,7 +129,8 @@ export function addKudo(data) {
 };
 
 export function getKudos() {
-  getAllKudos();
+  getAllKudos2();
+  console.log(data);
   return{
     type: GET_KUDOS,
   }

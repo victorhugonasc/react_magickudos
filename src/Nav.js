@@ -11,17 +11,7 @@ export default function Nav(){
     return (
         <nav>
             <ul className="nav-links">
-                <Link style={navStyle} to="/">
-                    <li>Magic Kudo</li>
-                </Link>
-                <Link style={navStyle} to="/user">
-                    <li>Create User</li>
-                </Link>
-                
-                <Link style={navStyle} to="/kudo">
-                    <li>Create Kudo</li>
-                </Link>
-                <Link style={navStyle} to="/kudoGet">
+                <Link style={navStyle} to="/getKudos">
                     <li>Get Kudos</li>
                 </Link>
             </ul>
