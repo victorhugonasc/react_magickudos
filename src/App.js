@@ -1,13 +1,10 @@
 import React, { Component } from 'react';
 import './App.css';
 import Nav from './Nav';
+import { BrowserRouter as Router,Switch,Route} from "react-router-dom";
 
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route
-} from "react-router-dom";
-import KudosListPage from './View/Kudo/GetKudos/index'
+import KudosListPage from './View/Kudo/GetKudos/index';
+import KudoCreationPage from './View/Kudo/CreateKudo/index';
 
 export default class App extends Component {
 
@@ -19,10 +16,10 @@ export default class App extends Component {
          
           <Nav />   
           <Switch>
+            <Route path="/" exact/>
             <Route path="/getKudos" exact component={KudosListPage}/>
+            <Route path="/createKudos" exact component={KudoCreationPage}/>
           </Switch>
-         
-
          
         </div>
       </Router>

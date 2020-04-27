@@ -11,8 +11,14 @@ export default function Nav(){
     return (
         <nav>
             <ul className="nav-links">
+                <Link style={navStyle} to="/">
+                    <li>Home</li>
+                </Link>
                 <Link style={navStyle} to="/getKudos">
                     <li>Get Kudos</li>
+                </Link>
+                <Link style={navStyle} to="/createKudos">
+                    <li>Create Kudos</li>
                 </Link>
             </ul>
         </nav>

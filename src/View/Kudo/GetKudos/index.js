@@ -7,7 +7,7 @@ function mapStateToProps(state) {
     console.log("statetoprops");
     console.log(state);
     return {
-        kudos: state.GetKudosReducers.kudos
+        kudos: state.getKudoReducer.kudos
     }
 }
 

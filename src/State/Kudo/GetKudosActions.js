@@ -21,7 +21,7 @@ export function fetchKudos(){
 }
 
 export function loadKudos(kudos){
-    console.log("entrou load");
+   
     return{
         type: LOAD_KUDOS,
         value: kudos,

@@ -1,21 +1,18 @@
-import React from 'react';
-//Redux
-import {connect} from 'react-redux';
-import {addKudo} from '../actions/KudoAction';
+import React, { Component } from 'react';
 
- class Form extends React.Component{
+class KudoForm extends Component{
 
-    state = this.props.kudos.kudo;
+    state = this.props.kudo;
 
     onSubmit = (event) => {
         event.preventDefault();
-        this.props.add(this.state);
-        this.setState(this.props.kudos.kudo);
-    
+        this.props.onSubmit(this.state);
     };
 
     render()
     {
+        const kudo = this.state;
+    
         return(
          
                 <form method="post" noValidate>
@@ -31,33 +28,20 @@ import {addKudo} from '../actions/KudoAction';
                         <option value="congrats">Congratulations</option>
                         <option value="staySafe">Stay Safe</option>
                     </select>
-                
-                    <br/><div>{this.state.error}</div>
+                    <br/><button onClick={() => this.onSubmit(event)}>Create Kudo</button>
+                    
                     <div>
-                        <h4>Sender: {this.props.kudos.kudo.sender} </h4>
-                        <h4>Receiver: {this.props.kudos.kudo.receiver} </h4>
-                        <h4>Message: {this.props.kudos.kudo.message} </h4>
-                        <h4>Layout: {this.props.kudos.kudo.layout} </h4>
+                        <h4>Sender: {kudo.sender} </h4>
+                        <h4>Receiver: {kudo.receiver} </h4>
+                        <h4>Message: {kudo.message} </h4>
+                        <h4>Layout: {kudo.layout} </h4>
                     </div>
 
                 </form>
 
         );
-    }
+    }KudosList
 
 }
 
-
-const mapStateToProps = (state) => {
-    return{
-        kudos: state.kudo
-    }
-}
-
-const mapDispatchToProps = (dispatch) =>{
-    return{
-        add: (data) => dispatch(addKudo(data)),
-    }
-}
-
-export default connect(mapStateToProps,mapDispatchToProps) (Form)
+export default KudoForm;

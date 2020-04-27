@@ -17,11 +17,14 @@ export default class ApiService {
 
     static doRequest(httpMethod, path, params)
     {
+        console.log("params: ");
+        console.log(params);
         return axios[httpMethod](API_SERVER + path, params).then(ApiService.handleSuccessCallBack).catch(ApiService.handleFailureCallBack);
        
     }
 
     static handleSuccessCallBack(response){
+        console.log("eh esse cara");
         console.log(response.data);
         return response.data;
     }
