@@ -6,13 +6,12 @@ export const CREATE_KUDO = "CREATE_KUDO";
 export const ADD_KUDO = "ADD_KUDO";
 export const FAILED_TO_CREATE_KUDO = "FAILED_TO_CREATE_KUDO";
 
-export function fetchKudo(kudo){
-    console.log("Fetch Kudo");
-    console.log(kudo);
-    KudoService.createKudo(kudo)
+export function createKudo(kudo){
+    
+    KudoService.createUser(kudo)
     .then( 
         () => {StoreService.dispatchAction(addKudo(kudo));},
-       // (error) => {StoreService.dispatchAction(failedKudo(error));}
+       (error) => {StoreService.dispatchAction(failedKudo(error));}
     );
 
     return{
@@ -21,8 +20,7 @@ export function fetchKudo(kudo){
 }
 
 export function addKudo(kudo){
-    console.log("addKudo");
-    console.log(kudo);
+    alert("Kudo created");
     return{
         type: ADD_KUDO,
         value: kudo,

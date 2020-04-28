@@ -20,9 +20,7 @@ class KudoComponent extends Component{
     }
 
     onSubmit(data){
-        console.log("State returned");
-        console.log(data);
-        this.props.fetchKudo(data);
+        this.props.createKudo(data);
     }
 
    
@@ -30,7 +28,7 @@ class KudoComponent extends Component{
 
 KudoComponent.propTypes = {
     kudo: PropTypes.object.isRequired,
-    fetchKudo: PropTypes.func.isRequired
+    createKudo: PropTypes.func.isRequired
 }
 
 

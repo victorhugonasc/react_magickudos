@@ -4,9 +4,40 @@ class KudoForm extends Component{
 
     state = this.props.kudo;
 
+    isValid = () => {
+
+        this.setState({error: ""});
+        
+        if (!this.state.sender) {
+            this.setState({error: "Sender field cannot be blank!"});
+            return false;
+        }
+        
+        if (!this.state.receiver) {
+            this.setState({error: "Receiver field cannot be blank!"});
+            return false;
+        }
+        
+        if (!this.state.message) {
+            this.setState({error: "Message field cannot be blank!"});
+            return false;
+        }
+        
+        if (!this.state.layout) {
+            this.setState({error: "Layout field cannot be blank!"});
+            return false;
+        }
+        
+        return true;
+        
+    }
+
     onSubmit = (event) => {
         event.preventDefault();
-        this.props.onSubmit(this.state);
+        if(this.isValid())
+        {
+            this.props.onSubmit(this.state);
+        }
     };
 
     render()
@@ -29,7 +60,7 @@ class KudoForm extends Component{
                         <option value="staySafe">Stay Safe</option>
                     </select>
                     <br/><button onClick={() => this.onSubmit(event)}>Create Kudo</button>
-                    
+                    <div><h2>{this.state.error}</h2></div>
                     <div>
                         <h4>Sender: {kudo.sender} </h4>
                         <h4>Receiver: {kudo.receiver} </h4>
@@ -40,7 +71,7 @@ class KudoForm extends Component{
                 </form>
 
         );
-    }KudosList
+    }
 
 }
 

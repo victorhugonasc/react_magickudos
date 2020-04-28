@@ -1,5 +1,5 @@
 
-import {fetchKudo} from '../../../State/Kudo/CreateKudoActions';
+import {createKudo} from '../../../State/Kudo/CreateKudoActions';
 import {connect} from 'react-redux';
 import KudoComponent from './KudoComponent';
 
@@ -13,7 +13,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        fetchKudo: kudo => dispatch(fetchKudo(kudo))
+        createKudo: kudo => dispatch(createKudo(kudo))
     }
 }
 

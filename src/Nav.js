@@ -20,6 +20,9 @@ export default function Nav(){
                 <Link style={navStyle} to="/createKudos">
                     <li>Create Kudos</li>
                 </Link>
+                <Link style={navStyle} to="/createUsers">
+                    <li>Create Users</li>
+                </Link>
             </ul>
         </nav>
     );

@@ -1,5 +1,3 @@
-//import {store} from '../../../State/Store/index';
-
 
 function getStore() {
     const store = require('../../../State/Store');
