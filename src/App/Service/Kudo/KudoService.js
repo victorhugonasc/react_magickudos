@@ -4,7 +4,7 @@ const PATH = "/kudos"
 
 class KudoService{
 
-    createUser(params){
+    createKudo(params){
         return ApiService.doPost(PATH,params);
     }
     
