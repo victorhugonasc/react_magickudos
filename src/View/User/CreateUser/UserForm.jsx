@@ -23,11 +23,21 @@ class UserForm extends Component{
             return false;
         }
         
+        if (!this.state.email.includes('@')) {//email deve ter um @
+            this.setState({error: "Email must include @"});
+            return false; 
+        }
+        
         if (!this.state.password) {
             this.setState({error: "Password field cannot be blank!"});
             return false;
         }
         
+        if (this.state.password.length < 4) {//senha deve ter pelo menos 4 caracteres
+            this.setState({error: "Password length can't be shorter than 4 caracters"});
+            return false;
+        }
+
         return true;
         
     }

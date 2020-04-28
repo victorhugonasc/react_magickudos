@@ -13,11 +13,6 @@ class KudoRow extends Component{
             </div>
         );
     }
-
-
-
 }
-
-
 export default KudoRow;
 
