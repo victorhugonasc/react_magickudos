@@ -38,6 +38,7 @@ class KudoForm extends Component{
         if(this.isValid())
         {
             this.props.createKudo(this.state);
+            this.setState(this.props.kudo);
         }
     };
 

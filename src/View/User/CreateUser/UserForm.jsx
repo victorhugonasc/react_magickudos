@@ -48,6 +48,7 @@ class UserForm extends Component{
         if(this.isValid())
         {
            this.props.createUser(this.state);
+           this.setState(this.props.user);
         }
     };
 
