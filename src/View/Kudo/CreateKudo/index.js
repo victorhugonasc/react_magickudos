@@ -1,8 +1,7 @@
 
 import {createKudo} from '../../../State/Kudo/CreateKudoActions';
 import {connect} from 'react-redux';
-import KudoComponent from './KudoComponent';
-
+import KudoForm from './KudoForm';
 
 function mapStateToProps(state) {
    
@@ -17,6 +16,5 @@ function mapDispatchToProps(dispatch) {
     }
 }
 
-
-export default connect(mapStateToProps,mapDispatchToProps)(KudoComponent);
+export default connect(mapStateToProps,mapDispatchToProps)(KudoForm);
 

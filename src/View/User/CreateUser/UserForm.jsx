@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types'; 
 
 class UserForm extends Component{
 
@@ -27,7 +28,7 @@ class UserForm extends Component{
             this.setState({error: "Email must include @"});
             return false; 
         }
-        
+
         if (!this.state.password) {
             this.setState({error: "Password field cannot be blank!"});
             return false;
@@ -46,7 +47,7 @@ class UserForm extends Component{
         event.preventDefault();
         if(this.isValid())
         {
-            this.props.onSubmit(this.state);
+           this.props.createUser(this.state);
         }
     };
 
@@ -73,6 +74,11 @@ class UserForm extends Component{
                 </form>
         );
     }
+}
+
+UserForm.propTypes = {
+    user: PropTypes.object.isRequired,
+    createUser: PropTypes.func.isRequired
 }
 
 export default UserForm;

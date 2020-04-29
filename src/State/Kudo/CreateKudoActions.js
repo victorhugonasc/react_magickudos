@@ -8,7 +8,7 @@ export const FAILED_TO_CREATE_KUDO = "FAILED_TO_CREATE_KUDO";
 
 export function createKudo(kudo){
     
-    KudoService.createUser(kudo)
+    KudoService.createKudo(kudo)
     .then( 
         () => {StoreService.dispatchAction(addKudo(kudo));},
        (error) => {StoreService.dispatchAction(failedKudo(error));}

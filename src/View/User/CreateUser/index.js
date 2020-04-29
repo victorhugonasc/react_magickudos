@@ -1,8 +1,7 @@
 
 import {createUser} from '../../../State/User/CreateUserActions';
 import {connect} from 'react-redux';
-import UserComponent from './UserComponent';
-
+import UserForm from './UserForm';
 
 function mapStateToProps(state) {
    
@@ -17,6 +16,5 @@ function mapDispatchToProps(dispatch) {
     }
 }
 
-
-export default connect(mapStateToProps,mapDispatchToProps)(UserComponent);
+export default connect(mapStateToProps,mapDispatchToProps)(UserForm);
 

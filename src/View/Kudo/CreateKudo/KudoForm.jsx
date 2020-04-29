@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types'; 
 
 class KudoForm extends Component{
 
@@ -36,7 +37,7 @@ class KudoForm extends Component{
         event.preventDefault();
         if(this.isValid())
         {
-            this.props.onSubmit(this.state);
+            this.props.createKudo(this.state);
         }
     };
 
@@ -67,12 +68,16 @@ class KudoForm extends Component{
                         <h4>Message: {kudo.message} </h4>
                         <h4>Layout: {kudo.layout} </h4>
                     </div>
-
                 </form>
 
         );
     }
 
+}
+
+KudoForm.propTypes = {
+    kudo: PropTypes.object.isRequired,
+    createKudo: PropTypes.func.isRequired
 }
 
 export default KudoForm;
