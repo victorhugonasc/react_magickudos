@@ -20,7 +20,17 @@ class UsersList extends Component{
 
         return(
             <div>
-                {rows}     
+            <table id='userTable'>
+                <tbody>
+                    <tr>
+                        <th>Name</th>
+                        <th>User</th>
+                        <th>Email</th>
+                        <th>Password</th>
+                    </tr>
+                    {rows}
+                </tbody>
+            </table>     
             </div>
         );
     }
@@ -41,7 +51,6 @@ UsersList.propTypes = {
     users: PropTypes.array.isRequired,
     fetchUsers: PropTypes.func.isRequired
 }
-
 
 export default UsersList;
 

@@ -17,10 +17,19 @@ class KudosList extends Component{
     render() { 
 
         const rows = this.renderRows(this.props.kudos);
-
         return(
             <div>
-                {rows}     
+            <table id='kudoTable'>
+                <tbody>
+                    <tr>
+                        <th>Sender</th>
+                        <th>Receiver</th>
+                        <th>Message</th>
+                        <th>Layout</th>
+                    </tr>
+                    {rows}
+                </tbody>
+            </table>     
             </div>
         );
     }
@@ -43,7 +52,6 @@ KudosList.propTypes = {
     kudos: PropTypes.array.isRequired,
     fetchKudos: PropTypes.func.isRequired
 }
-
 
 export default KudosList;
 
