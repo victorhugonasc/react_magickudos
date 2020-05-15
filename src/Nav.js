@@ -11,22 +11,23 @@ export default function Nav(){
     return (
         <nav>
             <ul className="nav-links">
-                <Link style={navStyle} to="/">
+                <Link className="home" style={navStyle} to="/">
                     <li>Home</li>
                 </Link>
-                <Link style={navStyle} to="/createUsers">
+                <Link className="createUsers" style={navStyle} to="/createUsers">
                     <li>Create Users</li>
                 </Link>
-                <Link style={navStyle} to="/getUsers">
+                <Link className="getUsers" style={navStyle} to="/getUsers">
                     <li>Get Users</li>
                 </Link>
-                <Link style={navStyle} to="/createKudos">
+                <Link className="createKudos" style={navStyle} to="/createKudos">
                     <li>Create Kudos</li>
                 </Link>
-                <Link style={navStyle} to="/getKudos">
+                <Link className="getKudos" style={navStyle} to="/getKudos">
                     <li>Get Kudos</li>
                 </Link>
             </ul>
+           
         </nav>
     );
 }
