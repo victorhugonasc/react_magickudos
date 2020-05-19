@@ -64,7 +64,7 @@ class UserForm extends Component{
                 <input placeholder="email" type="text" value={this.state.email} required onChange={event => this.setState({email: event.target.value})} /><br/>
                 <input placeholder="password" type="password" value={this.state.password} required onChange={event => this.setState({password: event.target.value})} /><br/>
             
-                <br/><button onClick={() => this.onSubmit(event)}>Create User</button>
+                <br/><button onClick={this.onSubmit}>Create User</button>
                 <div><h2>{this.state.error}</h2></div>
                 <div>
                     <h4>Sender: {user.name} </h4>

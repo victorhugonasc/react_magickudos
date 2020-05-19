@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_SERVER = "http://localhost:8080"
+export const API_SERVER = "http://localhost:8080"
 
 
 export default class ApiService {

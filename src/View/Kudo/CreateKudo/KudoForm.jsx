@@ -61,7 +61,7 @@ class KudoForm extends Component{
                     <option value="congrats">Congratulations</option>
                     <option value="staySafe">Stay Safe</option>
                 </select>
-                <br/><button onClick={() => this.onSubmit(event)}>Create Kudo</button>
+                <br/><button onClick={this.onSubmit}>Create Kudo</button>
                 <div><h2>{this.state.error}</h2></div>
                 <div>
                     <h4>Sender: {kudo.sender} </h4>
