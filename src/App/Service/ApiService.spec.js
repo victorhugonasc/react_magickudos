@@ -14,3 +14,13 @@ test(" HTTP get request ", () => {
     expect(axios.get).toBeCalledWith(API_SERVER + PATH,PARAMS);
 
 });
+
+test(" HTTP post request ", () => {
+    
+    jest.spyOn(axios,"post").mockImplementation(() => Promise.resolve(true));
+
+    ApiService.doGet(PATH,PARAMS);
+
+    expect(axios.get).toBeCalledWith(API_SERVER + PATH,PARAMS);
+
+});
