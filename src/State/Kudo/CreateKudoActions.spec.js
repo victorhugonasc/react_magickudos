@@ -1,4 +1,5 @@
 import {createKudo,addKudo,failedKudo,CREATE_KUDO,ADD_KUDO,FAILED_TO_CREATE_KUDO} from './CreateKudoActions';
+import KudoService from '../../App/Service/Kudo/KudoService';
 
 const KUDO = {
   sender:"",
@@ -14,22 +15,26 @@ window.alert = () => {};  // provide an empty implementation for window.alert
 
 describe('actions', () => {
 
-  test('should create an action to Create Kudo', () => {
-   
-    const expectedAction = {
-      type: FAILED_TO_CREATE_KUDO,
-      value: ERROR,
-    };
+  test('should create an action to Add kudo', () => {
 
-    expect(failedKudo(ERROR)).toEqual(expectedAction);
+  const serviceSpy = jest.spyOn(KudoService,"createKudo").mockImplementation(() => Promise.resolve(true));
+  
+  const expectedAction = {
+    type: CREATE_KUDO,
+  };
+
+  expect(createKudo(KUDO)).toEqual(expectedAction);
+  expect(serviceSpy).toBeCalledWith(KUDO);
+  
   });
 
   test('should create an action to Add kudo', () => {
   
     const expectedAction = {
-      type: CREATE_KUDO,
+      type: ADD_KUDO,
+      value: KUDO
     };
-    expect(createKudo(KUDO)).toEqual(expectedAction);
+    expect(addKudo(KUDO)).toEqual(expectedAction);
   });
 
   test('should create an action to Fail to add kudo', () => {

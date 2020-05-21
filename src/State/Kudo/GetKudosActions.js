@@ -1,11 +1,9 @@
 import KudoService from '../../App/Service/Kudo/KudoService';
 import StoreService from '../../App/Service/Utils/StoreService';
 
-
 export const FETCH_KUDOS = "FETCH_KUDOS";
 export const LOAD_KUDOS = "LOAD_KUDOS";
 export const FAILED_KUDOS = "FAILED_KUDOS";
-
 
 export function fetchKudos(){
 
