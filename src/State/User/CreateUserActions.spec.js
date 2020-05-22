@@ -3,10 +3,11 @@ import {createUser,addUser,failedUser} from './CreateUserActions';
 import UserService from '../../App/Service/User/UserService';
 
 const USER = {
-    sender:"",
-    receiver:"",
-    message:"",
-    layout:"",
+    name:"",
+    user:"",
+    id:"",
+    email:"",
+    password:"",
   };
 
 const ERROR = {};
@@ -14,7 +15,7 @@ const ERROR = {};
 window.alert = () => {};  // provide an empty implementation for window.alert
 
 
-describe('actions', () => {
+describe('Create user action`s test', () => {
 
   test('should create an action to create user', () => {
 

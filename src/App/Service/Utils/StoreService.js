@@ -1,10 +1,10 @@
+export const store = require('../../../State/Store');
 
-function getStore() {
-    const store = require('../../../State/Store');
+export function getStore() {
     return store.default;
 } 
 
-function dispatchAction(action) {
+export function dispatchAction(action) {
     return getStore().dispatch(action);
 }
 

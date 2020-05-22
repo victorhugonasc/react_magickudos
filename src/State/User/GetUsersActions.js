@@ -1,4 +1,4 @@
-import KudoService from '../../App/Service/User/UserService';
+import UserService from '../../App/Service/User/UserService';
 import StoreService from '../../App/Service/Utils/StoreService';
 
 
@@ -9,7 +9,7 @@ export const FAILED_USERS = "FAILED_USERS";
 
 export function fetchUsers(){
 
-    KudoService.getUsers()
+    UserService.getUsers()
     .then( 
         (data) => {StoreService.dispatchAction(loadUsers(data));},
         (error) => {StoreService.dispatchAction(failedUsers(error));}

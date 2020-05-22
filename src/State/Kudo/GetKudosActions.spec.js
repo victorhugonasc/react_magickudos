@@ -7,11 +7,11 @@ const KUDO = {
     receiver:"",
     message:"",
     layout:"",
-  };
+};
 
 const ERROR = {};
 
-describe('actions', () => {
+describe('Get kudos actions', () => {
 
     test('should create an action to Get kudos', () => {
 
