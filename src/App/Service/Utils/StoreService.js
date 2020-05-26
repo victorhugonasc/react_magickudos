@@ -1,6 +1,7 @@
-export const store = require('../../../State/Store');
+
 
 export function getStore() {
+    const store = require('../../../State/Store');
     return store.default;
 } 
 
