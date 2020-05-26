@@ -1,4 +1,5 @@
-import {createKudo,addKudo,failedKudo,CREATE_KUDO,ADD_KUDO,FAILED_TO_CREATE_KUDO} from './CreateKudoActions';
+import {createKudo,addKudo,failedKudo} from './CreateKudoActions';
+import {CREATE_KUDO,ADD_KUDO,FAILED_TO_CREATE_KUDO} from './CreateKudoActions'
 import KudoService from '../../App/Service/Kudo/KudoService';
 
 const KUDO = {
