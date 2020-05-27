@@ -1,8 +1,8 @@
 import React from 'react';
-import { shallow, mount,configure} from 'enzyme';
+import { shallow,configure} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import KudoForm from './KudoForm';
-import createKudo from '../../../State/Kudo/CreateKudoActions'
+import {createKudo} from '../../../State/Kudo/CreateKudoActions'
 
 configure({adapter: new Adapter() });
 
