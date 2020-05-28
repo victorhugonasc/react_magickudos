@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow,configure} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import KudosRow from './KudoRow';
+import KudoRow from './KudoRow';
 
 configure({adapter: new Adapter() });
 
@@ -21,7 +21,7 @@ describe('<KudosRow />', () => {
       const MESSAGE = "messageTest";
       const LAYOUT = "layoutTest";
 
-      const wrapper = shallow(<KudosRow kudo={KUDO} key={KUDO.id}/>);
+      const wrapper = shallow(<KudoRow kudo={KUDO} key={KUDO.id}/>);
       
       const sender = wrapper.find('td').at(0).text();
       const receiver = wrapper.find('td').at(1).text();
