@@ -28,5 +28,5 @@ describe('<KudoForm />', () => {
       expect(message).toEqual(MESSAGE);
       expect(layout).toEqual(LAYOUT);
     });
-  
+
   });
