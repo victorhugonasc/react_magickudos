@@ -6,37 +6,46 @@ import {createKudo} from '../../../State/Kudo/CreateKudoActions'
 
 configure({adapter: new Adapter() });
 
-const KUDO = {};
+const KUDO = {
+  sender: "senderTest",
+  receiver: "receiverTest",
+  message: "messageTest"
+};
 
 describe('<KudoForm />', () => {
 
-  it('name field must be empty when rendering', () => {
+  it('should match all input fields', () => {
+
+    const SENDER = "senderTest";
+    const RECEIVER = "receiverTest";
+    const MESSAGE = "messageTest";
    
     const wrapper = shallow(<KudoForm kudo={KUDO} createKudo={createKudo}/>);
     
-    const name = wrapper.find('#inputName').props().value;
-
-    expect(name).toBeUndefined();
-  });
-
-  it('receiver field must be empty when rendering', () => {
-   
-    const wrapper = shallow(<KudoForm kudo={KUDO} createKudo={createKudo}/>);
-   
+    const sender = wrapper.find('#inputSender').props().value;
     const receiver = wrapper.find('#inputReceiver').props().value;
-   
-    expect(receiver).toBeUndefined();
-   
+    const message = wrapper.find('#inputMessage').props().value;
+    
+    expect(sender).toEqual(SENDER);
+    expect(receiver).toEqual(RECEIVER);
+    expect(message).toEqual(MESSAGE);
   });
+ 
+  it('should match all placeholders', () => {
 
-  it('message field must be empty when rendering', () => {
+    const SENDER = "sender";
+    const RECEIVER = "receiver";
+    const MESSAGE = "message";
    
     const wrapper = shallow(<KudoForm kudo={KUDO} createKudo={createKudo}/>);
+    
+    const sender = wrapper.find('#inputSender').props().placeholder;
+    const receiver = wrapper.find('#inputReceiver').props().placeholder;
+    const message = wrapper.find('#inputMessage').props().placeholder;
    
-    const message = wrapper.find('#inputMessage').props().value;
-   
-    expect(message).toBeUndefined();
-   
+    expect(sender).toEqual(SENDER);
+    expect(receiver).toEqual(RECEIVER);
+    expect(message).toEqual(MESSAGE);
   });
 
   it('should match options names and length', () => {

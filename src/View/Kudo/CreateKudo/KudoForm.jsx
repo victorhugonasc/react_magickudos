@@ -49,7 +49,7 @@ class KudoForm extends Component{
         return(
          
             <form method="post" noValidate>
-                <input id="inputName" placeholder="sender" type="text" value={this.state.sender} required onChange={event => this.setState({sender: event.target.value})}/><br/>
+                <input id="inputSender" placeholder="sender" type="text" value={this.state.sender} required onChange={event => this.setState({sender: event.target.value})}/><br/>
                 <input id="inputReceiver" placeholder="receiver" type="text" value={this.state.receiver} required onChange={event => this.setState({receiver: event.target.value})} /><br/>
                 <input id="inputMessage" placeholder="message" type="text" value={this.state.message} required onChange={event => this.setState({message: event.target.value})} /><br/>
             
