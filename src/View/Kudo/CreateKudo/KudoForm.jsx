@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types'; 
+import './KudoForm.scss';
+
 
 class KudoForm extends Component{
 
@@ -44,15 +46,10 @@ class KudoForm extends Component{
 
     render()
     {
-        const kudo = this.state;
-    
+        
         return(
          
             <form method="post" noValidate>
-                <input id="inputSender" placeholder="sender" type="text" value={this.state.sender} required onChange={event => this.setState({sender: event.target.value})}/><br/>
-                <input id="inputReceiver" placeholder="receiver" type="text" value={this.state.receiver} required onChange={event => this.setState({receiver: event.target.value})} /><br/>
-                <input id="inputMessage" placeholder="message" type="text" value={this.state.message} required onChange={event => this.setState({message: event.target.value})} /><br/>
-            
                 <select id="selectLayout"  defaultValue={"Default"} onChange={event => this.setState({layout: event.target.value})}>
                     <option value="Default" disabled>Layout</option>
                     <option value="greatJob">Great Job</option>
@@ -60,15 +57,16 @@ class KudoForm extends Component{
                     <option value="thankYou">Thank You</option>
                     <option value="congrats">Congratulations</option>
                     <option value="staySafe">Stay Safe</option>
-                </select>
+                </select><br/>
+
+                <input id="inputSender" placeholder="sender" type="text" value={this.state.sender} required onChange={event => this.setState({sender: event.target.value})}/><br/>
+                <input id="inputReceiver" placeholder="receiver" type="text" value={this.state.receiver} required onChange={event => this.setState({receiver: event.target.value})} /><br/>
+                <input id="inputMessage" placeholder="message" type="text" value={this.state.message} required onChange={event => this.setState({message: event.target.value})} /><br/>
+            
+                
                 <br/><button onClick={this.onSubmit}>Create Kudo</button>
                 <div><h2>{this.state.error}</h2></div>
-                <div>
-                    <h4>Sender: {kudo.sender} </h4>
-                    <h4>Receiver: {kudo.receiver} </h4>
-                    <h4>Message: {kudo.message} </h4>
-                    <h4>Layout: {kudo.layout} </h4>
-                </div>
+               
             </form>
 
         );

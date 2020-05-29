@@ -54,7 +54,6 @@ class UserForm extends Component{
 
     render()
     {
-        const user = this.state;
        
         return(
          
@@ -66,12 +65,7 @@ class UserForm extends Component{
             
                 <br/><button onClick={this.onSubmit}>Create User</button>
                 <div><h2>{this.state.error}</h2></div>
-                <div>
-                    <h4>Sender: {user.name} </h4>
-                    <h4>Receiver: {user.user} </h4>
-                    <h4>Message: {user.email} </h4>
-                    <h4>Layout: {user.password} </h4>
-                </div>
+               
             </form>
         );
     }
