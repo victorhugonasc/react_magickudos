@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import KudoRow from './KudoRow';
+import KudoCard from './KudoCard';
 import PropTypes from 'prop-types'; 
+import './KudosList.css'
 
 
 class KudosList extends Component{
@@ -18,19 +20,23 @@ class KudosList extends Component{
 
         const rows = this.renderRows(this.props.kudos);
         return(
-            <div>
-            <table id='kudoTable'>
-                <tbody>
-                    <tr>
-                        <th>Sender</th>
-                        <th>Receiver</th>
-                        <th>Message</th>
-                        <th>Layout</th>
-                    </tr>
-                    {rows}
-                </tbody>
-            </table>     
+           /* <div>
+                <table id='kudoTable'>
+                    <tbody>
+                        <tr>
+                            <th>Sender</th>
+                            <th>Receiver</th>
+                            <th>Message</th>
+                            <th>Layout</th>
+                        </tr>
+                        {rows}
+                    </tbody>
+                </table>  
+            </div>*/
+            <div class= "kudoList">
+                {rows}
             </div>
+            
         );
     }
 
@@ -43,7 +49,13 @@ class KudosList extends Component{
     }
 
     renderRow(kudo) {
-        return (<KudoRow kudo={kudo} key={kudo.id} />);
+        return (
+            <KudoCard kudo={kudo} key={kudo.id} />
+            /*<div>
+                <KudoRow kudo={kudo} key={kudo.id} />
+               
+            </div>*/
+        );
     }
 
 }
