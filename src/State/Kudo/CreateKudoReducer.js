@@ -8,6 +8,7 @@ export const initialState = {
     receiver:"",
     message:"",
     layout:"",
+    error:"",
   },
   fetch: false,
   error: false,

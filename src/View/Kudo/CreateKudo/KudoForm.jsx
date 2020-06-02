@@ -46,22 +46,27 @@ class KudoForm extends Component{
 
     render()
     {
+        const GREAT_JOB = "greatJob";
+        const VERY_AWESOME = "veryAwesome";
+        const THANK_YOU = "thankYou";
+        const CONGRATS = "congrats";
+        const STAY_SAFE = "staySafe";
         
         return(
          
             <form method="post" noValidate>
-                <select id="selectLayout"  defaultValue={"Default"} onChange={event => this.setState({layout: event.target.value})}>
-                    <option value="Default" disabled>Layout</option>
-                    <option value="greatJob">Great Job</option>
-                    <option value="veryAwesome" defaultValue>Very Awesome</option>
-                    <option value="thankYou">Thank You</option>
-                    <option value="congrats">Congratulations</option>
-                    <option value="staySafe">Stay Safe</option>
+                <select id="selectLayout"  defaultValue={"default"} onChange={event => this.setState({layout: event.target.value})}>
+                    <option value="default" disabled >Layout</option>
+                    <option value= {GREAT_JOB}>Great Job</option>
+                    <option value={VERY_AWESOME}>Very Awesome</option>
+                    <option value={THANK_YOU}>Thank You</option>
+                    <option value={CONGRATS}>Congratulations</option>
+                    <option value={STAY_SAFE}>Stay Safe</option>
                 </select><br/>
 
                 <input id="inputSender" placeholder="sender" type="text" value={this.state.sender} required onChange={event => this.setState({sender: event.target.value})}/><br/>
                 <input id="inputReceiver" placeholder="receiver" type="text" value={this.state.receiver} required onChange={event => this.setState({receiver: event.target.value})} /><br/>
-                <input id="inputMessage" placeholder="message" type="text" value={this.state.message} required onChange={event => this.setState({message: event.target.value})} /><br/>
+                <input id="inputMessage" placeholder="message" type="text" maxLength="200" value={this.state.message} required onChange={event => this.setState({message: event.target.value})} /><br/>
             
                 
                 <br/><button onClick={this.onSubmit}>Create Kudo</button>

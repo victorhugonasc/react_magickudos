@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import KudoRow from './KudoRow';
-import KudoCard from './KudoCard';
 import PropTypes from 'prop-types'; 
 import './KudosList.css'
+import KudoCard from './KudoCard';
+//import ScrollContainer from 'react-indiana-drag-scroll'
 
 
 class KudosList extends Component{
@@ -18,25 +18,14 @@ class KudosList extends Component{
 
     render() { 
 
-        const rows = this.renderRows(this.props.kudos);
+        const rows = this.renderRows(this.props.kudos.reverse());
         return(
-           /* <div>
-                <table id='kudoTable'>
-                    <tbody>
-                        <tr>
-                            <th>Sender</th>
-                            <th>Receiver</th>
-                            <th>Message</th>
-                            <th>Layout</th>
-                        </tr>
-                        {rows}
-                    </tbody>
-                </table>  
-            </div>*/
-            <div class= "kudoList">
-                {rows}
-            </div>
-            
+        
+         //   <ScrollContainer className="scroll-container">
+                <div className= "kudoList">
+                    {rows}
+                </div>
+          //  </ScrollContainer>
         );
     }
 
@@ -50,11 +39,7 @@ class KudosList extends Component{
 
     renderRow(kudo) {
         return (
-            <KudoCard kudo={kudo} key={kudo.id} />
-            /*<div>
-                <KudoRow kudo={kudo} key={kudo.id} />
-               
-            </div>*/
+            <KudoCard kudo={kudo} key={kudo.id}/>
         );
     }
 
