@@ -116,7 +116,7 @@
     grid-template-rows: 1fr;
     border-bottom-left-radius: 18px;
     border-bottom-right-radius: 18px;
-    background: grey; 
+    background: rgb(161, 158, 158); 
     border-top: 2px solid black;
 
     font-family: 'Poiret One', cursive;

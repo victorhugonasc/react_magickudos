@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types'; 
 import './KudosList.css'
 import KudoCard from './KudoCard';
-//import ScrollContainer from 'react-indiana-drag-scroll'
+import ScrollContainer from 'react-indiana-drag-scroll'
 
 
 class KudosList extends Component{
@@ -21,11 +21,11 @@ class KudosList extends Component{
         const rows = this.renderRows(this.props.kudos.reverse());
         return(
         
-         //   <ScrollContainer className="scroll-container">
+            <ScrollContainer className="scroll-container">
                 <div className= "kudoList">
                     {rows}
                 </div>
-          //  </ScrollContainer>
+            </ScrollContainer>
         );
     }
 
