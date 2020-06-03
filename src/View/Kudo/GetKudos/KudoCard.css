@@ -1,135 +1,137 @@
 
-.card-image {
+@import url('https://fonts.googleapis.com/css2?family=Tangerine:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poiret+One&display=swap');
+
+
+:root {
+    --text-heigh: 50px;
+    --text-heigh-toFrom: 25px;
+    --column-size: 350px;
+  }
+
+  .card-text {
+    display: grid;
+    margin-top: 10px;
+    margin-left: 5px;
+    grid-area: text;
+    height: var(--text-heigh);
+    grid-template-rows: var(--text-heigh-toFrom) var(--text-heigh-toFrom) ;
+    grid-template-areas: "to" "from";
+
+    font-family: 'Poiret One', cursive;
+    color: white;
+    font-size: 20px;
+    
+}
+
+ h4 {
+    text-align: left;
+    margin-top: 0px;
+}
+
+.greatJob, .congrats, .veryAwesome, .thankYou, .staySafe {
+    width: fit-content;
+    height: fit-content;
+    display: grid;
+    grid-template-columns: var(--column-size);
+    grid-template-rows: var(--column-size) auto auto;
+    grid-template-areas: "image" "text" "stats";
+    border-radius: 18px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 9);
+    text-align: center;
+    margin-top: 20px;
+    margin-left: 50px;
+}
+
+.greatJob-image,.congrats-image, .veryAwesome-image, .thankYou-image, .staySafe-image {
     grid-area: image;
-    background: url("../../../Images/gJob.png");
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
-    background-size: cover;
-}
-
-.card-text {
-    grid-area: text;
-    margin: 25px;
-}
-
-.card-text .date {
-    color: orange;
-    font-size: 13px;
-}
-
-.card-text h2 {
-    margin-top: 0px;
-    font-size: 24px;
-}
-
-.card-text h4 {
-    margin-top: 0px;
-    font-size: 24px;
-}
-
-.card-text p {
-    color: white;
-    font-size: 15px;
-    font-weight: 300;
-}
-
-.card-stats {
-    grid-area: stats;
 }
 
 
 .greatJob {
-    width: fit-content;
-    height: fit-content;
-    display: grid;
-    grid-template-columns: 300px;
-    grid-template-rows: 210px 210px 80px;
-    grid-template-areas: "image" "text" "stats";
-
-    font-family: roboto;
-    border-radius: 18px;
     background: #8acda2;
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 9);
-    text-align: center;
-    margin-top: 100px;
-    margin-left: 50px;
+}
+
+.greatJob-image {
+    background: url("../../../Images/gJob.png");
+    background-size: cover;
+    border-bottom: 5px solid #9bdeb3;
 }
 
 .congrats {
-    width: fit-content;
-    height: fit-content;
-    display: grid;
-    grid-template-columns: 300px;
-    grid-template-rows: 210px 210px 80px;
-    grid-template-areas: "image" "text" "stats";
-
-    font-family: roboto;
-    border-radius: 18px;
     background: #5aa8d5;
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 9);
-    text-align: center;
-    margin-top: 100px;
-    margin-left: 50px;
 }
 
 .congrats-image {
-    grid-area: image;
     background: url("../../../Images/congrats.jpg");
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
     background-size: cover;
+    border-bottom: 5px solid #5fb6e9;
+
 }
 
 .veryAwesome  {
-    width: fit-content;
-    height: fit-content;
-    display: grid;
-    grid-template-columns: 300px;
-    grid-template-rows: 210px 210px 80px;
-    grid-template-areas: "image" "text" "stats";
-
-    font-family: roboto;
-    border-radius: 18px;
-    background: #d7379b;
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 9);
-    text-align: center;
-    margin-top: 100px;
-    margin-left: 50px;
-}
-
-.thankYou  {
-    width: fit-content;
-    height: fit-content;
-    display: grid;
-    grid-template-columns: 300px;
-    grid-template-rows: 210px 210px 80px;
-    grid-template-areas: "image" "text" "stats";
-
-    font-family: roboto;
-    border-radius: 18px;
     background: #dc9100;
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 9);
-    text-align: center;
-    margin-top: 100px;
-    margin-left: 50px;
 }
 
-.staySafe  {
-    width: fit-content;
-    height: fit-content;
-    display: grid;
-    grid-template-columns: 300px;
-    grid-template-rows: 210px 210px 80px;
-    grid-template-areas: "image" "text" "stats";
+.veryAwesome-image {
+    background: url("../../../Images/awesome.png");
+    background-size: cover;
+    border-bottom: 5px solid #f7a502;
+}
 
-    font-family: roboto;
-    border-radius: 18px;
+.thankYou {
+    background: #ff4888;
+}
+
+.thankYou-image {
+    background: url("../../../Images/thankYou.png");
+    background-size: cover;
+    border-bottom: 5px solid #fc6fa1;
+}
+
+.staySafe {
     background: #020963;
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 9);
-    text-align: center;
-    margin-top: 100px;
-    margin-left: 50px;
+}
+
+.staySafe-image {
+    background: url("../../../Images/shaq.png");
+    background-size: cover;
+    border-bottom: 5px solid #020a7c;
+}
+
+.card-message {
+    color: white;
+    font-family: 'Tangerine', cursive;
+    font-size: 40px;
+    font-weight: 300;
+    height: fit-content;
+
+}
+
+.card-date {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    border-bottom-left-radius: 18px;
+    border-bottom-right-radius: 18px;
+    background: grey; 
+    border-top: 2px solid black;
+
+    font-family: 'Poiret One', cursive;
+    font-size: 20px;
+    color: white;
 }
 
 
-    
+
+
+.quotes, .unquotes {
+    color: white;
+    font-family: 'Tangerine', cursive;
+    font-size: 200%;
+   
+  }
+
+  

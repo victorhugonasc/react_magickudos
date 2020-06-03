@@ -6,19 +6,25 @@ class KudoCard extends Component{
     render() {
         
         const kudo = this.props.kudo;
+        const IMG_CARD = kudo.layout + "-image";
 
         return(
             <div className= {kudo.layout}>
-                <div className="card-image"></div>
+                <div className={IMG_CARD}></div>
               
                 <div className="card-text" >
-                    <span className ="date" > 4 dias atras </span>
                     <h4>From: {kudo.sender}</h4>
-                    <h2>To: {kudo.receiver}</h2>
-                    <p>{kudo.message}</p>
+                    <h4>To: {kudo.receiver}</h4>
                 </div>    
 
-                <div className="card-stats"></div>   
+                <div className="card-message">
+                    
+                    <p><span className = "quotes">"</span>{kudo.message}<span className = "unquotes"> "</span></p>
+                </div>
+
+                <div className="card-date">
+                    <div > 4 dias atras </div>
+                </div>   
             </div>
         );
     }
