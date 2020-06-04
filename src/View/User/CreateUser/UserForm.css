@@ -1,40 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Sacramento&display=swap');
 :root{
     --main-color : #ecf0f3;
     --bg-field-color: #555555;
     --box-shallow-first: #cbced1;
     --box-shallow-second: #ffffff;
     --box-shallow-third: #b1b1b1;
-
-    --card-width: 510px;
-    --card-height: 600px;
     
 }
 body {
-    margin: 0 auto;
+    margin: 0 ;
+    height: 100vh;
+    width: 100vw;
     overflow: hidden;
     font-family: 'Lato', sans-serif;
     font-weight: 700;
     align-items: center;
     justify-content: center;
-}
-
-body { 
     color: var(--bg-field-color);
     background: var(--main-color);
 }
 
 form {
     margin: 5vh auto;
-    width: var(--card-width);
-    height: var(--card-height);
+    width: 510px;
+    height: 600px;
 }
 
-.login-div {
+.create-div {
+    width: 100%;
+    height: 100%;
     padding: 0px 35px 35px 35px;
     border-radius: 40px;
-}
-
-.login-div {
     background: var(--main-color);
     box-shadow: 20px 20px 0px var(--box-shallow-first),
                 -20px -20px 20px var(--box-shallow-second);
@@ -55,40 +51,29 @@ form {
 }
 
 .fields {
+    width: 100%;
+    height: 100%;
     padding: 20px 5px 5px 5px;
 }
 
-.fields input,textarea {
+.fields input {
     border: none;
     outline: none;
     background: none;
-    text-align: center;
     font-size: 18px;
     padding: 20px 10px 20px 5px;
-}
-
-.fields input,textarea {
     color: var(--bg-field-color);
 }
 
-.fields textarea {
-    resize: none;
-    overflow: hidden;
-    width: 100%;
-}
 
-#inputSender,#inputReceiver,#inputMessage {
+#inputName,#inputUser,#inputEmail,#inputPassword {
     margin-bottom: 30px;
     border-radius: 25px;
-}
-
-#inputSender,#inputReceiver,#inputMessage {
     box-shadow: inset 8px 8px 8px var(--box-shallow-first),
                 inset -8px -8px 8px var(--box-shallow-second);
 }
 
-
-.createKudoButton {
+.createUserButton {
     outline: none;
     border: none;
     cursor: pointer;
@@ -100,21 +85,18 @@ form {
     font-family: 'Lato',sans-serif;
     text-align: center;
     background-color: #8acda2;
+    color: var(--box-shallow-second);
+    box-shadow: 3px 3px 8px var(--box-shallow-third),
+                -3px -3px 8px var(--box-shallow-second); 
 
     transition: 0.5s;  
 }
 
-.createKudoButton {
-    color: var(--box-shallow-second);
-    box-shadow: 3px 3px 8px var(--box-shallow-third),
-                -3px -3px 8px var(--box-shallow-second);  
-}
-
-.createKudoButton:hover {
+.createUserButton:hover {
     background: #2fdbb6;
 }
 
-.createKudoButton:hover {
+.createUserButton:hover {
     background: #1da88a;
 }
 

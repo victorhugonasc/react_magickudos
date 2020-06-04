@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types'; 
+import './UserForm.css'
 
 class UserForm extends Component{
 
@@ -56,17 +57,28 @@ class UserForm extends Component{
     {
        
         return(
+
+            <div>
+                <form method="post" noValidate>
+                    <div className="create-div">
+                        <div className="title">MagicKudos</div>
+                        <div className="sub-title">Version 1.0</div>
+                        
+                        <div className="fields">
+                            <input id="inputName" placeholder="name" type="text" value={this.state.name} required onChange={event => this.setState({name: event.target.value})}/><br/>
+                            <input id="inputUser" placeholder="user" type="text" value={this.state.user} required onChange={event => this.setState({user: event.target.value})} /><br/>
+                            <input id="inputEmail" placeholder="email" type="text" value={this.state.email} required onChange={event => this.setState({email: event.target.value})} /><br/>
+                            <input id="inputPassword" placeholder="password" type="password" value={this.state.password} required onChange={event => this.setState({password: event.target.value})} /><br/>
+                        
+                            <br/><button className="createUserButton" onClick={this.onSubmit}>Create User</button>
+                            <h5 className="inputError">{this.state.error}</h5>
+                        </div>
+                        
+                    </div>
+                </form>
+            </div>
          
-            <form method="post" noValidate>
-                <input id="inputName" placeholder="name" type="text" value={this.state.name} required onChange={event => this.setState({name: event.target.value})}/><br/>
-                <input id="inputUser" placeholder="user" type="text" value={this.state.user} required onChange={event => this.setState({user: event.target.value})} /><br/>
-                <input id="inputEmail" placeholder="email" type="text" value={this.state.email} required onChange={event => this.setState({email: event.target.value})} /><br/>
-                <input id="inputPassword" placeholder="password" type="password" value={this.state.password} required onChange={event => this.setState({password: event.target.value})} /><br/>
             
-                <br/><button onClick={this.onSubmit}>Create User</button>
-                <div><h2>{this.state.error}</h2></div>
-               
-            </form>
         );
     }
 }
