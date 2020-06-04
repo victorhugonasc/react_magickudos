@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types'; 
-import './KudoForm.scss';
+import './KudoForm.css';
 
 
 class KudoForm extends Component{
@@ -53,26 +53,26 @@ class KudoForm extends Component{
         const STAY_SAFE = "staySafe";
         
         return(
-         
-            <form method="post" noValidate>
-                <select id="selectLayout"  defaultValue={"default"} onChange={event => this.setState({layout: event.target.value})}>
-                    <option value="default" disabled >Layout</option>
-                    <option value= {GREAT_JOB}>Great Job</option>
-                    <option value={VERY_AWESOME}>Very Awesome</option>
-                    <option value={THANK_YOU}>Thank You</option>
-                    <option value={CONGRATS}>Congratulations</option>
-                    <option value={STAY_SAFE}>Stay Safe</option>
-                </select><br/>
-
-                <input id="inputSender" placeholder="sender" type="text" value={this.state.sender} required onChange={event => this.setState({sender: event.target.value})}/><br/>
-                <input id="inputReceiver" placeholder="receiver" type="text" value={this.state.receiver} required onChange={event => this.setState({receiver: event.target.value})} /><br/>
-                <input id="inputMessage" placeholder="message" type="text" maxLength="200" value={this.state.message} required onChange={event => this.setState({message: event.target.value})} /><br/>
-            
-                
-                <br/><button onClick={this.onSubmit}>Create Kudo</button>
-                <div><h2>{this.state.error}</h2></div>
-               
-            </form>
+            <div className ="login-div">
+                <form method="post" noValidate>
+                    <select id="selectLayout"  defaultValue={"default"} onChange={event => this.setState({layout: event.target.value})}>
+                        <option value="default" disabled >Layout</option>
+                        <option value= {GREAT_JOB}>Great Job</option>
+                        <option value={VERY_AWESOME}>Very Awesome</option>
+                        <option value={THANK_YOU}>Thank You</option>
+                        <option value={CONGRATS}>Congratulations</option>
+                        <option value={STAY_SAFE}>Stay Safe</option>
+                    </select><br/>
+                    <div className="fields">
+                        <input id="inputSender" placeholder="Sender" type="text" value={this.state.sender} required onChange={event => this.setState({sender: event.target.value})}/>
+                        <input id="inputReceiver" placeholder="Receiver" type="text" value={this.state.receiver} required onChange={event => this.setState({receiver: event.target.value})} />
+                        <textarea id="inputMessage" placeholder="Type your message here" rows="7" cols="40" maxLength="280" value={this.state.message} required onChange={event => this.setState({message: event.target.value})} />
+                        <button className="createKudoButton" onClick={this.onSubmit}>Create Kudo</button>
+                        <h5 className= "inputError">{this.state.error}</h5>
+                    </div>
+                </form>
+            </div>
+           
 
         );
     }

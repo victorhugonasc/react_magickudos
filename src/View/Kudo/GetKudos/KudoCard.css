@@ -6,7 +6,7 @@
 :root {
     --text-heigh: 50px;
     --text-heigh-toFrom: 25px;
-    --column-size: 350px;
+    --column-size: 500px;
   }
 
   .card-text {
