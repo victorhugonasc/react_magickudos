@@ -53,27 +53,33 @@ class KudoForm extends Component{
         const STAY_SAFE = "staySafe";
         
         return(
-            <div className ="login-div">
-                <form method="post" noValidate>
-                    <select id="selectLayout"  defaultValue={"default"} onChange={event => this.setState({layout: event.target.value})}>
-                        <option value="default" disabled >Layout</option>
-                        <option value= {GREAT_JOB}>Great Job</option>
-                        <option value={VERY_AWESOME}>Very Awesome</option>
-                        <option value={THANK_YOU}>Thank You</option>
-                        <option value={CONGRATS}>Congratulations</option>
-                        <option value={STAY_SAFE}>Stay Safe</option>
-                    </select><br/>
-                    <div className="fields">
-                        <input id="inputSender" placeholder="Sender" type="text" value={this.state.sender} required onChange={event => this.setState({sender: event.target.value})}/>
-                        <input id="inputReceiver" placeholder="Receiver" type="text" value={this.state.receiver} required onChange={event => this.setState({receiver: event.target.value})} />
-                        <textarea id="inputMessage" placeholder="Type your message here" rows="7" cols="40" maxLength="280" value={this.state.message} required onChange={event => this.setState({message: event.target.value})} />
-                        <button className="createKudoButton" onClick={this.onSubmit}>Create Kudo</button>
-                        <h5 className= "inputError">{this.state.error}</h5>
-                    </div>
-                </form>
-            </div>
-           
 
+            <div>
+                <div className="choose-layout">
+                <select id="selectLayout"  defaultValue={"default"} onChange={event => this.setState({layout: event.target.value})}>
+                            <option value="default" disabled >Layout</option>
+                            <option value= {GREAT_JOB}>Great Job</option>
+                            <option value={VERY_AWESOME}>Very Awesome</option>
+                            <option value={THANK_YOU}>Thank You</option>
+                            <option value={CONGRATS}>Congratulations</option>
+                            <option value={STAY_SAFE}>Stay Safe</option>
+                        </select><br/>
+                </div>
+
+               
+                    <form method="post" noValidate>
+                    <div className ="login-div">
+                        <div className="fields">
+                            <input id="inputSender" placeholder="Sender" type="text" value={this.state.sender} required onChange={event => this.setState({sender: event.target.value})}/>
+                            <input id="inputReceiver" placeholder="Receiver" type="text" value={this.state.receiver} required onChange={event => this.setState({receiver: event.target.value})} />
+                            <textarea id="inputMessage" placeholder="Type your message here" rows="7" cols="40" maxLength="280" value={this.state.message} required onChange={event => this.setState({message: event.target.value})} />
+                            <button className="createKudoButton" onClick={this.onSubmit}>Create Kudo</button>
+                            <h5 className= "inputError">{this.state.error}</h5>
+                        </div>
+                        </div>
+                    </form>
+               
+            </div>
         );
     }
 

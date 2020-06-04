@@ -12,7 +12,7 @@ class KudoCard extends Component{
             <div className= {kudo.layout}>
                 <div className={IMG_CARD}></div>
               
-                <div className="card-text" >
+                <div className="card-to-from" >
                     <h4>From: {kudo.sender}</h4>
                     <h4>To: {kudo.receiver}</h4>
                 </div>    

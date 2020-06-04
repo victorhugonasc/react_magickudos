@@ -15,23 +15,28 @@ body {
     background: var(--main-color);
 }
 
-
-.login-div {
+form {
     margin: 5vh auto;
     width: 510px;
-    height: 700px;
-    padding: 60px 35px 35px 35px;
+    height: 600px;
+}
+
+
+.login-div {
+    width: 100%;
+    height: 100%;
+    padding: 0px 35px 35px 35px;
     border-radius: 40px;
     background: var(--main-color);
-    box-shadow: 13px 13px 20px #cbced1,
-                -13px -13px 20px #ffffff;
+    box-shadow: 20px 20px 0px #cbced1,
+                -20px -20px 20px #ffffff;
 }
 
 
 .fields {
     width: 100%;
     height: 100%;
-    padding: 75px 5px 5px 5px;
+    padding: 20px 5px 5px 5px;
 }
 
 
@@ -91,3 +96,6 @@ body {
     color: rgb(223, 3, 3);
     font-size: 12px;
 }
+
+
+#selectLayout option[value="greatJob"] { background-image: url("../../../Images/gJob.png");}
