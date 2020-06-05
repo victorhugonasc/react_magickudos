@@ -1,13 +1,22 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types'; 
 import './KudoForm.css';
+import { Button, ButtonGroup } from 'react-bootstrap';
 
 
 class KudoForm extends Component{
 
     state = this.props.kudo;
+    LOGIN_DIV = "login-default";
+    INPUT_SENDER = "inputSender-default";
+    INPUT_RECEIVER = "inputReceiver-default";
+    INPUT_MESSAGE = "inputMessage-default";
+    TITLE_DIV = "title-default";
+    BUTTON_DIV = "createButton-default"; 
 
     isValid = () => {
+
+        console.log(this.state.layout);
 
         this.setState({error: ""});
         
@@ -44,6 +53,9 @@ class KudoForm extends Component{
         }
     };
 
+    conso = () => {
+       console.log(this.state.layout);
+    };
     render()
     {
         const GREAT_JOB = "greatJob";
@@ -55,32 +67,43 @@ class KudoForm extends Component{
         return(
 
             <div>
-                <div className="choose-layout">
-                <select id="selectLayout"  defaultValue={"default"} onChange={event => this.setState({layout: event.target.value})}>
-                            <option value="default" disabled >Layout</option>
-                            <option value= {GREAT_JOB}>Great Job</option>
-                            <option value={VERY_AWESOME}>Very Awesome</option>
-                            <option value={THANK_YOU}>Thank You</option>
-                            <option value={CONGRATS}>Congratulations</option>
-                            <option value={STAY_SAFE}>Stay Safe</option>
-                        </select><br/>
+                <div>
+                    <h5>Choose a layout:</h5>
+                    <div className="foto-table" >
+                        
+                        <ButtonGroup aria-label="Basic example" onClick={event => {
+                            this.setState({layout: event.target.value})
+                            this.LOGIN_DIV = "login-" + this.state.layout;
+                            this.INPUT_SENDER = "inputSender-" + this.state.layout;
+                            this.INPUT_RECEIVER = "inputReceiver-" + this.state.layout;
+                            this.INPUT_MESSAGE = "inputMessage-" + this.state.layout;
+                            this.TITLE_DIV = "title-" + this.state.layout;
+                            this.BUTTON_DIV = "createButton-" + this.state.layout; 
+                            console.log(this.LOGIN_DIV);
+                        }}>
+                            <Button className="foto-greatJob" value= {GREAT_JOB} variant="secondary" ></Button>
+                            <Button className="foto-congrats" value={CONGRATS}  variant="secondary"></Button>
+                            <Button className="foto-veryAwesome" value={VERY_AWESOME} variant="secondary"></Button>
+                            <Button className="foto-thankYou" value={THANK_YOU} variant="secondary"></Button>
+                            <Button className="foto-staySafe" value={STAY_SAFE} variant="secondary"></Button>
+                        </ButtonGroup>
+                    </div>
                 </div>
-
                
-                    <form method="post" noValidate>
-                        <div className ="login-div">
-                            <div className="title">MagicKudos</div>
-                            <div className="sub-title">Version 1.0</div>
+                <form method="post" noValidate>
+                    <div className ={this.LOGIN_DIV}>
+                        <div className={this.TITLE_DIV}>MagicKudos</div>
+                        <div className="sub-title">Version 1.0</div>
 
-                            <div className="fields">
-                                <input id="inputSender" placeholder="Sender" type="text" value={this.state.sender} required onChange={event => this.setState({sender: event.target.value})}/>
-                                <input id="inputReceiver" placeholder="Receiver" type="text" value={this.state.receiver} required onChange={event => this.setState({receiver: event.target.value})} />
-                                <textarea id="inputMessage" placeholder="Type your message here" rows="7" cols="40" maxLength="280" value={this.state.message} required onChange={event => this.setState({message: event.target.value})} />
-                                <button className="createButton" onClick={this.onSubmit}>Create Kudo</button>
-                                <h5 className= "inputError">{this.state.error}</h5>
-                            </div>
+                        <div className="fields">
+                            <input id={this.INPUT_SENDER} placeholder="Sender" type="text" value={this.state.sender} required onChange={event => this.setState({sender: event.target.value})}/>
+                            <input id={this.INPUT_RECEIVER} placeholder="Receiver" type="text" value={this.state.receiver} required onChange={event => this.setState({receiver: event.target.value})} />
+                            <textarea id={this.INPUT_MESSAGE} placeholder="Type your message here" rows="7" cols="40" maxLength="280" value={this.state.message} required onChange={event => this.setState({message: event.target.value})} />
+                            <button className={this.BUTTON_DIV} onClick={this.onSubmit}>Create Kudo</button>
+                            <h5 className= "inputError">{this.state.error}</h5>
                         </div>
-                    </form>
+                    </div>
+                </form>
                
             </div>
         );

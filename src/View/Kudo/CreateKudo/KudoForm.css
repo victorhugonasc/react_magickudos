@@ -2,11 +2,44 @@
 
 
 :root{
-    --main-color : #ecf0f3;
-    --bg-field-color: #555555;
+    --main-color-default : #ecf0f3;
+    --bg-field-color-default: #555555;
     --box-shallow-first: #cbced1;
     --box-shallow-second: #ffffff;
-    --box-shallow-third: #b1b1b1;
+    --box-shallow-third-default: #b1b1b1;
+    --button-color-default:#8acda2;
+    --title_button-color-default:#1da88a;
+
+    --main-color-greatJob : #c4ffd9;
+    --box-shallow-top-greatJob: #5bad78;
+    --box-shallow-bottom-greatJob: #82c299;
+    --button-color-greatJob:#ee6262;
+    --title_hover-color-greatJob:#a82d1d;
+
+    --main-color-congrats : #aadffd;
+    --box-shallow-top-congrats: #6fc1f0;
+    --box-shallow-bottom-congrats: #85bad8;
+    --button-color-congrats:#8acda2;
+    --title_hover-color-congrats:#1da88a;
+
+    --main-color-veryAwesome : #fddb96;
+    --box-shallow-top-veryAwesome: #f5cc79;
+    --box-shallow-bottom-veryAwesome: #dab978;
+    --button-color-veryAwesome:#a16476;
+    --title_hover-color-veryAwesome:#794051;
+
+    --main-color-thankYou : #fddae6;
+    --box-shallow-top-thankYou: #f7abc6;
+    --box-shallow-bottom-thankYou: #e4b5c5;
+    --button-color-thankYou:#835943;
+    --title_hover-color-thankYou:#582e23;
+
+    --main-color-staySafe : #7b7da0;
+    --box-shallow-top-staySafe: #6568a1;
+    --box-shallow-bottom-staySafe: #565877;
+    --button-color-staySafe:#71dbdd;
+    --title_hover-color-staySafe:#61c0c2;
+
 
     --card-width: 510px;
     --card-height: 600px;
@@ -14,7 +47,7 @@
 }
 body {
     margin: 0 auto;
-    overflow: hidden;
+    overflow-x: hidden;
     font-family: 'Lato', sans-serif;
     font-weight: 700;
     align-items: center;
@@ -22,8 +55,8 @@ body {
 }
 
 body { 
-    color: var(--bg-field-color);
-    background: var(--main-color);
+    color: var(--bg-field-color-default);
+    background: var(--main-color-default);
 }
 
 form {
@@ -32,23 +65,75 @@ form {
     height: var(--card-height);
 }
 
-.login-div {
+.login-default,.login-greatJob,.login-veryAwesome,.login-thankYou,.login-congrats,.login-staySafe {
     padding: 0px 35px 35px 35px;
     border-radius: 40px;
-}
-
-.login-div {
-    background: var(--main-color);
     box-shadow: 20px 20px 0px var(--box-shallow-first),
-                -20px -20px 20px var(--box-shallow-second);
+    -20px -20px 20px var(--box-shallow-second);
 }
 
-.title {
+.login-default {
+    background: var(--main-color-default);
+   
+}
+
+.login-greatJob {
+    background: var(--main-color-greatJob);
+   
+}
+
+.login-veryAwesome {
+    background: var(--main-color-veryAwesome);
+   
+}
+
+.login-thankYou {
+    background: var(--main-color-thankYou);
+   
+}
+
+.login-congrats {
+    background: var(--main-color-congrats);
+   
+}
+
+.login-staySafe {
+    background: var(--main-color-staySafe);
+   
+}
+
+.title-default,.title-greatJob,.title-congrats,
+.title-thankYou,.title-veryAwesome,.title-staySafe {
     text-align: center;
     font-size: 40px;
     letter-spacing: 0.5px;
     font-family: 'Sacramento', cursive;
-    color: #1ace59;
+    transition: 0.5s;
+    
+}
+
+.title-default{
+    color: var(--title_button-color-default);
+}
+
+.title-greatJob{
+    color: var(--title_hover-color-greatJob);
+}
+
+.title-congrats{
+    color: var(--title_hover-color-congrats);
+}
+
+.title-thankYou{
+    color: var(--title_hover-color-thankYou);
+}
+
+.title-veryAwesome{
+    color: var(--title_hover-color-veryAwesome);
+}
+
+.title-staySafe{
+    color: var(--title_hover-color-staySafe);
 }
 
 .sub-title {
@@ -71,7 +156,7 @@ form {
 }
 
 .fields input,textarea {
-    color: var(--bg-field-color);
+    color: var(--bg-field-color-default);
 }
 
 .fields textarea {
@@ -80,18 +165,50 @@ form {
     width: 100%;
 }
 
-#inputSender,#inputReceiver,#inputMessage {
+#inputSender-default,#inputReceiver-default,#inputMessage-default,
+#inputSender-greatJob,#inputReceiver-greatJob,#inputMessage-greatJob,
+#inputSender-congrats,#inputReceiver-congrats,#inputMessage-congrats,
+#inputSender-veryAwesome,#inputReceiver-veryAwesome,#inputMessage-veryAwesome,
+#inputSender-thankYou,#inputReceiver-thankYou,#inputMessage-thankYou,
+#inputSender-staySafe,#inputReceiver-staySafe,#inputMessage-staySafe {
     margin-bottom: 30px;
     border-radius: 25px;
 }
 
-#inputSender,#inputReceiver,#inputMessage {
+ #inputSender-default,#inputReceiver-default,#inputMessage-default {
     box-shadow: inset 8px 8px 8px var(--box-shallow-first),
                 inset -8px -8px 8px var(--box-shallow-second);
 }
 
 
-.createButton {
+ #inputSender-greatJob,#inputReceiver-greatJob,#inputMessage-greatJob {
+    box-shadow: inset 8px 8px 8px var(--box-shallow-top-greatJob),
+                inset -8px -8px 8px var(--box-shallow-bottom-greatJob);
+}
+
+#inputSender-congrats,#inputReceiver-congrats,#inputMessage-congrats {
+    box-shadow: inset 8px 8px 8px var(--box-shallow-top-congrats),
+                inset -8px -8px 8px var(--box-shallow-bottom-congrats);
+}
+
+#inputSender-veryAwesome,#inputReceiver-veryAwesome,#inputMessage-veryAwesome {
+    box-shadow: inset 8px 8px 8px var(--box-shallow-top-veryAwesome),
+                inset -8px -8px 8px var(--box-shallow-bottom-veryAwesome);
+}
+
+#inputSender-thankYou,#inputReceiver-thankYou,#inputMessage-thankYou {
+    box-shadow: inset 8px 8px 8px var(--box-shallow-top-thankYou),
+                inset -8px -8px 8px var(--box-shallow-bottom-thankYou);
+}
+
+#inputSender-staySafe,#inputReceiver-staySafe,#inputMessage-staySafe {
+    box-shadow: inset 8px 8px 8px var(--box-shallow-top-staySafe),
+                inset -8px -8px 8px var(--box-shallow-bottom-staySafe);
+}
+
+
+.createButton-default,.createButton-greatJob,.createButton-congrats,
+.createButton-veryAwesome,.createButton-thankYou,.createButton-staySafe {
     outline: none;
     border: none;
     cursor: pointer;
@@ -102,24 +219,58 @@ form {
     font-weight: 700;
     font-family: 'Lato',sans-serif;
     text-align: center;
-    background-color: #8acda2;
-
+    color: var(--box-shallow-second);
     transition: 0.5s;  
 }
 
-.createButton {
-    color: var(--box-shallow-second);
-    box-shadow: 3px 3px 8px var(--box-shallow-third),
-                -3px -3px 8px var(--box-shallow-second);  
+.createButton-default {
+    background-color: var(--button-color-default);
 }
 
-.createButton:hover {
-    background: #2fdbb6;
+.createButton-default:hover {
+    background: var(--title_button-color-default);
 }
 
-.createButton:hover {
-    background: #1da88a;
+.createButton-greatJob {
+    background-color: var(--button-color-greatJob);
 }
+
+.createButton-greatJob:hover {
+    background: var(--title_hover-color-greatJob);
+}
+
+.createButton-congrats {
+    background-color: var(--button-color-congrats);
+}
+
+.createButton-congrats:hover {
+    background: var(--title_hover-color-congrats);
+}
+
+.createButton-veryAwesome {
+    background-color: var(--button-color-veryAwesome);
+}
+
+.createButton-veryAwesome:hover {
+    background: var(--title_hover-color-veryAwesome);
+}
+
+.createButton-thankYou {
+    background-color: var(--button-color-thankYou);
+}
+
+.createButton-thankYou:hover {
+    background: var(--title_hover-color-thankYou);
+}
+
+.createButton-staySafe {
+    background-color: var(--button-color-staySafe);
+}
+
+.createButton-staySafe:hover {
+    background: var(--title_hover-color-staySafe);
+}
+
 
 .inputError {
     padding-top: 20px;
@@ -129,4 +280,48 @@ form {
     font-size: 12px;
 }
 
+.foto-table {
+    width: var( --card-width);
+    display: grid;
+    margin : 0 auto;
+    grid-template-columns: 510px;
+    grid-template-rows: 102px;
+    grid-template-areas: "greatJob" "congrats" "veryAwesome" "thankYou" "staySafe" ;
+    
 
+}
+
+.foto-table .foto-greatJob {
+    grid-area: greatJob;
+    background: url("../../../Images/gJob.png");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.foto-table .foto-congrats {
+    grid-area: congrats;
+    background: url("../../../Images/congrats.jpg");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.foto-table .foto-veryAwesome {
+    grid-area: veryAwesome;
+    background: url("../../../Images/awesome.png");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.foto-table .foto-thankYou {
+    grid-area: thankYou;
+    background: url("../../../Images/thankYou.png");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.foto-table .foto-staySafe {
+    grid-area: staySafe;
+    background: url("../../../Images/shaq.png");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
