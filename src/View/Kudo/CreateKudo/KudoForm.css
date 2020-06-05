@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Sacramento&display=swap');
+
+
 :root{
     --main-color : #ecf0f3;
     --bg-field-color: #555555;
@@ -88,7 +91,7 @@ form {
 }
 
 
-.createKudoButton {
+.createButton {
     outline: none;
     border: none;
     cursor: pointer;
@@ -104,17 +107,17 @@ form {
     transition: 0.5s;  
 }
 
-.createKudoButton {
+.createButton {
     color: var(--box-shallow-second);
     box-shadow: 3px 3px 8px var(--box-shallow-third),
                 -3px -3px 8px var(--box-shallow-second);  
 }
 
-.createKudoButton:hover {
+.createButton:hover {
     background: #2fdbb6;
 }
 
-.createKudoButton:hover {
+.createButton:hover {
     background: #1da88a;
 }
 

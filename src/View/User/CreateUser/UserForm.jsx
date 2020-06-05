@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types'; 
-import './UserForm.css'
+import './UserForm.css';
 
 class UserForm extends Component{
 
@@ -60,7 +60,7 @@ class UserForm extends Component{
 
             <div>
                 <form method="post" noValidate>
-                    <div className="create-div">
+                    <div className="login-div">
                         <div className="title">MagicKudos</div>
                         <div className="sub-title">Version 1.0</div>
                         
@@ -70,7 +70,7 @@ class UserForm extends Component{
                             <input id="inputEmail" placeholder="email" type="text" value={this.state.email} required onChange={event => this.setState({email: event.target.value})} /><br/>
                             <input id="inputPassword" placeholder="password" type="password" value={this.state.password} required onChange={event => this.setState({password: event.target.value})} /><br/>
                         
-                            <br/><button className="createUserButton" onClick={this.onSubmit}>Create User</button>
+                            <br/><button className="createButton" onClick={this.onSubmit}>Create User</button>
                             <h5 className="inputError">{this.state.error}</h5>
                         </div>
                         
