@@ -38,7 +38,7 @@
     --box-shallow-top-staySafe: #34dfe2;
     --box-shallow-bottom-staySafe: #40b6b8;
     --button-color-staySafe:#7b7da0;;
-    --title_hover-color-staySafe:#5a5d9c;
+    --title_hover-color-staySafe:#63669c;
 
 
     --template-width: 510px;
@@ -57,6 +57,11 @@ body {
 body { 
     color: var(--bg-field-color-default);
     background: var(--main-color-default);
+}
+
+.form-welcome-msg {
+    font-family: 'Amatic SC', cursive;
+    font-size: 30px;
 }
 
 form {
@@ -313,6 +318,11 @@ form {
     background: url("../../../Images/gJob.png");
     background-size: 100% 100%;
     background-repeat: no-repeat;
+    
+}
+
+.btn-secondary{
+    border:none;
 }
 
 .foto-table .foto-congrats {

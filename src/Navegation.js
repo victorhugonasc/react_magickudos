@@ -1,6 +1,7 @@
 import React from 'react';
 import {Nav,Navbar} from 'react-bootstrap/';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './Navegation.css';
 
 
 export default function Navegation(){
@@ -12,8 +13,7 @@ export default function Navegation(){
         <Navbar.Collapse id="responsive-navbar-nav">
 
           <Nav className="mr-auto">
-            <Nav.Link href="/createUsers">Create User</Nav.Link>
-            <Nav.Link href="/createKudos">Create Kudo</Nav.Link>
+            <Nav.Link href="/createKudos">Add kudo</Nav.Link>
             <Nav.Link href="/getKudos">Get Kudos</Nav.Link>
           </Nav>
 

@@ -70,7 +70,7 @@ class KudoForm extends Component{
 
             <div>
                 <div>
-                    <h5>Choose a layout:</h5>
+                    <h5 className="form-welcome-msg">Choose a layout:</h5>
                     <div className="foto-table" >
                         
                         <ButtonGroup aria-label="Basic example" onClick={event => {

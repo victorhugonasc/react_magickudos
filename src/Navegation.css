@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap');
+
+.bg-dark {
+    background-color: #1da88a !important;
+}
+
+
+.navbar-brand {
+    font-family: 'Sacramento', cursive;
+    font-size: 32px;
+}
+
+.nav-link{
+    font-family: 'Amatic SC', cursive;
+    font-size: 30px;
+    color: white !important;
+}
