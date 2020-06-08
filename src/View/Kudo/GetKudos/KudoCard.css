@@ -4,11 +4,28 @@
 
 
 :root {
-    --card-width: 400px;
+
+    --background-card-greatJob: #8acda2;
+    --border-greatJob: #9bdeb3;
+
+    --background-card-congrats: #5aa8d5;
+    --border-congrats: #5fb6e9;
+
+    --background-card-veryAwesome: #f7c460;
+    --border-veryAwesome: #f7a502;
+
+    --background-card-thankYou: #ff4888;
+    --border-thankYou: #fc6fa1;
+
+    --background-card-staySafe: #51c4fa;
+    --border-staySafe: #0aaaf5;
+
+
+    --card-width: 300px;
     
-    --image-height: 350px;
+    --image-height: 300px;
     --to-from-height: 50px;
-    --text-height: 350px;
+    --text-height: 200px;
     --stats-height: 30px;
   }
 
@@ -28,48 +45,48 @@
 
 
 .greatJob {
-    background: #8acda2;
+    background: var(--background-card-greatJob);
 }
 
 .greatJob-image {
     background: url("../../../Images/gJob.png");
-    border-bottom: 5px solid #9bdeb3;
+    border-bottom: 2px solid var(--border-greatJob);
 }
 
 .congrats {
-    background: #5aa8d5;
+    background: var(--background-card-congrats);
 }
 
 .congrats-image {
     background: url("../../../Images/congrats.jpg");
-    border-bottom: 5px solid #5fb6e9;
+    border-bottom: 2px solid var(--border-congrats);
 }
 
 .veryAwesome  {
-    background: #dc9100;
+    background: var(--background-card-veryAwesome);
 }
 
 .veryAwesome-image {
     background: url("../../../Images/awesome.png");
-    border-bottom: 5px solid #f7a502;
+    border-bottom: 2px solid var(--border-veryAwesome);
 }
 
 .thankYou {
-    background: #ff4888;
+    background: var(--background-card-thankYou);
 }
 
 .thankYou-image {
     background: url("../../../Images/thankYou.png");
-    border-bottom: 5px solid #fc6fa1;
+    border-bottom: 2px solid var(--border-thankYou);
 }
 
 .staySafe {
-    background: #020963;
+    background: var(--background-card-staySafe);
 }
 
 .staySafe-image {
     background: url("../../../Images/shaq.png");
-    border-bottom: 5px solid #020a7c;
+    border-bottom: 2px solid var(--border-staySafe);
 }
 
 .greatJob-image,.congrats-image, .veryAwesome-image, .thankYou-image, .staySafe-image {
@@ -90,23 +107,23 @@
 }
 
 .greatJob .card-message{
-    border-top: 2px solid #9bdeb3;
+    border-top: 2px solid var(--border-greatJob);
 }
 
 .congrats .card-message{
-    border-top: 2px solid #5fb6e9;
+    border-top: 2px solid var(--border-congrats);
 }
 
 .veryAwesome .card-message{
-    border-top: 2px solid #f7a502;
+    border-top: 2px solid var(--border-veryAwesome);
 }
 
 .thankYou .card-message{
-    border-top: 2px solid #fc6fa1;
+    border-top: 2px solid var(--border-thankYou);
 }
 
 .staySafe .card-message{
-    border-top: 2px solid #020a7c;
+    border-top: 2px solid var(--border-staySafe);
 }
 
 

@@ -13,6 +13,8 @@ class KudoForm extends Component{
     INPUT_MESSAGE = "inputMessage-default";
     TITLE_DIV = "title-default";
     BUTTON_DIV = "createButton-default"; 
+    TEXT_AREA_MAX_LENGTH = 280;
+    QTD_TYPED = 0;
 
     isValid = () => {
 
@@ -96,9 +98,14 @@ class KudoForm extends Component{
                         <div className="sub-title">Version 1.0</div>
 
                         <div className="fields">
-                            <input id={this.INPUT_SENDER} placeholder="Sender" type="text" value={this.state.sender} required onChange={event => this.setState({sender: event.target.value})}/>
-                            <input id={this.INPUT_RECEIVER} placeholder="Receiver" type="text" value={this.state.receiver} required onChange={event => this.setState({receiver: event.target.value})} />
-                            <textarea id={this.INPUT_MESSAGE} placeholder="Type your message here" rows="7" cols="40" maxLength="280" value={this.state.message} required onChange={event => this.setState({message: event.target.value})} />
+                            <input id={this.INPUT_SENDER} placeholder="Sender" type="text" maxLength="20" value={this.state.sender} required onChange={event => this.setState({sender: event.target.value})}/>
+                            <input id={this.INPUT_RECEIVER} placeholder="Receiver" type="text" maxLength="20" value={this.state.receiver} required onChange={event => this.setState({receiver: event.target.value})} />
+                            <textarea id={this.INPUT_MESSAGE} placeholder="Type your message here" rows="7" cols="40" maxLength={this.TEXT_AREA_MAX_LENGTH} value={this.state.message} required 
+                                onChange={event => {
+                                    this.setState({message: event.target.value})
+                                    this.QTD_TYPED =  event.target.value.length;
+                            }}/>
+                    <h5 className="qtdCaracteres">{this.QTD_TYPED}/{this.TEXT_AREA_MAX_LENGTH}</h5>
                             <button className={this.BUTTON_DIV} onClick={this.onSubmit}>Create Kudo</button>
                             <h5 className= "inputError">{this.state.error}</h5>
                         </div>

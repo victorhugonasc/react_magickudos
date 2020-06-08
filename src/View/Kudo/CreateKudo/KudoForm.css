@@ -34,15 +34,15 @@
     --button-color-thankYou:#835943;
     --title_hover-color-thankYou:#582e23;
 
-    --main-color-staySafe : #7b7da0;
-    --box-shallow-top-staySafe: #6568a1;
-    --box-shallow-bottom-staySafe: #565877;
-    --button-color-staySafe:#71dbdd;
-    --title_hover-color-staySafe:#61c0c2;
+    --main-color-staySafe : #a1f0f1;
+    --box-shallow-top-staySafe: #34dfe2;
+    --box-shallow-bottom-staySafe: #40b6b8;
+    --button-color-staySafe:#7b7da0;;
+    --title_hover-color-staySafe:#5a5d9c;
 
 
-    --card-width: 510px;
-    --card-height: 600px;
+    --template-width: 510px;
+    --template-height: 600px;
     
 }
 body {
@@ -61,8 +61,8 @@ body {
 
 form {
     margin: 5vh auto;
-    width: var(--card-width);
-    height: var(--card-height);
+    width: var(--template-width);
+    height: var(--template-height);
 }
 
 .login-default,.login-greatJob,.login-veryAwesome,.login-thankYou,.login-congrats,.login-staySafe {
@@ -171,9 +171,18 @@ form {
 #inputSender-veryAwesome,#inputReceiver-veryAwesome,#inputMessage-veryAwesome,
 #inputSender-thankYou,#inputReceiver-thankYou,#inputMessage-thankYou,
 #inputSender-staySafe,#inputReceiver-staySafe,#inputMessage-staySafe {
-    margin-bottom: 30px;
     border-radius: 25px;
 }
+
+#inputSender-default,#inputReceiver-default,
+#inputSender-greatJob,#inputReceiver-greatJob,
+#inputSender-congrats,#inputReceiver-congrats,
+#inputSender-veryAwesome,#inputReceiver-veryAwesome,
+#inputSender-thankYou,#inputReceiver-thankYou,
+#inputSender-staySafe,#inputReceiver-staySafe {
+    margin-bottom: 30px;
+}
+
 
  #inputSender-default,#inputReceiver-default,#inputMessage-default {
     box-shadow: inset 8px 8px 8px var(--box-shallow-first),
@@ -204,6 +213,14 @@ form {
 #inputSender-staySafe,#inputReceiver-staySafe,#inputMessage-staySafe {
     box-shadow: inset 8px 8px 8px var(--box-shallow-top-staySafe),
                 inset -8px -8px 8px var(--box-shallow-bottom-staySafe);
+}
+
+.qtdCaracteres{
+    text-align: right;
+    margin-right: 50px;
+    font-family: 'Sacramento', cursive;
+    font-size: 14px;
+    font-weight: 700;
 }
 
 
@@ -281,46 +298,46 @@ form {
 }
 
 .foto-table {
-    width: var( --card-width);
+    width: var( --template-width);
     display: grid;
     margin : 0 auto;
     grid-template-columns: 510px;
     grid-template-rows: 102px;
-    grid-template-areas: "greatJob" "congrats" "veryAwesome" "thankYou" "staySafe" ;
+    grid-template-areas: "greatJob-foto-table" "congrats-foto-table" "veryAwesome-foto-table" "thankYou-foto-table" "staySafe-foto-table" ;
     
 
 }
 
 .foto-table .foto-greatJob {
-    grid-area: greatJob;
+    grid-area: greatJob-foto-table;
     background: url("../../../Images/gJob.png");
     background-size: 100% 100%;
     background-repeat: no-repeat;
 }
 
 .foto-table .foto-congrats {
-    grid-area: congrats;
+    grid-area: congrats-foto-table;
     background: url("../../../Images/congrats.jpg");
     background-size: 100% 100%;
     background-repeat: no-repeat;
 }
 
 .foto-table .foto-veryAwesome {
-    grid-area: veryAwesome;
+    grid-area: veryAwesome-foto-table;
     background: url("../../../Images/awesome.png");
     background-size: 100% 100%;
     background-repeat: no-repeat;
 }
 
 .foto-table .foto-thankYou {
-    grid-area: thankYou;
+    grid-area: thankYou-foto-table;
     background: url("../../../Images/thankYou.png");
     background-size: 100% 100%;
     background-repeat: no-repeat;
 }
 
 .foto-table .foto-staySafe {
-    grid-area: staySafe;
+    grid-area: staySafe-foto-table;
     background: url("../../../Images/shaq.png");
     background-size: 100% 100%;
     background-repeat: no-repeat;
