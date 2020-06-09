@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import TextEllipsis from 'react-text-ellipsis';
 import './KudoCard.css';
 
 
@@ -18,8 +19,9 @@ class KudoCard extends Component{
                 </div>    
 
                 <div className="card-message">
-                    
-                    <p><span className = "quotes">"</span>{kudo.message}<span className = "unquotes"> "</span></p>
+                    <TextEllipsis lines={6} tag={'p'} ellipsisChars={'...'} tagClass={'className'} debounceTimeoutOnResize={200} useJsOnly={true} >
+                        <p><span className = "quotes">"</span>{kudo.message}<span className = "unquotes"> "</span></p>
+                    </TextEllipsis>
                 </div>
 
                 <div className="card-date">

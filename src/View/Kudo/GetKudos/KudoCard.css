@@ -128,14 +128,15 @@
 
 
 .card-message {
-    margin-top: 30px;
-    
     grid-area: text;
+    margin-top: 30px;
     line-height: 80%;
     color: white;
     font-family: 'Tangerine', cursive;
     font-size: 40px;
     font-weight: 300;
+
+    
 }
 
 .card-date {
