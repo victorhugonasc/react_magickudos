@@ -20,7 +20,7 @@ class KudoCard extends Component{
 
                 <div className="card-message">
                     <TextEllipsis lines={6} tag={'p'} ellipsisChars={'...'}>
-                        <p><span className = "quotes">"</span>{kudo.message}<span className = "unquotes"> "</span></p>
+                        <span className = "quotes">"</span>{kudo.message}<span className = "unquotes"> "</span>
                     </TextEllipsis>
                 </div>
 
