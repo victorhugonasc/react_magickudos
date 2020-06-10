@@ -14,7 +14,6 @@ export default function Navegation(){
 
           <Nav className="mr-auto">
             <Nav.Link href="/createKudos">Add kudo</Nav.Link>
-            <Nav.Link href="/getKudos">Get Kudos</Nav.Link>
           </Nav>
 
         </Navbar.Collapse>

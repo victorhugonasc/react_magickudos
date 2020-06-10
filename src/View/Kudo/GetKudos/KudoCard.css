@@ -21,16 +21,18 @@
     --border-staySafe: #0aaaf5;
 
 
-    --card-width: 300px;
-    
-    --image-height: 300px;
+    --card-width: 600px;
+
+    --image-height: 200px;
     --to-from-height: 50px;
-    --text-height: 200px;
+    --text-height: 250px;
     --stats-height: 30px;
-  }
+}
 
 .greatJob, .congrats, .veryAwesome, .thankYou, .staySafe {
-    
+
+    position: absolute; 
+    margin: 10vh 30vw;
     display: grid;
     grid-template-columns: var(--card-width);
     grid-template-rows: var(--image-height) 50px var(--text-height) var(--stats-height);
@@ -39,8 +41,19 @@
     
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 9);
     text-align: center;
-    margin-top: 20px;
-    margin-left: 50px;
+}
+
+.greatJob:hover,
+.congrats:hover,
+.veryAwesome:hover,
+.thankYou:hover,
+.staySafe:hover
+{
+    -webkit-transform: rotate(-7deg);
+     transform: rotate(-7deg);
+    
+    -webkit-transition: all 0.5s ease;
+     transition: all 0.5s ease;
 }
 
 
@@ -103,7 +116,6 @@
     color: white;
     font-size: 20px;
     text-align: left;
-    
 }
 
 .greatJob .card-message{
@@ -135,8 +147,6 @@
     font-family: 'Tangerine', cursive;
     font-size: 40px;
     font-weight: 300;
-
-    
 }
 
 .card-date {
