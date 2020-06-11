@@ -61,7 +61,7 @@
 }
 
 .greatJob-image {
-    background: url("../../../Images/gJob.png");
+    background: url("../../../Images/Cards/gj.png");
     border-bottom: 2px solid var(--border-greatJob);
 }
 
@@ -70,7 +70,7 @@
 }
 
 .congrats-image {
-    background: url("../../../Images/congrats.jpg");
+    background: url("../../../Images/Cards/congrats.png");
     border-bottom: 2px solid var(--border-congrats);
 }
 
@@ -79,7 +79,7 @@
 }
 
 .veryAwesome-image {
-    background: url("../../../Images/awesome.png");
+    background: url("../../../Images/Cards/awesome.png");
     border-bottom: 2px solid var(--border-veryAwesome);
 }
 
@@ -88,7 +88,7 @@
 }
 
 .thankYou-image {
-    background: url("../../../Images/thankYou.png");
+    background: url("../../../Images/Cards/ty.png");
     border-bottom: 2px solid var(--border-thankYou);
 }
 
@@ -97,7 +97,7 @@
 }
 
 .staySafe-image {
-    background: url("../../../Images/shaq.png");
+    background: url("../../../Images/Cards/staySafe.png");
     border-bottom: 2px solid var(--border-staySafe);
 }
 

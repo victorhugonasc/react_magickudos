@@ -315,7 +315,7 @@ form {
 
 .foto-table .foto-greatJob {
     grid-area: greatJob-foto-table;
-    background: url("../../../Images/gJob.png");
+    background: url("../../../Images/Miniatures/greatJob.png");
     background-size: 100% 100%;
     background-repeat: no-repeat;
     
@@ -327,28 +327,28 @@ form {
 
 .foto-table .foto-congrats {
     grid-area: congrats-foto-table;
-    background: url("../../../Images/congrats.jpg");
+    background: url("../../../Images/Miniatures/congrats.png");
     background-size: 100% 100%;
     background-repeat: no-repeat;
 }
 
 .foto-table .foto-veryAwesome {
     grid-area: veryAwesome-foto-table;
-    background: url("../../../Images/awesome.png");
+    background: url("../../../Images/Miniatures/awesome.png");
     background-size: 100% 100%;
     background-repeat: no-repeat;
 }
 
 .foto-table .foto-thankYou {
     grid-area: thankYou-foto-table;
-    background: url("../../../Images/thankYou.png");
+    background: url("../../../Images/Miniatures/thankYou.png");
     background-size: 100% 100%;
     background-repeat: no-repeat;
 }
 
 .foto-table .foto-staySafe {
     grid-area: staySafe-foto-table;
-    background: url("../../../Images/shaq.png");
+    background: url("../../../Images/Miniatures/staySafe.png");
     background-size: 100% 100%;
     background-repeat: no-repeat;
 }
