@@ -32,7 +32,6 @@
 .greatJob, .congrats, .veryAwesome, .thankYou, .staySafe {
 
     position: absolute; 
-    margin: 10vh 30vw;
     display: grid;
     grid-template-columns: var(--card-width);
     grid-template-rows: var(--image-height) 50px var(--text-height) var(--stats-height);

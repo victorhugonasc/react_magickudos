@@ -2,8 +2,10 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types'; 
 import './KudosList.css'
 import KudoCard from './KudoCard';
+import Draggable from './Draggable';
+import Droppable from './Droppable';
+import './Droppable.css';
 //import ScrollContainer from 'react-indiana-drag-scroll'
-
 
 class KudosList extends Component{
 
@@ -22,8 +24,18 @@ class KudosList extends Component{
         return(
         
             //<ScrollContainer className="scroll-container">
-                <div className= "kudoList">
-                    {rows}
+                <div className= "kudoList" >
+                    
+                    <div>
+                        <h5 className="title-message">To be read</h5>
+                        <Droppable id = "left-drop" >
+                            {rows}
+                        </Droppable>
+                    </div>
+                   
+                    <Droppable id = "right-drop" >
+                        <h5 className="title-message">Have been read</h5>
+                    </Droppable>
                 </div>
           //  </ScrollContainer>
         );
@@ -32,14 +44,14 @@ class KudosList extends Component{
 
     renderRows(kudos) {
         const rows = kudos.map(this.renderRow);
-
         return rows;
-
     }
 
     renderRow(kudo) {
         return (
-            <KudoCard kudo={kudo} key={kudo.id}/>
+            <Draggable id={kudo.id} >
+                 <KudoCard kudo={kudo} key={kudo.id}/>
+            </Draggable>
         );
     }
 
