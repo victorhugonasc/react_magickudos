@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types'; 
-import './KudosList.css'
 import KudoCard from './KudoCard';
 import Draggable from './Draggable';
 import Droppable from './Droppable';
+import './KudosList.css'
 import './Droppable.css';
-//import ScrollContainer from 'react-indiana-drag-scroll'
 
 class KudosList extends Component{
 
@@ -22,8 +21,6 @@ class KudosList extends Component{
 
         const rows = this.renderRows(this.props.kudos);
         return(
-        
-            //<ScrollContainer className="scroll-container">
                 <div className= "kudoList" >
                     
                     <div>
@@ -37,7 +34,6 @@ class KudosList extends Component{
                         <h5 className="title-message">Have been read</h5>
                     </Droppable>
                 </div>
-          //  </ScrollContainer>
         );
     }
 

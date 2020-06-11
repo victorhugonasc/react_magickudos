@@ -6,14 +6,27 @@ import { Button, ButtonGroup } from 'react-bootstrap';
 
 class KudoForm extends Component{
 
-    state = this.props.kudo;
-    LOGIN_DIV = "login-default";
-    INPUT_SENDER = "inputSender-default";
-    INPUT_RECEIVER = "inputReceiver-default";
-    INPUT_MESSAGE = "inputMessage-default";
-    TITLE_DIV = "title-default";
-    BUTTON_DIV = "createButton-default"; 
-    TEXT_AREA_MAX_LENGTH = 280;
+
+    constructor (props) {
+        super(props);
+
+        this.state = {
+            login: "login-default",
+            inputSender: "inputSender-default",
+            inputReceiver: "inputReceiver-default",
+            inputMessage: "inputMessage-default",
+            title: "title-default",
+            buttonDiv: "createButton-default",
+            maxLength: 280,
+            qtdTyped: 0,
+            kudo: this.props.kudo
+
+        }
+    }
+    
+    //state = this.props.kudo;
+    
+    
     QTD_TYPED = 0;
 
     isValid = () => {
@@ -55,11 +68,22 @@ class KudoForm extends Component{
         }
     };
 
-    conso = () => {
-       console.log(this.state.layout);
+    onClickComboBox = (event) => {
+       
+
+        this.setState((prevState) => ({
+            login: "login-" + event,
+            inputSender: "inputSender-" + event,
+            inputReceiver: "inputReceiver-" + event,
+            inputMessage: "inputMessage-" + event,
+            title: "title-" + event,
+            buttonDiv: "createButton-" + event,
+        }), () => { console.log('callback',this.state)});
+
     };
     render()
     {
+        console.log(this.state);
         const GREAT_JOB = "greatJob";
         const VERY_AWESOME = "veryAwesome";
         const THANK_YOU = "thankYou";
@@ -73,16 +97,7 @@ class KudoForm extends Component{
                     <h5 className="form-welcome-msg">Choose a layout:</h5>
                     <div className="foto-table" >
                         
-                        <ButtonGroup aria-label="Basic example" onClick={event => {
-                            this.setState({layout: event.target.value})
-                            this.LOGIN_DIV = "login-" + this.state.layout;
-                            this.INPUT_SENDER = "inputSender-" + this.state.layout;
-                            this.INPUT_RECEIVER = "inputReceiver-" + this.state.layout;
-                            this.INPUT_MESSAGE = "inputMessage-" + this.state.layout;
-                            this.TITLE_DIV = "title-" + this.state.layout;
-                            this.BUTTON_DIV = "createButton-" + this.state.layout; 
-                            console.log(this.LOGIN_DIV);
-                        }}>
+                        <ButtonGroup aria-label="Basic example" onClick={event => this.onClickComboBox(event.target.value)}>
                             <Button className="foto-greatJob" value= {GREAT_JOB} variant="secondary" ></Button>
                             <Button className="foto-congrats" value={CONGRATS}  variant="secondary"></Button>
                             <Button className="foto-veryAwesome" value={VERY_AWESOME} variant="secondary"></Button>
@@ -93,20 +108,24 @@ class KudoForm extends Component{
                 </div>
                
                 <form method="post" noValidate>
-                    <div className ={this.LOGIN_DIV}>
-                        <div className={this.TITLE_DIV}>MagicKudos</div>
+                    <div className ={this.state.login}>
+                        <div className={this.state.title}>MagicKudos</div>
                         <div className="sub-title">Version 1.0</div>
 
                         <div className="fields">
-                            <input id={this.INPUT_SENDER} placeholder="Sender" type="text" maxLength="20" value={this.state.sender} required onChange={event => this.setState({sender: event.target.value})}/>
-                            <input id={this.INPUT_RECEIVER} placeholder="Receiver" type="text" maxLength="20" value={this.state.receiver} required onChange={event => this.setState({receiver: event.target.value})} />
-                            <textarea id={this.INPUT_MESSAGE} placeholder="Type your message here" rows="7" cols="40" maxLength={this.TEXT_AREA_MAX_LENGTH} value={this.state.message} required 
+                            <input id={this.state.inputSender} placeholder="Sender" type="text" maxLength="20" value={this.state.sender} required onChange={event => this.setState({sender: event.target.value})}/>
+                            <input id={this.state.inputReceiver} placeholder="Receiver" type="text" maxLength="20" value={this.state.receiver} required onChange={event => this.setState({receiver: event.target.value})} />
+                            <textarea id={this.state.inputMessage} placeholder="Type your message here" rows="7" cols="40" maxLength={this.state.maxLength} value={this.state.message} required 
                                 onChange={event => {
-                                    this.setState({message: event.target.value})
-                                    this.QTD_TYPED =  event.target.value.length;
+                                    this.setState((prevState) => ({
+                                        /*message: event.target.value,*/
+                                        qtdTyped: prevState.qtdTyped + 1,
+                                        
+                                    }), () => { console.log('event',this.state)});
+                                    
                             }}/>
-                    <h5 className="qtdCaracteres">{this.QTD_TYPED}/{this.TEXT_AREA_MAX_LENGTH}</h5>
-                            <button className={this.BUTTON_DIV} onClick={this.onSubmit}>Create Kudo</button>
+                    <h5 className="qtdCaracteres">{this.state.qtdTyped}/{this.state.maxLength}</h5>
+                            <button className={this.state.buttonDiv} onClick={this.onSubmit}>Create Kudo</button>
                             <h5 className= "inputError">{this.state.error}</h5>
                         </div>
                     </div>
