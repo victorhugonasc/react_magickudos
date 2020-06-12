@@ -117,13 +117,13 @@ class KudoForm extends Component{
     };
 
     updateMessageAndCounter = (value) => {
-
+       
         this.setState((prevState) => ({
             kudo: {
                 ...prevState.kudo,
                 message: value,
             },
-            qtdTyped: prevState.qtdTyped + 1,
+            qtdTyped: value.length,
 
         }));
     };
