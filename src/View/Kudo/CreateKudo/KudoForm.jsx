@@ -7,51 +7,74 @@ import { Button, ButtonGroup } from 'react-bootstrap';
 class KudoForm extends Component{
 
 
+
+    INICIAL_STATE = {
+        login: "login-default",
+        inputSender: "inputSender-default",
+        inputReceiver: "inputReceiver-default",
+        inputMessage: "inputMessage-default",
+        title: "title-default",
+        buttonDiv: "createButton-default",
+        maxLength: 280,
+        qtdTyped: 0,
+        kudo: this.props.kudo
+
+    };
+
+
     constructor (props) {
         super(props);
 
-        this.state = {
-            login: "login-default",
-            inputSender: "inputSender-default",
-            inputReceiver: "inputReceiver-default",
-            inputMessage: "inputMessage-default",
-            title: "title-default",
-            buttonDiv: "createButton-default",
-            maxLength: 280,
-            qtdTyped: 0,
-            kudo: this.props.kudo
-
-        }
+        this.state = this.INICIAL_STATE;
     }
-    
-    //state = this.props.kudo;
-    
-    
-    QTD_TYPED = 0;
 
     isValid = () => {
 
-        console.log(this.state.layout);
+        if (!this.state.kudo.sender) {
 
-        this.setState({error: ""});
-        
-        if (!this.state.sender) {
-            this.setState({error: "Sender field cannot be blank!"});
+            this.setState((prevState) => ({
+                kudo: {
+                    ...prevState.kudo,
+                    error: "Sender field can't be empty!",
+                }
+            }));
+
             return false;
         }
         
-        if (!this.state.receiver) {
-            this.setState({error: "Receiver field cannot be blank!"});
+        if (!this.state.kudo.receiver) {
+
+            this.setState((prevState) => ({
+                kudo: {
+                    ...prevState.kudo,
+                    error: "Receiver field can't be empty!",
+                }
+            }));
+
             return false;
         }
         
-        if (!this.state.message) {
-            this.setState({error: "Message field cannot be blank!"});
+        if (!this.state.kudo.message) {
+
+            this.setState((prevState) => ({
+                kudo: {
+                    ...prevState.kudo,
+                    error: "Message field can't be empty!",
+                }
+            }));
+
             return false;
         }
         
-        if (!this.state.layout) {
-            this.setState({error: "Layout field cannot be blank!"});
+        if (!this.state.kudo.layout) {
+
+            this.setState((prevState) => ({
+                kudo: {
+                    ...prevState.kudo,
+                    error: "Layout field can't be empty!",
+                }
+            }));
+
             return false;
         }
         
@@ -63,24 +86,65 @@ class KudoForm extends Component{
         event.preventDefault();
         if(this.isValid())
         {
-            this.props.createKudo(this.state);
-            this.setState(this.props.kudo);
+            this.props.createKudo(this.state.kudo);
+            this.setState(this.INICIAL_STATE);
         }
     };
 
-    onClickComboBox = (event) => {
-       
+    onClickComboBox = (value) => {
 
         this.setState((prevState) => ({
-            login: "login-" + event,
-            inputSender: "inputSender-" + event,
-            inputReceiver: "inputReceiver-" + event,
-            inputMessage: "inputMessage-" + event,
-            title: "title-" + event,
-            buttonDiv: "createButton-" + event,
+            login: "login-" + value,
+            inputSender: "inputSender-" + value,
+            inputReceiver: "inputReceiver-" + value,
+            inputMessage: "inputMessage-" + value,
+            title: "title-" + value,
+            buttonDiv: "createButton-" + value,
+            kudo: {
+                ...prevState.kudo,
+                layout: value,
+            }
         }), () => { console.log('callback',this.state)});
 
     };
+
+
+    updateSender = (value) => {
+
+        console.log(value)
+        this.setState((prevState) => ({
+            kudo: {
+                ...prevState.kudo,
+                sender: value,
+            }
+        }), () => { console.log('callback',this.state)});
+    };
+
+    updateReceiver = (value) => {
+
+        console.log(value)
+        this.setState((prevState) => ({
+            kudo: {
+                ...prevState.kudo,
+                receiver: value,
+            }
+        }), () => { console.log('callback',this.state)});
+    };
+
+    updateMessageAndCounter = (value) => {
+
+        console.log(value)
+        this.setState((prevState) => ({
+            kudo: {
+                ...prevState.kudo,
+                message: value,
+            },
+            qtdTyped: prevState.qtdTyped + 1,
+
+        }), () => { console.log('callback',this.state)});
+    };
+
+
     render()
     {
         console.log(this.state);
@@ -113,20 +177,12 @@ class KudoForm extends Component{
                         <div className="sub-title">Version 1.0</div>
 
                         <div className="fields">
-                            <input id={this.state.inputSender} placeholder="Sender" type="text" maxLength="20" value={this.state.sender} required onChange={event => this.setState({sender: event.target.value})}/>
-                            <input id={this.state.inputReceiver} placeholder="Receiver" type="text" maxLength="20" value={this.state.receiver} required onChange={event => this.setState({receiver: event.target.value})} />
-                            <textarea id={this.state.inputMessage} placeholder="Type your message here" rows="7" cols="40" maxLength={this.state.maxLength} value={this.state.message} required 
-                                onChange={event => {
-                                    this.setState((prevState) => ({
-                                        /*message: event.target.value,*/
-                                        qtdTyped: prevState.qtdTyped + 1,
-                                        
-                                    }), () => { console.log('event',this.state)});
-                                    
-                            }}/>
-                    <h5 className="qtdCaracteres">{this.state.qtdTyped}/{this.state.maxLength}</h5>
+                            <input id={this.state.inputSender} placeholder="Sender" type="text" maxLength="20" value={this.state.kudo.sender} required onChange={event => this.updateSender(event.target.value)}/>
+                            <input id={this.state.inputReceiver} placeholder="Receiver" type="text" maxLength="20" value={this.state.kudo.receiver} required onChange={event => this.updateReceiver(event.target.value)} />
+                            <textarea id={this.state.inputMessage} placeholder="Type your message here" rows="7" cols="40" maxLength={this.state.maxLength} value={this.state.kudo.message} required onChange={event => this.updateMessageAndCounter(event.target.value)}/>
+                            <h5 className="qtdCaracteres">{this.state.qtdTyped}/{this.state.maxLength}</h5>
                             <button className={this.state.buttonDiv} onClick={this.onSubmit}>Create Kudo</button>
-                            <h5 className= "inputError">{this.state.error}</h5>
+                            <h5 className= "inputError">{this.state.kudo.error}</h5>
                         </div>
                     </div>
                 </form>
