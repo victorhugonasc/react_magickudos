@@ -18,12 +18,10 @@ class KudosList extends Component{
     }
 
     render() { 
-
         const rows = this.renderRows(this.props.kudos);
         return(
                 <div className= "kudoList" >
-                    
-                    <div>
+                    <div className= "left-main-div">
                         <h5 className="title-message">To be read</h5>
                         <Droppable id = "left-drop" >
                             {rows}
@@ -37,7 +35,6 @@ class KudosList extends Component{
         );
     }
 
-
     renderRows(kudos) {
         const rows = kudos.map(this.renderRow);
         return rows;
@@ -50,7 +47,6 @@ class KudosList extends Component{
             </Draggable>
         );
     }
-
 }
 
 KudosList.propTypes = {

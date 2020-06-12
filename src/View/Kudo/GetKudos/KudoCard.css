@@ -98,6 +98,7 @@
 
 .staySafe-image {
     background: url("../../../Images/Cards/staySafe.png");
+    background-size: 50% 50%;
     border-bottom: 2px solid var(--border-staySafe);
 }
 

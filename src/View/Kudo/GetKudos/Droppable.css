@@ -4,19 +4,17 @@
     grid-template-columns: 50vw 50vw;
     grid-template-rows: 100vh;
     grid-template-areas: "left-droppable" "right-droppable";
-    background-color: #ffffff;
 }
-
 
 #left-drop,#right-drop {
     width: 100%;
     height: 100;
-    
 }
 
+.left-main-div:hover,
 #right-drop:hover {
     background-color: #8acda2;
-    color: #fff;
+    color: #ffffff;
 }
 
 .drag-div{

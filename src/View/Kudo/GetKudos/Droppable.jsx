@@ -13,7 +13,6 @@ export default class Droppable extends Component{
         event.preventDefault();
     }
 
-
     render(){
         return(
             <div id = {this.props.id} onDrop={this.drop} onDragOver={this.allowDrop} style= {this.props.style}>

@@ -3,10 +3,7 @@ import PropTypes from 'prop-types';
 import './KudoForm.css';
 import { Button, ButtonGroup } from 'react-bootstrap';
 
-
 class KudoForm extends Component{
-
-
 
     INICIAL_STATE = {
         login: "login-default",
@@ -18,13 +15,11 @@ class KudoForm extends Component{
         maxLength: 280,
         qtdTyped: 0,
         kudo: this.props.kudo
-
     };
 
 
     constructor (props) {
         super(props);
-
         this.state = this.INICIAL_STATE;
     }
 
@@ -38,7 +33,6 @@ class KudoForm extends Component{
                     error: "Sender field can't be empty!",
                 }
             }));
-
             return false;
         }
         
@@ -50,7 +44,6 @@ class KudoForm extends Component{
                     error: "Receiver field can't be empty!",
                 }
             }));
-
             return false;
         }
         
@@ -62,7 +55,6 @@ class KudoForm extends Component{
                     error: "Message field can't be empty!",
                 }
             }));
-
             return false;
         }
         
@@ -74,12 +66,9 @@ class KudoForm extends Component{
                     error: "Layout field can't be empty!",
                 }
             }));
-
             return false;
         }
-        
         return true;
-        
     }
 
     onSubmit = (event) => {
@@ -92,7 +81,6 @@ class KudoForm extends Component{
     };
 
     onClickComboBox = (value) => {
-
         this.setState((prevState) => ({
             login: "login-" + value,
             inputSender: "inputSender-" + value,
@@ -104,36 +92,32 @@ class KudoForm extends Component{
                 ...prevState.kudo,
                 layout: value,
             }
-        }), () => { console.log('callback',this.state)});
-
+        }));
     };
 
 
     updateSender = (value) => {
 
-        console.log(value)
         this.setState((prevState) => ({
             kudo: {
                 ...prevState.kudo,
                 sender: value,
             }
-        }), () => { console.log('callback',this.state)});
+        }));
     };
 
     updateReceiver = (value) => {
 
-        console.log(value)
         this.setState((prevState) => ({
             kudo: {
                 ...prevState.kudo,
                 receiver: value,
             }
-        }), () => { console.log('callback',this.state)});
+        }));
     };
 
     updateMessageAndCounter = (value) => {
 
-        console.log(value)
         this.setState((prevState) => ({
             kudo: {
                 ...prevState.kudo,
@@ -141,13 +125,12 @@ class KudoForm extends Component{
             },
             qtdTyped: prevState.qtdTyped + 1,
 
-        }), () => { console.log('callback',this.state)});
+        }));
     };
 
 
     render()
     {
-        console.log(this.state);
         const GREAT_JOB = "greatJob";
         const VERY_AWESOME = "veryAwesome";
         const THANK_YOU = "thankYou";
@@ -160,7 +143,6 @@ class KudoForm extends Component{
                 <div>
                     <h5 className="form-welcome-msg">Choose a layout:</h5>
                     <div className="foto-table" >
-                        
                         <ButtonGroup aria-label="Basic example" onClick={event => this.onClickComboBox(event.target.value)}>
                             <Button className="foto-greatJob" value= {GREAT_JOB} variant="secondary" ></Button>
                             <Button className="foto-congrats" value={CONGRATS}  variant="secondary"></Button>
@@ -175,7 +157,6 @@ class KudoForm extends Component{
                     <div className ={this.state.login}>
                         <div className={this.state.title}>MagicKudos</div>
                         <div className="sub-title">Version 1.0</div>
-
                         <div className="fields">
                             <input id={this.state.inputSender} placeholder="Sender" type="text" maxLength="20" value={this.state.kudo.sender} required onChange={event => this.updateSender(event.target.value)}/>
                             <input id={this.state.inputReceiver} placeholder="Receiver" type="text" maxLength="20" value={this.state.kudo.receiver} required onChange={event => this.updateReceiver(event.target.value)} />
