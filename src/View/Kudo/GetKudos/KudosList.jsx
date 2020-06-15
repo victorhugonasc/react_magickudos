@@ -42,8 +42,8 @@ class KudosList extends Component{
 
     renderRow(kudo) {
         return (
-            <Draggable id={kudo.id} >
-                 <KudoCard kudo={kudo} key={kudo.id}/>
+            <Draggable id={kudo.id} key={kudo.id}>
+                 <KudoCard kudo={kudo}/>
             </Draggable>
         );
     }
