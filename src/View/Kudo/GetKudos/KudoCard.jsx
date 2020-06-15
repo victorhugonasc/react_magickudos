@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import formatDate from './FormatDate';
 import TextEllipsis from 'react-text-ellipsis';
 import './KudoCard.css';
 
@@ -25,7 +26,7 @@ class KudoCard extends Component{
                 </div>
 
                 <div className="card-date">
-                    <div > 4 dias atras </div>
+                    <div > {formatDate(kudo.date)} </div>
                 </div>   
             </div>
         );
