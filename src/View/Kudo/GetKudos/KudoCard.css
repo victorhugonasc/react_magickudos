@@ -1,24 +1,19 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Tangerine:wght@700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Poiret+One&display=swap');
-
 
 :root {
 
-    --background-card-greatJob: #8acda2;
-    --border-greatJob: #9bdeb3;
+    --background-card: white;
 
-    --background-card-congrats: #5aa8d5;
-    --border-congrats: #5fb6e9;
+    --border-greatJob: var(--button-color-greatJob);
 
-    --background-card-veryAwesome: #f7c460;
-    --border-veryAwesome: #f7a502;
+    --border-congrats: var(--button-color-congrats);
 
-    --background-card-thankYou: #ff4888;
-    --border-thankYou: #fc6fa1;
+    --border-veryAwesome: var(--button-color-veryAwesome);
 
-    --background-card-staySafe: #51c4fa;
-    --border-staySafe: #0aaaf5;
+    --border-thankYou: var(--button-color-thankYou);
+
+    --border-staySafe: var(--button-color-staySafe);
 
 
     --card-width: 600px;
@@ -40,6 +35,7 @@
     
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 9);
     text-align: center;
+    font-family: 'Amatic SC', cursive;
 }
 
 .greatJob:hover,
@@ -57,47 +53,49 @@
 
 
 .greatJob {
-    background: var(--background-card-greatJob);
+    background: var(--background-card);
 }
 
 .greatJob-image {
-    background: url("../../../Images/Cards/gj.png");
+    background-color: var(--main-color-greatJob );
     border-bottom: 2px solid var(--border-greatJob);
+    max-width: 100%;
+    max-height: 100%;
 }
 
 .congrats {
-    background: var(--background-card-congrats);
+    background: var(--background-card);
 }
 
 .congrats-image {
-    background: url("../../../Images/Cards/congrats.png");
+    background-color: var(--main-color-congrats);
     border-bottom: 2px solid var(--border-congrats);
 }
 
 .veryAwesome  {
-    background: var(--background-card-veryAwesome);
+    background: var(--background-card);
 }
 
 .veryAwesome-image {
-    background: url("../../../Images/Cards/awesome.png");
+    background-color: var(--main-color-veryAwesome);
     border-bottom: 2px solid var(--border-veryAwesome);
 }
 
 .thankYou {
-    background: var(--background-card-thankYou);
+    background: var(--background-card);
 }
 
 .thankYou-image {
-    background: url("../../../Images/Cards/ty.png");
+    background-color: var(--main-color-thankYou);
     border-bottom: 2px solid var(--border-thankYou);
 }
 
 .staySafe {
-    background: var(--background-card-staySafe);
+    background: var(--background-card);
 }
 
 .staySafe-image {
-    background: url("../../../Images/Cards/staySafe.png");
+    background-color: var(--main-color-staySafe);
     background-size: 50% 50%;
     border-bottom: 2px solid var(--border-staySafe);
 }
@@ -109,13 +107,16 @@
     background-size: 100% 100%;
 }
 
+.card-type {
+    font-size: 56px;
+}
+
 .card-to-from {
     grid-area: to-from;
-   
-    font-family: 'Poiret One', cursive;
-    color: white;
+    color: var(--bg-field-color-default);
     font-size: 20px;
     text-align: left;
+    margin-left: 5%;
 }
 
 .greatJob .card-message{
@@ -143,9 +144,8 @@
     grid-area: text;
     margin-top: 30px;
     line-height: 80%;
-    color: white;
-    font-family: 'Tangerine', cursive;
-    font-size: 40px;
+    color: var(--bg-field-color-default);
+    font-size: 30px;
     font-weight: 300;
 }
 
@@ -156,17 +156,41 @@
     grid-template-rows: 1fr;
     border-bottom-left-radius: 18px;
     border-bottom-right-radius: 18px;
-    background: rgb(161, 158, 158); 
+   
     border-top: 2px solid black;
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 9);
+   
+}
 
-    font-family: 'Poiret One', cursive;
-    font-size: 20px;
+.card-date h5 {
+    font-size: 26px;
     color: white;
+    text-align: right;
+    margin-right: 5%;
+}
+
+.greatJob .card-date {
+    background: var(--border-greatJob); 
+}
+
+.congrats .card-date {
+    background: var(--border-congrats); 
+}
+
+.thankYou .card-date {
+    background: var(--border-thankYou); 
+}
+
+.veryAwesome .card-date {
+    background: var(--border-veryAwesome); 
+}
+
+.staySafe .card-date {
+    background: var(--border-staySafe); 
 }
 
 .quotes, .unquotes {
-    color: white;
+    color: var(--bg-field-color-default);
     font-family: 'Tangerine', cursive;
     font-size: 200%;
   }

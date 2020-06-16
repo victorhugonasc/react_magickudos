@@ -8,47 +8,47 @@
     --box-shallow-second: #ffffff;
     --box-shallow-third-default: #b1b1b1;
     --button-color-default:#8acda2;
-    --title_button-color-default:#1da88a;
+    --hover-color-default:#1da88a;
 
     --main-color-greatJob : #c4ffd9;
     --box-shallow-top-greatJob: #5bad78;
     --box-shallow-bottom-greatJob: #82c299;
     --button-color-greatJob:#ee6262;
-    --title_hover-color-greatJob:#a82d1d;
+    --hover-color-greatJob:#a82d1d;
 
     --main-color-congrats : #aadffd;
     --box-shallow-top-congrats: #6fc1f0;
     --box-shallow-bottom-congrats: #85bad8;
     --button-color-congrats:#8acda2;
-    --title_hover-color-congrats:#1da88a;
+    --hover-color-congrats:#1da88a;
 
     --main-color-veryAwesome : #fddb96;
     --box-shallow-top-veryAwesome: #f5cc79;
     --box-shallow-bottom-veryAwesome: #dab978;
     --button-color-veryAwesome:#a16476;
-    --title_hover-color-veryAwesome:#794051;
+    --hover-color-veryAwesome:#794051;
 
     --main-color-thankYou : #fddae6;
     --box-shallow-top-thankYou: #f7abc6;
     --box-shallow-bottom-thankYou: #e4b5c5;
     --button-color-thankYou:#835943;
-    --title_hover-color-thankYou:#582e23;
+    --hover-color-thankYou:#582e23;
 
     --main-color-staySafe : #a1f0f1;
     --box-shallow-top-staySafe: #34dfe2;
     --box-shallow-bottom-staySafe: #40b6b8;
     --button-color-staySafe:#7b7da0;;
-    --title_hover-color-staySafe:#63669c;
+    --hover-color-staySafe:#63669c;
 
 
-    --template-width: 510px;
-    --template-height: 600px;
+    --template-width: 700px;
+    --template-height: 700px;
     
 }
 body {
     margin: 0 auto;
-    overflow-x: hidden;
-    font-family: 'Lato', sans-serif;
+    overflow: hidden;
+    font-family: 'Amatic SC', cursive;
     font-weight: 700;
     align-items: center;
     justify-content: center;
@@ -61,7 +61,7 @@ body {
 
 .form-welcome-msg {
     font-family: 'Amatic SC', cursive;
-    font-size: 30px;
+    font-size: 50px;
 }
 
 form {
@@ -71,7 +71,7 @@ form {
 }
 
 .login-default,.login-greatJob,.login-veryAwesome,.login-thankYou,.login-congrats,.login-staySafe {
-    padding: 0px 35px 35px 35px;
+    padding: 0px 10px 0px 10px;
     border-radius: 40px;
     box-shadow: 20px 20px 0px var(--box-shallow-first),
     -20px -20px 20px var(--box-shallow-second);
@@ -107,45 +107,6 @@ form {
    
 }
 
-.title-default,.title-greatJob,.title-congrats,
-.title-thankYou,.title-veryAwesome,.title-staySafe {
-    text-align: center;
-    font-size: 40px;
-    letter-spacing: 0.5px;
-    font-family: 'Sacramento', cursive;
-    transition: 0.5s;
-    
-}
-
-.title-default{
-    color: var(--title_button-color-default);
-}
-
-.title-greatJob{
-    color: var(--title_hover-color-greatJob);
-}
-
-.title-congrats{
-    color: var(--title_hover-color-congrats);
-}
-
-.title-thankYou{
-    color: var(--title_hover-color-thankYou);
-}
-
-.title-veryAwesome{
-    color: var(--title_hover-color-veryAwesome);
-}
-
-.title-staySafe{
-    color: var(--title_hover-color-staySafe);
-}
-
-.sub-title {
-    text-align: center;
-    font-size: 8px;
-    letter-spacing: 3px;
-}
 
 .fields {
     padding: 20px 5px 5px 5px;
@@ -177,6 +138,8 @@ form {
 #inputSender-thankYou,#inputReceiver-thankYou,#inputMessage-thankYou,
 #inputSender-staySafe,#inputReceiver-staySafe,#inputMessage-staySafe {
     border-radius: 25px;
+    font-family: 'Amatic SC', cursive;
+    font-size: 26px;
 }
 
 #inputSender-default,#inputReceiver-default,
@@ -185,7 +148,19 @@ form {
 #inputSender-veryAwesome,#inputReceiver-veryAwesome,
 #inputSender-thankYou,#inputReceiver-thankYou,
 #inputSender-staySafe,#inputReceiver-staySafe {
-    margin-bottom: 30px;
+    margin: 20px;
+    width: 275px;
+    height: 70px;
+}
+
+#inputMessage-default,
+#inputMessage-greatJob,
+#inputMessage-congrats,
+#inputMessage-veryAwesome,
+#inputMessage-thankYou,
+#inputMessage-staySafe {
+    width: 670px;
+    height: 230px;
 }
 
 
@@ -223,8 +198,8 @@ form {
 .qtdCaracteres{
     text-align: right;
     margin-right: 50px;
-    font-family: 'Sacramento', cursive;
-    font-size: 14px;
+    font-family: 'Amatic SC', cursive;
+    font-size: 26px;
     font-weight: 700;
 }
 
@@ -237,9 +212,9 @@ form {
     width: 100%;
     height: 60px;
     border-radius: 30px;
-    font-size: 20px;
+    font-size: 40px;
     font-weight: 700;
-    font-family: 'Lato',sans-serif;
+    font-family: 'Amatic SC', cursive;
     text-align: center;
     color: var(--box-shallow-second);
     transition: 0.5s;  
@@ -250,7 +225,7 @@ form {
 }
 
 .createButton-default:hover {
-    background: var(--title_button-color-default);
+    background: var(--hover-color-default);
 }
 
 .createButton-greatJob {
@@ -258,7 +233,7 @@ form {
 }
 
 .createButton-greatJob:hover {
-    background: var(--title_hover-color-greatJob);
+    background: var(--hover-color-greatJob);
 }
 
 .createButton-congrats {
@@ -266,7 +241,7 @@ form {
 }
 
 .createButton-congrats:hover {
-    background: var(--title_hover-color-congrats);
+    background: var(--hover-color-congrats);
 }
 
 .createButton-veryAwesome {
@@ -274,7 +249,7 @@ form {
 }
 
 .createButton-veryAwesome:hover {
-    background: var(--title_hover-color-veryAwesome);
+    background: var(--hover-color-veryAwesome);
 }
 
 .createButton-thankYou {
@@ -282,7 +257,7 @@ form {
 }
 
 .createButton-thankYou:hover {
-    background: var(--title_hover-color-thankYou);
+    background: var(--hover-color-thankYou);
 }
 
 .createButton-staySafe {
@@ -290,7 +265,7 @@ form {
 }
 
 .createButton-staySafe:hover {
-    background: var(--title_hover-color-staySafe);
+    background: var(--hover-color-staySafe);
 }
 
 
@@ -303,9 +278,8 @@ form {
 }
 
 .foto-table {
-    width: var( --template-width);
+    margin-left: 95px;
     display: grid;
-    margin : 0 auto;
     grid-template-columns: 510px;
     grid-template-rows: 102px;
     grid-template-areas: "greatJob-foto-table" "congrats-foto-table" "veryAwesome-foto-table" "thankYou-foto-table" "staySafe-foto-table" ;

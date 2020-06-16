@@ -1,6 +1,5 @@
 import React from 'react';
 import {Switch,Route} from "react-router-dom";
-
 import KudosListPage from './View/Kudo/GetKudos/index';
 import KudoCreationPage from './View/Kudo/CreateKudo/index';
 import UserCreationPage from './View/User/CreateUser/index';

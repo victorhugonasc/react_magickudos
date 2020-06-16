@@ -20,7 +20,7 @@ export function createKudo(kudo){
 }
 
 export function addKudo(kudo){
-    alert("Kudo created");
+    window.location.href = "http://localhost:3000/getKudos";
     return{
         type: ADD_KUDO,
         value: kudo,

@@ -13,7 +13,7 @@ export default function Navegation(){
         <Navbar.Collapse id="responsive-navbar-nav">
 
           <Nav className="mr-auto">
-            <Nav.Link href="/createKudos">Add kudo</Nav.Link>
+            <Nav.Link href="/createKudos">Give a kudo</Nav.Link>
           </Nav>
 
         </Navbar.Collapse>

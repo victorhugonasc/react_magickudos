@@ -12,6 +12,7 @@ class KudoForm extends Component{
         inputMessage: "inputMessage-default",
         title: "title-default",
         buttonDiv: "createButton-default",
+        welcomeMsg: "Choose a Layout:",
         maxLength: 280,
         qtdTyped: 0,
         kudo: this.props.kudo
@@ -81,6 +82,17 @@ class KudoForm extends Component{
     };
 
     onClickComboBox = (value) => {
+
+        var inicialMessage;
+        switch(value) {
+            case "greatJob": inicialMessage = "GREAT JOB"; break;
+            case "veryAwesome": inicialMessage = "VERY AWESOME"; break;
+            case "thankYou": inicialMessage = "THANK YOU"; break;
+            case "congrats": inicialMessage = "CONGRATULATIONS"; break;
+            case "staySafe": inicialMessage = "STAY SAFE"; break;
+            default: break;
+        }
+
         this.setState((prevState) => ({
             login: "login-" + value,
             inputSender: "inputSender-" + value,
@@ -91,7 +103,9 @@ class KudoForm extends Component{
             kudo: {
                 ...prevState.kudo,
                 layout: value,
-            }
+            },
+            welcomeMsg : inicialMessage,
+            
         }));
     };
 
@@ -140,29 +154,26 @@ class KudoForm extends Component{
         return(
 
             <div>
-                <div>
-                    <h5 className="form-welcome-msg">Choose a layout:</h5>
-                    <div className="foto-table" >
-                        <ButtonGroup aria-label="Basic example" onClick={event => this.onClickComboBox(event.target.value)}>
-                            <Button className="foto-greatJob" value= {GREAT_JOB} variant="secondary" ></Button>
-                            <Button className="foto-congrats" value={CONGRATS}  variant="secondary"></Button>
-                            <Button className="foto-veryAwesome" value={VERY_AWESOME} variant="secondary"></Button>
-                            <Button className="foto-thankYou" value={THANK_YOU} variant="secondary"></Button>
-                            <Button className="foto-staySafe" value={STAY_SAFE} variant="secondary"></Button>
-                        </ButtonGroup>
-                    </div>
-                </div>
-               
                 <form method="post" noValidate>
+
                     <div className ={this.state.login}>
-                        <div className={this.state.title}>MagicKudos</div>
-                        <div className="sub-title">Version 1.0</div>
+                        <h5 className="form-welcome-msg">{this.state.welcomeMsg}</h5>
+                        <div className="foto-table" >
+                            <ButtonGroup aria-label="Basic example" onClick={event => this.onClickComboBox(event.target.value)}>
+                                <Button className="foto-greatJob" value= {GREAT_JOB} variant="secondary" ></Button>
+                                <Button className="foto-congrats" value={CONGRATS}  variant="secondary"></Button>
+                                <Button className="foto-veryAwesome" value={VERY_AWESOME} variant="secondary"></Button>
+                                <Button className="foto-thankYou" value={THANK_YOU} variant="secondary"></Button>
+                                <Button className="foto-staySafe" value={STAY_SAFE} variant="secondary"></Button>
+                            </ButtonGroup>
+                        </div>
+                        
                         <div className="fields">
                             <input id={this.state.inputSender} placeholder="Sender" type="text" maxLength="20" value={this.state.kudo.sender} required onChange={event => this.updateSender(event.target.value)}/>
                             <input id={this.state.inputReceiver} placeholder="Receiver" type="text" maxLength="20" value={this.state.kudo.receiver} required onChange={event => this.updateReceiver(event.target.value)} />
                             <textarea id={this.state.inputMessage} placeholder="Type your message here" rows="7" cols="40" maxLength={this.state.maxLength} value={this.state.kudo.message} required onChange={event => this.updateMessageAndCounter(event.target.value)}/>
                             <h5 className="qtdCaracteres">{this.state.qtdTyped}/{this.state.maxLength}</h5>
-                            <button className={this.state.buttonDiv} onClick={this.onSubmit}>Create Kudo</button>
+                            <button className={this.state.buttonDiv} onClick={this.onSubmit}>Post it!</button>
                             <h5 className= "inputError">{this.state.kudo.error}</h5>
                         </div>
                     </div>
