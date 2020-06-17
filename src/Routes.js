@@ -5,11 +5,9 @@ import KudoCreationPage from './View/Kudo/CreateKudo/index';
 import UserCreationPage from './View/User/CreateUser/index';
 import UsersListPage from './View/User/GetUsers/index';
 
+export const getKudos = "/getKudos";
 
 export default function Routes(){
-
-    export const getKudos = "/getKudos";
-
 
     return (
         <Switch>
