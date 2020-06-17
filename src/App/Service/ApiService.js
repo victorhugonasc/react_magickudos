@@ -1,6 +1,7 @@
 import axios from 'axios';
+require('dotenv').config();
 
-export const API_SERVER = "http://localhost:8080"
+export const API_SERVER = "https://magickudos-api.herokuapp.com";
 
 
 export default class ApiService {
