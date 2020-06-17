@@ -7,10 +7,14 @@ import UsersListPage from './View/User/GetUsers/index';
 
 
 export default function Routes(){
+
+    export const getKudos = "/getKudos";
+
+
     return (
         <Switch>
             <Route path="/" exact/>
-            <Route path="/getKudos" exact component={KudosListPage}/>
+            <Route path= {getKudos} exact component={KudosListPage}/>
             <Route path="/createKudos" exact component={KudoCreationPage}/>
             <Route path="/createUsers" exact component={UserCreationPage}/>
             <Route path="/getUsers" exact component={UsersListPage}/>
