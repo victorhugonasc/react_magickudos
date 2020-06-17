@@ -1,24 +1,82 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sacramento&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Tangerine:wght@700&display=swap');
+
+:root{/*Variables used in KudoForm*/
+    --main-color-default : #ecf0f3;
+    --bg-field-color-default: #555555;
+    --box-shallow-first: #cbced1;
+    --box-shallow-second: #ffffff;
+    --box-shallow-third-default: #b1b1b1;
+    --button-color-default:#8acda2;
+    --hover-color-default:#1da88a;
+
+    --main-color-greatJob : #c4ffd9;
+    --box-shallow-top-greatJob: #5bad78;
+    --box-shallow-bottom-greatJob: #82c299;
+    --button-color-greatJob:#ee6262;
+    --hover-color-greatJob:#a82d1d;
+
+    --main-color-congrats : #aadffd;
+    --box-shallow-top-congrats: #6fc1f0;
+    --box-shallow-bottom-congrats: #85bad8;
+    --button-color-congrats:#8acda2;
+    --hover-color-congrats:#1da88a;
+
+    --main-color-veryAwesome : #fddb96;
+    --box-shallow-top-veryAwesome: #f5cc79;
+    --box-shallow-bottom-veryAwesome: #dab978;
+    --button-color-veryAwesome:#a16476;
+    --hover-color-veryAwesome:#794051;
+
+    --main-color-thankYou : #fddae6;
+    --box-shallow-top-thankYou: #f7abc6;
+    --box-shallow-bottom-thankYou: #e4b5c5;
+    --button-color-thankYou:#835943;
+    --hover-color-thankYou:#582e23;
+
+    --main-color-staySafe : #a1f0f1;
+    --box-shallow-top-staySafe: #34dfe2;
+    --box-shallow-bottom-staySafe: #40b6b8;
+    --button-color-staySafe:#7b7da0;;
+    --hover-color-staySafe:#63669c;
+
+
+    --template-width: 700px;/*KudoForm dimension*/
+    --template-height: 700px;
+    
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+:root {/*Variables used in KudoCard*/
+
+    --background-card: white;
+
+    --card-width: 600px;
+
+    --image-height: 200px;
+    --to-from-height: 50px;
+    --text-height: 250px;
+    --stats-height: 30px;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+
+h5 {
+    text-align: center;
 }
 
-.App-intro {
-  font-size: large;
+body {
+    margin: 0 auto;
+    overflow: hidden;
+    font-family: 'Amatic SC', cursive;
+    font-weight: 700;
+    align-items: center;
+    justify-content: center;
+    color: var(--bg-field-color-default);
+    background: var(--main-color-default);
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+form {
+    margin: 5vh auto;
+    width: var(--template-width);
+    height: var(--template-height);
 }

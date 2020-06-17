@@ -53,7 +53,7 @@ class KudoCard extends Component{
                     
                 </div>
                  
-                <div className="card-to-from" >
+                <div className="card-from-to" >
                     <h4>From: {kudo.sender}</h4>
                     <h4>To: {kudo.receiver}</h4>
                 </div>    

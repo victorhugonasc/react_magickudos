@@ -1,36 +1,10 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Tangerine:wght@700&display=swap');
-
-:root {
-
-    --background-card: white;
-
-    --border-greatJob: var(--button-color-greatJob);
-
-    --border-congrats: var(--button-color-congrats);
-
-    --border-veryAwesome: var(--button-color-veryAwesome);
-
-    --border-thankYou: var(--button-color-thankYou);
-
-    --border-staySafe: var(--button-color-staySafe);
-
-
-    --card-width: 600px;
-
-    --image-height: 200px;
-    --to-from-height: 50px;
-    --text-height: 250px;
-    --stats-height: 30px;
-}
-
 .greatJob, .congrats, .veryAwesome, .thankYou, .staySafe {
-
     position: absolute; 
     display: grid;
     grid-template-columns: var(--card-width);
     grid-template-rows: var(--image-height) 50px var(--text-height) var(--stats-height);
-    grid-template-areas: "image" "to-from" "text" "stats";
+    grid-template-areas: "image" "from-to" "text" "stats";
     border-radius: 18px;
     
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 9);
@@ -58,7 +32,7 @@
 
 .greatJob-image {
     background-color: var(--main-color-greatJob );
-    border-bottom: 2px solid var(--border-greatJob);
+    border-bottom: 2px solid var(--button-color-greatJob);
     max-width: 100%;
     max-height: 100%;
 }
@@ -69,7 +43,7 @@
 
 .congrats-image {
     background-color: var(--main-color-congrats);
-    border-bottom: 2px solid var(--border-congrats);
+    border-bottom: 2px solid var(--button-color-congrats);
 }
 
 .veryAwesome  {
@@ -78,7 +52,7 @@
 
 .veryAwesome-image {
     background-color: var(--main-color-veryAwesome);
-    border-bottom: 2px solid var(--border-veryAwesome);
+    border-bottom: 2px solid var(--button-color-veryAwesome);
 }
 
 .thankYou {
@@ -87,7 +61,7 @@
 
 .thankYou-image {
     background-color: var(--main-color-thankYou);
-    border-bottom: 2px solid var(--border-thankYou);
+    border-bottom: 2px solid var(--button-color-thankYou);
 }
 
 .staySafe {
@@ -97,7 +71,7 @@
 .staySafe-image {
     background-color: var(--main-color-staySafe);
     background-size: 50% 50%;
-    border-bottom: 2px solid var(--border-staySafe);
+    border-bottom: 2px solid var(--button-color-staySafe);
 }
 
 .greatJob-image,.congrats-image, .veryAwesome-image, .thankYou-image, .staySafe-image {
@@ -111,8 +85,8 @@
     font-size: 56px;
 }
 
-.card-to-from {
-    grid-area: to-from;
+.card-from-to {
+    grid-area: from-to;
     color: var(--bg-field-color-default);
     font-size: 20px;
     text-align: left;
@@ -120,25 +94,24 @@
 }
 
 .greatJob .card-message{
-    border-top: 2px solid var(--border-greatJob);
+    border-top: 2px solid var(--button-color-greatJob);
 }
 
 .congrats .card-message{
-    border-top: 2px solid var(--border-congrats);
+    border-top: 2px solid var(--button-color-congrats);
 }
 
 .veryAwesome .card-message{
-    border-top: 2px solid var(--border-veryAwesome);
+    border-top: 2px solid var(--button-color-veryAwesome);
 }
 
 .thankYou .card-message{
-    border-top: 2px solid var(--border-thankYou);
+    border-top: 2px solid var(--button-color-thankYou);
 }
 
 .staySafe .card-message{
-    border-top: 2px solid var(--border-staySafe);
+    border-top: 2px solid var(--button-color-staySafe);
 }
-
 
 .card-message {
     grid-area: text;
@@ -159,7 +132,6 @@
    
     border-top: 2px solid black;
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 9);
-   
 }
 
 .card-date h5 {
@@ -170,29 +142,29 @@
 }
 
 .greatJob .card-date {
-    background: var(--border-greatJob); 
+    background: var(--button-color-greatJob); 
 }
 
 .congrats .card-date {
-    background: var(--border-congrats); 
+    background: var(--button-color-congrats); 
 }
 
 .thankYou .card-date {
-    background: var(--border-thankYou); 
+    background: var(--button-color-thankYou); 
 }
 
 .veryAwesome .card-date {
-    background: var(--border-veryAwesome); 
+    background: var(--button-color-veryAwesome); 
 }
 
 .staySafe .card-date {
-    background: var(--border-staySafe); 
+    background: var(--button-color-staySafe); 
 }
 
 .quotes, .unquotes {
     color: var(--bg-field-color-default);
     font-family: 'Tangerine', cursive;
     font-size: 200%;
-  }
+}
 
   

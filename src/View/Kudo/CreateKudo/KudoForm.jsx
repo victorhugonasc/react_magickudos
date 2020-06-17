@@ -24,6 +24,12 @@ class KudoForm extends Component{
         this.state = this.INICIAL_STATE;
     }
 
+    GREAT_JOB = "greatJob";
+    VERY_AWESOME = "veryAwesome";
+    THANK_YOU = "thankYou";
+    CONGRATS = "congrats";
+    STAY_SAFE = "staySafe";
+
     isValid = () => {
 
         if (!this.state.kudo.sender) {
@@ -85,11 +91,11 @@ class KudoForm extends Component{
 
         var inicialMessage;
         switch(value) {
-            case "greatJob": inicialMessage = "GREAT JOB"; break;
-            case "veryAwesome": inicialMessage = "VERY AWESOME"; break;
-            case "thankYou": inicialMessage = "THANK YOU"; break;
-            case "congrats": inicialMessage = "CONGRATULATIONS"; break;
-            case "staySafe": inicialMessage = "STAY SAFE"; break;
+            case this.GREAT_JOB: inicialMessage = "GREAT JOB"; break;
+            case this.VERY_AWESOME: inicialMessage = "VERY AWESOME"; break;
+            case this.THANK_YOU: inicialMessage = "THANK YOU"; break;
+            case this.CONGRATS: inicialMessage = "CONGRATULATIONS"; break;
+            case this.STAY_SAFE: inicialMessage = "STAY SAFE"; break;
             default: break;
         }
 
@@ -145,12 +151,7 @@ class KudoForm extends Component{
 
     render()
     {
-        const GREAT_JOB = "greatJob";
-        const VERY_AWESOME = "veryAwesome";
-        const THANK_YOU = "thankYou";
-        const CONGRATS = "congrats";
-        const STAY_SAFE = "staySafe";
-        
+    
         return(
 
             <div>
@@ -160,11 +161,11 @@ class KudoForm extends Component{
                         <h5 className="form-welcome-msg">{this.state.welcomeMsg}</h5>
                         <div className="foto-table" >
                             <ButtonGroup aria-label="Basic example" onClick={event => this.onClickComboBox(event.target.value)}>
-                                <Button className="foto-greatJob" value= {GREAT_JOB} variant="secondary" ></Button>
-                                <Button className="foto-congrats" value={CONGRATS}  variant="secondary"></Button>
-                                <Button className="foto-veryAwesome" value={VERY_AWESOME} variant="secondary"></Button>
-                                <Button className="foto-thankYou" value={THANK_YOU} variant="secondary"></Button>
-                                <Button className="foto-staySafe" value={STAY_SAFE} variant="secondary"></Button>
+                                <Button className="foto-greatJob" value= {this.GREAT_JOB} variant="secondary" ></Button>
+                                <Button className="foto-congrats" value={this.CONGRATS}  variant="secondary"></Button>
+                                <Button className="foto-veryAwesome" value={this.VERY_AWESOME} variant="secondary"></Button>
+                                <Button className="foto-thankYou" value={this.THANK_YOU} variant="secondary"></Button>
+                                <Button className="foto-staySafe" value={this.STAY_SAFE} variant="secondary"></Button>
                             </ButtonGroup>
                         </div>
                         

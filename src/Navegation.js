@@ -11,11 +11,9 @@ export default function Navegation(){
         <Navbar.Brand href="/getKudos">MagicKudos</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
-
           <Nav className="mr-auto">
             <Nav.Link href="/createKudos">Give a kudo</Nav.Link>
           </Nav>
-
         </Navbar.Collapse>
       </Navbar>
     );
