@@ -1,7 +1,6 @@
 import KudoService from '../../App/Service/Kudo/KudoService';
 import StoreService from '../../App/Service/Utils/StoreService';
-import {API_SERVER} from '../../App/Service/ApiService';
-import {getKudos} from '../../Routes';
+import {domain,getKudos} from '../../Routes';
 
 
 export const CREATE_KUDO = "CREATE_KUDO";
@@ -22,7 +21,7 @@ export function createKudo(kudo){
 }
 
 export function addKudo(kudo){
-    window.location.href = API_SERVER + getKudos;
+    window.location.href = domain + getKudos;
     return{
         type: ADD_KUDO,
         value: kudo,
