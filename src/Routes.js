@@ -5,7 +5,7 @@ import KudoCreationPage from './View/Kudo/CreateKudo/index';
 import UserCreationPage from './View/User/CreateUser/index';
 import UsersListPage from './View/User/GetUsers/index';
 
-export const domain = "https://magickudos-frontend.herokuapp.com/";
+export const domain = "https://magickudos-frontend.herokuapp.com";
 export const home = "/";
 export const getKudos = "/getKudos";
 export const createKudos = "/createKudos";
