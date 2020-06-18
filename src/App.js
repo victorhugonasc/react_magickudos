@@ -5,6 +5,11 @@ import { BrowserRouter as Router} from "react-router-dom";
 import './App.css';
 
 export default class App extends Component {
+  
+  componentDidMount() {
+    document.title = 'Magic Kudos';
+  }
+
   render() {
     return (
       <Router>
