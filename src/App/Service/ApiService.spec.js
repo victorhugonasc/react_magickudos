@@ -1,4 +1,5 @@
-import ApiService,{ API_SERVER } from "./ApiService";
+import ApiService from "./ApiService";
+import {BACKEND_DOMAIN} from '../../Routes';
 import axios from 'axios';
 
 const PATH = "/kudos";
@@ -11,7 +12,7 @@ test(" HTTP get request ", () => {
 
     ApiService.doGet(PATH,PARAMS);
 
-    expect(axios.get).toBeCalledWith(API_SERVER + PATH,PARAMS);
+    expect(axios.get).toBeCalledWith(BACKEND_DOMAIN + PATH,PARAMS);
 
 });
 
@@ -21,6 +22,6 @@ test(" HTTP post request ", () => {
 
     ApiService.doGet(PATH,PARAMS);
 
-    expect(axios.get).toBeCalledWith(API_SERVER + PATH,PARAMS);
+    expect(axios.get).toBeCalledWith(BACKEND_DOMAIN + PATH,PARAMS);
 
 });

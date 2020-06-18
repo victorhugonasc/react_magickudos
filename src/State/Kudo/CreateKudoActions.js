@@ -1,6 +1,6 @@
 import KudoService from '../../App/Service/Kudo/KudoService';
 import StoreService from '../../App/Service/Utils/StoreService';
-import {domain,getKudos} from '../../Routes';
+import {FRONTEND_DOMAIN,getKudos} from '../../Routes';
 
 
 export const CREATE_KUDO = "CREATE_KUDO";
@@ -21,7 +21,7 @@ export function createKudo(kudo){
 }
 
 export function addKudo(kudo){
-    window.location.href = domain + getKudos;
+    window.location.href = FRONTEND_DOMAIN + getKudos;
     return{
         type: ADD_KUDO,
         value: kudo,

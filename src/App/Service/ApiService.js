@@ -1,8 +1,6 @@
 import axios from 'axios';
+import {BACKEND_DOMAIN} from '../../Routes';
 require('dotenv').config();
-
-export const API_SERVER = "https://magickudos-api.herokuapp.com";
-
 
 export default class ApiService {
 
@@ -17,7 +15,7 @@ export default class ApiService {
 
     static doRequest(httpMethod, path, params)
     {
-        return axios[httpMethod](API_SERVER + path, params).then(ApiService.handleSuccessCallBack).catch(ApiService.handleFailureCallBack);
+        return axios[httpMethod](BACKEND_DOMAIN + path, params).then(ApiService.handleSuccessCallBack).catch(ApiService.handleFailureCallBack);
     }
 
     static handleSuccessCallBack(response){
