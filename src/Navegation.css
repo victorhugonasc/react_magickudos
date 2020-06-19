@@ -1,6 +1,6 @@
 
 .bg-dark {
-    background-color: #1da88a !important;
+    background-color: var(--nav-footer-color)!important;
 }
 
 .navbar-brand {
