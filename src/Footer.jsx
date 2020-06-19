@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {MDBContainer, MDBFooter,MDBRow,MDBCol} from "mdbreact";
+import {MDBFooter} from "mdbreact";
 import './Footer.css';
 
 class Footer extends Component {
