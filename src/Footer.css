@@ -1,0 +1,43 @@
+.font-small{
+    background-color: var(--nav-footer-color);
+    color: white;
+    font-size: 20px;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 40px;
+}
+
+.py-3,.pt-4, .py-4  {
+    padding-top: 0rem !important;
+}
+
+.iconsRef {
+    position: absolute;
+    left: 5vw;
+}
+
+.copyright {
+    position: absolute;
+    margin-left: 45vw;
+}
+
+.feedback {
+    position: absolute;
+    right: 5vw;
+}
+
+.iconsRef a,
+.copyright a,
+.feedback a {
+    text-decoration: none;
+    color: white;
+}
+
+.iconsRef a:hover,
+.copyright a:hover,
+.feedback a:hover {
+    font-size: 150%; 
+    transition: 0.5s; 
+}
