@@ -6,26 +6,28 @@
     grid-template-areas: "left-droppable" "right-droppable";
 }
 
-#left-drop,#right-drop {
+#left-drop{
     width: 100%;
-    height: 100;
+    height: 100%;
 }
 
-.left-main-div:hover,
-#right-drop:hover {
-    background-color: #d7dddd;
-    
-}
-
-.drag-div{
-    position: absolute;
-    margin-left: 9%;
-    margin-top: 5%;
+#right-drop {
+    width: 100%;
+    height: 100%;
+    z-index: 1;
 }
 
 .title-message {
-    margin-top: 20px;
     font-family: 'Amatic SC', cursive;
     font-size: 48px;
+    width: 100%;
+    height: 50px;
 }
 
+#right-drop .greatJob,
+#right-drop .congrats,
+#right-drop .veryAwesome,
+#right-drop .thankYou,
+#right-drop .staySafe {
+    z-index: -1;
+}

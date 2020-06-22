@@ -33,13 +33,21 @@ class KudoCard extends Component{
         default: break;
         }
     }
+
+    drag = (event) => {
+        event.dataTransfer.setData('transfer',event.target.id);
+    }
+
+    noAllowDrop = (event) => {
+        event.stopPropagation();
+    }
     
     render() {
         const kudo = this.props.kudo;
         const IMG_CARD = kudo.layout + "-image";
 
         return(
-            <div className= {kudo.layout}>
+            <div className= {kudo.layout} id = {this.props.id} draggable="true" onDragStart={this.drag} onDragOver={this.noAllowDrop}>
                 <div className={IMG_CARD}>
                     <h5 className="card-type">{this.getLayout(kudo.layout)}</h5>
                     <Figure >
