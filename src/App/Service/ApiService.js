@@ -1,11 +1,8 @@
 import axios from 'axios';
-import {BACKEND_DOMAIN} from '../../Routes';
-require('dotenv').config();
 
 export default class ApiService {
 
     static doGet(path,params) {
-        
        return ApiService.doRequest("get", path, params); 
     }
 
@@ -15,7 +12,7 @@ export default class ApiService {
 
     static doRequest(httpMethod, path, params)
     {
-        return axios[httpMethod](BACKEND_DOMAIN + path, params).then(ApiService.handleSuccessCallBack).catch(ApiService.handleFailureCallBack);
+        return axios[httpMethod](process.env.REACT_APP_BACKEND_DOMAIN + path, params).then(ApiService.handleSuccessCallBack).catch(ApiService.handleFailureCallBack);
     }
 
     static handleSuccessCallBack(response){
