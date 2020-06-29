@@ -85,7 +85,12 @@
 }
 
 .card-type {
-    font-size: 56px;
+    font-size: 50px;
+}
+
+.figure {
+    height: 160px;
+    width: 160px;
 }
 
 .card-from-to {
