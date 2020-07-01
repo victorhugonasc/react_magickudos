@@ -18,25 +18,18 @@
     left: 5vw;
 }
 
-.copyright {
-    position: absolute;
-    margin-left: 45vw;
-}
-
 .feedback {
     position: absolute;
     right: 5vw;
 }
 
 .iconsRef a,
-.copyright a,
 .feedback a {
     text-decoration: none;
     color: white;
 }
 
 .iconsRef a:hover,
-.copyright a:hover,
 .feedback a:hover {
     font-size: 150%; 
     transition: 0.5s; 
