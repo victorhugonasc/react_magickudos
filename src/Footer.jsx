@@ -7,8 +7,8 @@ class Footer extends Component {
     {
         return (
             <MDBFooter color="blue" className="font-small pt-4 mt-4">
-                  <div className="iconsRef">Icons made by <a href="https://www.artstation.com/pedrocruzc">Pedro Carvalho</a></div>
-                    <div className="copyright">&copy; {new Date().getFullYear()} Copyright: <a href="https://www.daitan.com/"> Daitan Group </a></div>
+                    <div className="iconsRef">Icons made by <a href="https://www.artstation.com/pedrocruzc">Pedro Carvalho</a></div>
+                   
                     <div className="feedback"><a href="https://forms.gle/8nN5u8vGsJJpBJbw6"> Give us a feedback </a></div>
           </MDBFooter>
         );
