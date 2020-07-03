@@ -18,18 +18,25 @@
     left: 5vw;
 }
 
+.openSource {
+    position: absolute;
+    margin-left: 45vw;
+}
+
 .feedback {
     position: absolute;
     right: 5vw;
 }
 
 .iconsRef a,
+.openSource a,
 .feedback a {
     text-decoration: none;
     color: white;
 }
 
 .iconsRef a:hover,
+.openSource a:hover,
 .feedback a:hover {
     font-size: 150%; 
     transition: 0.5s; 
