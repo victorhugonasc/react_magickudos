@@ -3,11 +3,11 @@ import formatDate from './FormatDate';
 import TextEllipsis from 'react-text-ellipsis';
 import './KudoCard.css';
 import Figure from 'react-bootstrap/Figure';
-import greatJobImage from '../../../Images/Miniatures/greatJob.png';
-import congratsImage from '../../../Images/Miniatures/congrats.png';
-import veryAwesomeImage from '../../../Images/Miniatures/awesome.png';
-import thankYouImage from '../../../Images/Miniatures/thankYou.png';
-import staySafeImage from '../../../Images/Miniatures/staySafe.png';
+import greatJobImage from '../../../Images/Cards/greatJob.png';
+import congratsImage from '../../../Images/Cards/congrats.png';
+import veryAwesomeImage from '../../../Images/Cards/awesome.png';
+import thankYouImage from '../../../Images/Cards/thankYou.png';
+import staySafeImage from '../../../Images/Cards/staySafe.png';
 
 class KudoCard extends Component{
     

@@ -5,6 +5,8 @@ import Footer from './Footer';
 import { BrowserRouter as Router} from "react-router-dom";
 import './App.css';
 
+require('dotenv').config();
+
 export default class App extends Component {
   
   componentDidMount() {
