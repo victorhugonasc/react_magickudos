@@ -5,9 +5,9 @@ import {CREATE_USER,ADD_USER,FAILED_TO_CREATE_USER} from './CreateUserActions';
 export const initialState = {
   user:{
     name:"",
-    user:"",
     email:"",
     password:"",
+    tags: []
   },
   fetch: false,
   error: false,

@@ -18,7 +18,7 @@
     left: 5vw;
 }
 
-.copyright {
+.openSource {
     position: absolute;
     margin-left: 45vw;
 }
@@ -29,14 +29,14 @@
 }
 
 .iconsRef a,
-.copyright a,
+.openSource a,
 .feedback a {
     text-decoration: none;
     color: white;
 }
 
 .iconsRef a:hover,
-.copyright a:hover,
+.openSource a:hover,
 .feedback a:hover {
     font-size: 150%; 
     transition: 0.5s; 

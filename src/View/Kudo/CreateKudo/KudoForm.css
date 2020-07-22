@@ -13,6 +13,8 @@
 
 .login-default {
     background: var(--main-color-default);
+    width: 100%;
+    height: 100%;
    
 }
 
@@ -42,6 +44,7 @@
 }
 
 .fields {
+    width: 100%;
     padding: 20px 5px 5px 5px;
 }
 

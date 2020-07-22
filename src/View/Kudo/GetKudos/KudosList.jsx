@@ -26,13 +26,11 @@ class KudosList extends Component{
                     </Droppable>
                 </div>
                 
-
                 <div className= "right-main-div">
                     <h5 className="title-message">Have been read</h5>
                     <Droppable id = "right-drop" >
                     </Droppable>
                 </div>
-               
             </div>
         );
     }
