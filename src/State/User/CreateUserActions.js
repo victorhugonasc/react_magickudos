@@ -1,6 +1,6 @@
 import UserService from '../../App/Service/User/UserService';
 import StoreService from '../../App/Service/Utils/StoreService';
-
+import {getKudos} from '../../Routes';
 
 export const CREATE_USER = "CREATE_USER";
 export const ADD_USER = "ADD_USER";
@@ -20,7 +20,7 @@ export function createUser(user){
 }
 
 export function addUser(user){
-    alert("User created");
+    window.location.href = process.env.REACT_APP_FRONTEND_DOMAIN + getKudos;
     return{
         type: ADD_USER,
         value: user,

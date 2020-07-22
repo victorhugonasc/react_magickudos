@@ -21,7 +21,6 @@ export function createKudo(kudo){
 }
 
 export function addKudo(kudo){
-    console.log(process.env.REACT_APP_FRONTEND_DOMAIN);
     window.location.href = process.env.REACT_APP_FRONTEND_DOMAIN + getKudos;
     return{
         type: ADD_KUDO,

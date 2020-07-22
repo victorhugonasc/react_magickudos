@@ -1,7 +1,72 @@
+.divTag{
+    grid-template-areas:
+    'tag tag tag addTag'
+    'getTags getTags getTags getTags ';
+    width: 100%;
+    height: 150px;
+}
 
-#inputName,#inputUser,#inputEmail,#inputPassword {
+#inputTag {
+    grid-area: tag;
+}
+
+#inputName,#inputUser,#inputEmail,#inputPassword,#inputTag {
     margin-bottom: 30px;
     border-radius: 25px;
     box-shadow: inset 8px 8px 8px var(--box-shallow-first),
                 inset -8px -8px 8px var(--box-shallow-second);
+
+    border-radius: 25px;
+    font-family: 'Amatic SC', cursive;
+    font-size: 26px;
+    margin-left: 150px;
+    width: 400px;
+    height: 70px;
+    
+    box-shadow: inset 8px 8px 8px var(--box-shallow-first),
+    inset -8px -8px 8px var(--box-shallow-second);
+    
+}
+
+.createButton{
+    outline: none;
+    border: none;
+    cursor: pointer;
+    margin-left: 150px;
+    width: 400px;
+    height: 70px;
+    border-radius: 30px;
+    font-size: 40px;
+    font-weight: 700;
+    font-family: 'Amatic SC', cursive;
+    text-align: center;
+    color: var(--box-shallow-second);
+    transition: 0.5s;  
+    background-color: var(--button-color-default);
+}
+
+ .tagButton {
+    grid-area: addTag;
+    border:none;
+    transition: 0.5s;
+    font-size: 26px;
+    font-weight: 700;
+    font-family: 'Amatic SC', cursive;
+    text-align: center;
+    background-color: var(--button-color-default);
+    color: white;
+    margin-left: 15px;
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+}
+
+.createButton:hover,
+.tagButton:hover {
+    background: var(--hover-color-default);
+}
+
+
+.allTags{
+    grid-area: getTags;
 }
