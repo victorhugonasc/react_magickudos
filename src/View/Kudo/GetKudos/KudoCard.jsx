@@ -18,7 +18,6 @@ class KudoCard extends Component{
     }
     
     getLayout = (layout) => {
-        console.log("layout",layout);
         switch(layout) {
             case "greatJob": return "GREAT JOB";
             case "congrats": return "CONGRATULATIONS";
@@ -26,20 +25,6 @@ class KudoCard extends Component{
             case "thankYou": return "THANK YOU";
             case "staySafe": return "STAY SAFE";
         default: break;
-        }
-    }
-    
-    getType = (layout) => {
-        const types = this.state.types;
-       // console.log("antes",types);
-        for (let i in types) {
-           if(types[i] !== layout){
-                let type = types[i];
-                types.splice(i,1);
-          //      console.log("depois",types);
-                this.setState(() => ({types:types}));
-                return type;
-           }
         }
     }
 
@@ -61,6 +46,26 @@ class KudoCard extends Component{
     noAllowDrop = (event) => {
         event.stopPropagation();
     }
+
+    updateLayout = (text) => {
+        let layout;
+        switch(text) {
+            case "GREAT JOB": layout = "greatJob"; break;
+            case "CONGRATULATIONS": layout = "congrats"; break;
+            case "VERY AWESOME": layout = "veryAwesome"; break;
+            case "THANK YOU": layout = "thankYou"; break;
+            case "STAY SAFE": layout = "staySafe"; break;
+        default: break;
+        }
+
+        this.setState((prevState) => ({
+            kudo: {
+                ...prevState.kudo,
+                layout: layout,
+            },
+        }));
+    };
+
 
     updateSender = (value) => {
         this.setState((prevState) => ({
@@ -93,12 +98,11 @@ class KudoCard extends Component{
         this.setState({
             isInEditMode: !this.state.isInEditMode
         })
-        console.log("Edit mode on");
     }
 
     renderEditView = (kudo,IMG_CARD) => {
         return(
-            <div className= {kudo.layout} id = {this.props.id} draggable="true" onDragStart={this.drag} onDragOver={this.noAllowDrop}>
+            <div className= {kudo.layout} id = {this.props.id} draggable="true" onDragStart={this.drag} onDragOver={this.noAllowDrop} onDoubleClick={this.changeEditMode}>
             <div className={IMG_CARD}>
                
                 <Dropdown>
@@ -106,12 +110,12 @@ class KudoCard extends Component{
                         <h5 className="card-type">{this.getLayout(kudo.layout)}</h5>
                     </Dropdown.Toggle>
 
-                    <Dropdown.Menu>
-                        <Dropdown.Item href="#/action-1">{this.getLayout(kudo.layout)}</Dropdown.Item>
-                        <Dropdown.Item href="#/action-2">{this.getType(kudo.layout)}</Dropdown.Item>
-                        <Dropdown.Item href="#/action-3">{this.getType(kudo.layout)}</Dropdown.Item>
-                        <Dropdown.Item href="#/action-4">{this.getType(kudo.layout)}</Dropdown.Item>
-                        <Dropdown.Item href="#/action-5">{this.getType(kudo.layout)}</Dropdown.Item>
+                    <Dropdown.Menu onClick={event => this.updateLayout(event.target.text)}>
+                        <Dropdown.Item >{this.getLayout(this.state.types[0])}</Dropdown.Item>
+                        <Dropdown.Item >{this.getLayout(this.state.types[1])}</Dropdown.Item>
+                        <Dropdown.Item >{this.getLayout(this.state.types[2])}</Dropdown.Item>
+                        <Dropdown.Item >{this.getLayout(this.state.types[3])}</Dropdown.Item>
+                        <Dropdown.Item >{this.getLayout(this.state.types[4])}</Dropdown.Item>
                     </Dropdown.Menu>
                 </Dropdown>
                 <Figure >
@@ -146,7 +150,7 @@ class KudoCard extends Component{
 
     renderDefaultView = (kudo,IMG_CARD) => {
         return(
-            <div className= {kudo.layout} id = {this.props.id} draggable="true" onDragStart={this.drag} onDragOver={this.noAllowDrop}>
+            <div className= {kudo.layout} id = {this.props.id} draggable="true" onDragStart={this.drag} onDragOver={this.noAllowDrop} onDoubleClick={this.changeEditMode}>
             <div className={IMG_CARD}>
                 <h5 className="card-type">{this.getLayout(kudo.layout)}</h5>
                 <Figure >
