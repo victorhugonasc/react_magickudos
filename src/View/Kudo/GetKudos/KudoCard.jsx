@@ -14,6 +14,8 @@ class KudoCard extends Component{
     state = {
         kudo: this.props.kudo,
         isInEditMode: false,
+        inputMaxLength: 70,
+        messageMaxLength: 280,
         types:["greatJob","congrats","veryAwesome","thankYou","staySafe"],
     }
     
@@ -102,7 +104,7 @@ class KudoCard extends Component{
 
     renderEditView = (kudo,IMG_CARD) => {
         return(
-            <div className= {kudo.layout} id = {this.props.id} draggable="true" onDragStart={this.drag} onDragOver={this.noAllowDrop} onDoubleClick={this.changeEditMode}>
+            <div className= {kudo.layout} id = {this.props.id} draggable="false" onDragStart={this.drag} onDragOver={this.noAllowDrop} onDoubleClick={this.changeEditMode}>
             <div className={IMG_CARD}>
                
                 <Dropdown>
@@ -130,18 +132,17 @@ class KudoCard extends Component{
             </div>
              
             <div className="card-from-to">
-                <h4>From: <input type="text" defaultValue={kudo.sender} onChange={event => this.updateSender(event.target.value)}/></h4>
-                <h4>To: <input type="text" defaultValue={kudo.receiver} onChange={event => this.updateReceiver(event.target.value)}/></h4>
+                <h4>From: <input type="text" defaultValue={kudo.sender} maxLength={this.state.inputMaxLength} onChange={event => this.updateSender(event.target.value)}/></h4>
+                <h4>To: <input type="text" defaultValue={kudo.receiver} maxLength={this.state.inputMaxLength} onChange={event => this.updateReceiver(event.target.value)}/></h4>
             </div>    
 
             <div className="card-message" >
                 <TextEllipsis lines={6} tag={'p'} ellipsisChars={'...'}>
-                    <span className = "quotes">" </span><input type="text" defaultValue={kudo.message} onChange={event => this.updateMessage(event.target.value)} /><span className = "unquotes"> "</span>
+                    <span className = "quotes">" </span><input type="text" defaultValue={kudo.message} maxLength={this.state.messageMaxLength} onChange={event => this.updateMessage(event.target.value)} /><span className = "unquotes"> "</span>
                 </TextEllipsis>
             </div>
 
             <div className="card-date">
-            <button className="editButton" onClick={this.changeEditMode}>Unedit</button>
                 <h5>{formatDate(kudo.date)}</h5>
             </div>   
         </div>
@@ -176,7 +177,6 @@ class KudoCard extends Component{
             </div>
 
             <div className="card-date">
-                <button className="editButton" onClick={this.changeEditMode}>Edit</button>
                 <h5>{formatDate(kudo.date)}</h5>
             </div>   
         </div>

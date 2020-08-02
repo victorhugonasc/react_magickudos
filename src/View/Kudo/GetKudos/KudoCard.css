@@ -84,6 +84,20 @@
     background-size: 100% 100%;
 }
 
+.dropdown{
+    height: 60px;
+}
+
+.dropdown-toggle{
+    height: 60px;
+}
+
+.btn-success {
+   /* color: var(--bg-field-color-default);*/
+    background-color: none;
+    border-color: var(--bg-field-color-default);
+}
+
 .card-type {
     font-size: 50px;
 }
@@ -99,6 +113,11 @@
     font-size: 20px;
     text-align: left;
     margin-left: 5%;
+}
+
+.card-from-to input {
+    height: 30px;
+    width: 450px;
 }
 
 .greatJob .card-message{
@@ -136,10 +155,15 @@
     margin-top: 15px;
 }
 
+.card-message input {
+    width: 585px;
+    height: 115px;
+}
+
 .card-date {
     grid-area: stats;
     display: grid;
-    grid-template-columns: 50% 50%;
+    grid-template-columns: 1fr;
     grid-template-rows: 1fr;
     border-bottom-left-radius: 18px;
     border-bottom-right-radius: 18px;
@@ -148,15 +172,8 @@
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 9);
 }
 
- .editButton {
-    margin-left: 5%;
-    width: 5%;
-    height: 100%;
-}
-
 .card-date h5 {
     font-size: 26px;
-    width: 100px;
     height: 100%;
     color: white;
     text-align: right;
