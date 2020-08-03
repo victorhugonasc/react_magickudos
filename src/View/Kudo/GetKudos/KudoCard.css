@@ -155,9 +155,10 @@
     margin-top: 15px;
 }
 
-.card-message input {
-    width: 585px;
-    height: 115px;
+.card-message textarea {
+    width: 100%;
+    height: 100%;
+    font-size: 30px;
 }
 
 .card-date {

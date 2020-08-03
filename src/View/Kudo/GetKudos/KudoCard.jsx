@@ -49,6 +49,10 @@ class KudoCard extends Component{
         event.stopPropagation();
     }
 
+    requestUpdate = () => {
+        console.log("fazUpdate - ",this.state.isInEditMode );
+    }
+
     updateLayout = (text) => {
         let layout;
         switch(text) {
@@ -70,12 +74,14 @@ class KudoCard extends Component{
 
 
     updateSender = (value) => {
+        
         this.setState((prevState) => ({
             kudo: {
                 ...prevState.kudo,
                 sender: value,
             },
         }));
+
     };
 
     updateReceiver = (value) => {
@@ -99,7 +105,8 @@ class KudoCard extends Component{
     changeEditMode = () => {
         this.setState({
             isInEditMode: !this.state.isInEditMode
-        })
+        },this.requestUpdate());
+
     }
 
     renderEditView = (kudo,IMG_CARD) => {
@@ -132,13 +139,13 @@ class KudoCard extends Component{
             </div>
              
             <div className="card-from-to">
-                <h4>From: <input type="text" defaultValue={kudo.sender} maxLength={this.state.inputMaxLength} onChange={event => this.updateSender(event.target.value)}/></h4>
+                <h4>From: <input type="text" defaultValue={kudo.sender} maxLength={this.state.inputMaxLength} onLoad={console.log("a - ",this.state.kudo.sender)} onChange={event => this.updateSender(event.target.value)}/></h4>
                 <h4>To: <input type="text" defaultValue={kudo.receiver} maxLength={this.state.inputMaxLength} onChange={event => this.updateReceiver(event.target.value)}/></h4>
             </div>    
 
             <div className="card-message" >
                 <TextEllipsis lines={6} tag={'p'} ellipsisChars={'...'}>
-                    <span className = "quotes">" </span><input type="text" defaultValue={kudo.message} maxLength={this.state.messageMaxLength} onChange={event => this.updateMessage(event.target.value)} /><span className = "unquotes"> "</span>
+                    <textarea type="text" rows="7" cols="40" defaultValue={kudo.message} maxLength={this.state.messageMaxLength} onChange={event => this.updateMessage(event.target.value)} />
                 </TextEllipsis>
             </div>
 
