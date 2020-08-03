@@ -37,6 +37,7 @@
     "dotenv": "^8.2.0",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
+    "firebase": "^7.17.1",
     "mdbreact": "^4.27.0",
     "node-sass": "^4.14.1",
     "react-text-ellipsis": "^1.6.0",
