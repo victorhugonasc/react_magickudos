@@ -6,13 +6,19 @@ import './Droppable.css';
 
 class KudosList extends Component{
 
-    constructor (){
-        super();
+    constructor (props){
+        super(props);
         this.renderRows = this.renderRows.bind(this);
+        this.updateKudo = this.updateKudo.bind(this);
     }
 
     componentDidMount() {
         this.props.fetchKudos();
+    }
+
+    updateKudo = (kudo) => {
+        console.log("updateKUdo", kudo);
+        //this.props.updateKudo(kudo);
     }
 
     render() { 
@@ -44,12 +50,13 @@ class KudosList extends Component{
         return (
              <KudoCard kudo={kudo} id={kudo.id} key={kudo.id}/>
         );
-    }
+    } 
 }
 
 KudosList.propTypes = {
     kudos: PropTypes.array.isRequired,
-    fetchKudos: PropTypes.func.isRequired
+    fetchKudos: PropTypes.func.isRequired,
+    updateKudo: PropTypes.func.isRequired
 }
 
 export default KudosList;

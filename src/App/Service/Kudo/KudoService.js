@@ -11,6 +11,10 @@ class KudoService{
     getKudos(params){
         return ApiService.doGet(PATH,params);
     }
+
+    updateKudos(params){
+        return ApiService.doPut(PATH,params);
+    }
 }
 
 export default new KudoService();
