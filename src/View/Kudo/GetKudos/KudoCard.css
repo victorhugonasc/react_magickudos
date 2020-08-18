@@ -99,7 +99,12 @@
     height: 50px;
 }
 
-.newImageFigure{
+.newImageFigure-yes{
+    grid-area: figure;
+    visibility: hidden;
+}
+
+.newImageFigure-no{
     grid-area: figure;
 }
 

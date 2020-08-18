@@ -11,6 +11,16 @@ import staySafeImage from '../../../Images/Cards/staySafe.png';
 import newImage from '../../../Images/Cards/new.png';
 
 class KudoCard extends Component{
+
+    INICIAL_STATE = {
+        newImage: "newImageFigure-",
+    };
+
+
+    constructor (props) {
+        super(props);
+        this.state = this.INICIAL_STATE;
+    }
     
     getLayout = (layout) => {
         
@@ -46,16 +56,15 @@ class KudoCard extends Component{
     render() {
         const kudo = this.props.kudo;
         console.log(kudo.stored);
+       
         const IMG_CARD = kudo.layout + "-image";
         
-        
-
         return(
             <div className= {kudo.layout} id = {this.props.id} draggable="true" onDragStart={this.drag} onDragOver={this.noAllowDrop}>
                 <div className={IMG_CARD}>
                     <div className="type-figure">
                         <h5 className="card-type">{this.getLayout(kudo.layout)}</h5>
-                        <img className="newImageFigure" alt="new" src={newImage} draggable="false"/> 
+                        <img className={"newImageFigure-" + kudo.stored} alt="new" src={newImage} draggable="false"/> 
                     </div>
 
                     <Figure className="KudoFigure">
