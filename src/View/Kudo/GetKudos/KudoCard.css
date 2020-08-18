@@ -84,8 +84,23 @@
     background-size: 100% 100%;
 }
 
+.type-figure{
+    width: 600px;
+    height: 50px;
+    display: grid;
+    grid-template-areas:
+      'type type type type type figure';
+}
+
 .card-type {
+    grid-area: type;
     font-size: 50px;
+    width: 550px;
+    height: 50px;
+}
+
+.newImageFigure{
+    grid-area: figure;
 }
 
 .figure {
@@ -181,4 +196,7 @@
     font-size: 200%;
 }
 
-  
+.KudoFigure{
+    width: 160px;
+    height: 100px;
+}
