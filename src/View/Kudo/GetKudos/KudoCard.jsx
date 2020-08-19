@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import formatDate from './FormatDate';
 import TextEllipsis from 'react-text-ellipsis';
 import './KudoCard.css';
-import Figure from 'react-bootstrap/Figure';
 import greatJobImage from '../../../Images/Cards/greatJob.png';
 import congratsImage from '../../../Images/Cards/congrats.png';
 import veryAwesomeImage from '../../../Images/Cards/awesome.png';
@@ -12,16 +11,6 @@ import newImage from '../../../Images/Cards/new.png';
 
 class KudoCard extends Component{
 
-    INICIAL_STATE = {
-        newImage: "newImageFigure-",
-    };
-
-
-    constructor (props) {
-        super(props);
-        this.state = this.INICIAL_STATE;
-    }
-    
     getLayout = (layout) => {
         
         switch(layout) {
@@ -55,27 +44,14 @@ class KudoCard extends Component{
     
     render() {
         const kudo = this.props.kudo;
-        console.log(kudo.stored);
-       
-        const IMG_CARD = kudo.layout + "-image";
-        
         return(
             <div className= {kudo.layout} id = {this.props.id} draggable="true" onDragStart={this.drag} onDragOver={this.noAllowDrop}>
-                <div className={IMG_CARD}>
+                <div className={kudo.layout + "-image"}>
                     <div className="type-figure">
+                        <img className={"newImageFigure-" + kudo.stored} alt="new" src={newImage} draggable="false"/>
                         <h5 className="card-type">{this.getLayout(kudo.layout)}</h5>
-                        <img className={"newImageFigure-" + kudo.stored} alt="new" src={newImage} draggable="false"/> 
                     </div>
-
-                    <Figure className="KudoFigure">
-                         <Figure.Image
-                            width={160}
-                            height={160}
-                            src={this.getImage(kudo.layout)}
-                            draggable="false"
-                        />
-                    </Figure>
-                    
+                    <img className={"KudoFigure"} alt="kudoFigure" src={this.getImage(kudo.layout)} draggable="false"/>  
                 </div>
                  
                 <div className="card-from-to" >
