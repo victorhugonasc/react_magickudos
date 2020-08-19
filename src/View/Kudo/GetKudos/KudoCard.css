@@ -84,8 +84,24 @@
     background-size: 100% 100%;
 }
 
+.type-figure{
+    height: 60px;
+    display: grid;
+}
+
 .card-type {
+    grid-area: type;
     font-size: 50px;
+    width: 600px;
+}
+
+.newImageFigure-yes{
+    grid-area: figure;
+    visibility: hidden;
+}
+
+.newImageFigure-no{
+    grid-area: figure;
 }
 
 .figure {
@@ -99,6 +115,11 @@
     font-size: 20px;
     text-align: left;
     margin-left: 5%;
+    height: 60px;
+}
+
+.card-from-to h4{
+    height: 30px;
 }
 
 .greatJob .card-message{
@@ -181,4 +202,7 @@
     font-size: 200%;
 }
 
-  
+.KudoFigure{
+    width: 160px;
+    height: 100px;
+}
