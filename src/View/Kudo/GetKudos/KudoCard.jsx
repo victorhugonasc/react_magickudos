@@ -9,6 +9,9 @@ import congratsImage from '../../../Images/Cards/congrats.png';
 import veryAwesomeImage from '../../../Images/Cards/awesome.png';
 import thankYouImage from '../../../Images/Cards/thankYou.png';
 import staySafeImage from '../../../Images/Cards/staySafe.png';
+import trashCanImage from '../../../Images/Cards/trashCan.png';
+import editImage from '../../../Images/Cards/edit.png';
+import noEditImage from '../../../Images/Cards/noEdit.png';
 
 class KudoCard extends Component{
     state = {
@@ -116,7 +119,7 @@ class KudoCard extends Component{
 
     renderEditView = (kudo,IMG_CARD) => {
         return(
-            <div className= {kudo.layout} id = {this.props.id} draggable="false" onDragStart={this.drag} onDragOver={this.noAllowDrop} onDoubleClick={this.changeEditMode}>
+            <div className= {kudo.layout} id = {this.props.id} draggable="false" onDragStart={this.drag} onDragOver={this.noAllowDrop}>
             <div className={IMG_CARD}>
                
                 <Dropdown>
@@ -155,7 +158,12 @@ class KudoCard extends Component{
             </div>
 
             <div className="card-date">
-                <h5>{formatDate(kudo.date)}</h5>
+                <div className="clickables">
+                    <img className="trashCan" alt="trashCan" src={trashCanImage} draggable="false"/>
+                    <img className="edit" alt="noEdit" src={noEditImage} draggable="false" onClick={this.changeEditMode}/>
+                </div>
+                
+                <h5 className="formatDate">{formatDate(kudo.date)}</h5>
             </div>   
         </div>
         )   
@@ -163,7 +171,7 @@ class KudoCard extends Component{
 
     renderDefaultView = (kudo,IMG_CARD) => {
         return(
-            <div className= {kudo.layout} id = {this.props.id} draggable="true" onDragStart={this.drag} onDragOver={this.noAllowDrop} onDoubleClick={this.changeEditMode}>
+            <div className= {kudo.layout} id = {this.props.id} draggable="true" onDragStart={this.drag} onDragOver={this.noAllowDrop}>
             <div className={IMG_CARD}>
                 <h5 className="card-type">{this.getLayout(kudo.layout)}</h5>
                 <Figure >
@@ -189,7 +197,12 @@ class KudoCard extends Component{
             </div>
 
             <div className="card-date">
-                <h5>{formatDate(kudo.date)}</h5>
+                <div className="clickables">
+                    <img className="trashCan" alt="trashCan" src={trashCanImage} draggable="false"/>
+                    <img className="edit" alt="edit" src={editImage} draggable="false" onClick={this.changeEditMode}/>
+                </div>
+                
+                <h5 className="formatDate">{formatDate(kudo.date)}</h5>
             </div>   
         </div>
         )   
