@@ -1,11 +1,12 @@
 
-import {FETCH_KUDOS, LOAD_KUDOS,UPDATE_KUDO,REQUEST_TO_UPDATE_KUDO,FAILED_KUDOS} from './GetKudosActions';
+import {FETCH_KUDOS, LOAD_KUDOS,UPDATE_KUDO,REQUEST_TO_UPDATE_KUDO,DELETE_KUDO,REQUEST_TO_REMOVE_KUDO,FAILED_KUDOS} from './GetKudosActions';
 
 
 export const initialState = {
   kudos:[],
   fetch: false,
-  updating: false,
+  update: false,
+  delete: true,
   error: false,
 }
 
@@ -22,11 +23,17 @@ export const initialState = {
     case LOAD_KUDOS:
       return Object.assign({},state, {kudos:action.value, fetch: false, error:false,});
 
-      case UPDATE_KUDO:
-      return Object.assign({},state, {updating: true, error:false });
+    case UPDATE_KUDO:
+      return Object.assign({},state, {update: true, error:false });
+
+    case DELETE_KUDO:
+      return Object.assign({},state, {delete: true, error:false });
 
     case REQUEST_TO_UPDATE_KUDO:
-      return Object.assign({},state, {kudos:action.value, updating: false, error:false,});
+      return Object.assign({},state, {kudos:action.value, update: false, error:false,});
+
+    case REQUEST_TO_REMOVE_KUDO:
+      return Object.assign({},state, {kudos:action.value, delete: false, error:false,});  
 
     case FAILED_KUDOS:
       return Object.assign({},state, {fetch: false, error:true });

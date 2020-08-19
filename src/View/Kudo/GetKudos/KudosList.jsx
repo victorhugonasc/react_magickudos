@@ -16,11 +16,6 @@ class KudosList extends Component{
         this.props.fetchKudos();
     }
 
-    updateKudo = (kudo) => {
-        console.log("updateKUdo", kudo);
-        //this.props.updateKudo(kudo);
-    }
-
     render() { 
         const rows = this.renderRows(this.props.kudos);
         return(
@@ -48,9 +43,22 @@ class KudosList extends Component{
 
     renderRow(kudo) {
         return (
-             <KudoCard kudo={kudo} id={kudo.id} key={kudo.id}/>
+             <KudoCard kudo={kudo} id={kudo.id} key={kudo.id} />
         );
-    } 
+    }
+
+    updateKudo = (kudo) => {
+        console.log("updateKUdo", kudo);
+        //this.props.updateKudo(kudo);
+    }
+    
+    deleteKudo(kudo) {
+        this.props.deleteKudo(kudo);
+    }
+
+    /*deleteKudo = (kudo) => {
+        this.props.deleteKudo(kudo);
+    }*/
 }
 
 KudosList.propTypes = {

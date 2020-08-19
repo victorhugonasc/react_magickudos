@@ -1,5 +1,5 @@
 
-import {fetchKudos,updateKudo} from '../../../State/Kudo/GetKudosActions';
+import {fetchKudos,updateKudo,deleteKudo} from '../../../State/Kudo/GetKudosActions';
 import {connect} from 'react-redux';
 import KudosList from './KudosList';
 
@@ -12,7 +12,8 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
     return {
         fetchKudos: () => dispatch(fetchKudos()),
-        updateKudo: kudo => dispatch(updateKudo(kudo))
+        updateKudo: kudo => dispatch(updateKudo(kudo)),
+        deleteKudo: kudo => dispatch(deleteKudo(kudo))
     }
 }
 

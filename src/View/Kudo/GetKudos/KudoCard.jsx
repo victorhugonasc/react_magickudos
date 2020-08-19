@@ -58,7 +58,11 @@ class KudoCard extends Component{
             console.log(this.state.kudo);
             //this.props.updateKudo(this.state.kudo);
         }
-        
+    }
+
+    deleteKudo = () => {
+        console.log("delete kudo - ",this.state.kudo );
+        this.props.deleteKudo(this.state.kudo);
     }
 
     updateLayout = (text) => {
@@ -159,7 +163,7 @@ class KudoCard extends Component{
 
             <div className="card-date">
                 <div className="clickables">
-                    <img className="trashCan" alt="trashCan" src={trashCanImage} draggable="false"/>
+                    <img className="trashCan" alt="trashCan" src={trashCanImage} draggable="false" onClick={this.deleteKudo}/>
                     <img className="edit" alt="noEdit" src={noEditImage} draggable="false" onClick={this.changeEditMode}/>
                 </div>
                 
@@ -198,7 +202,7 @@ class KudoCard extends Component{
 
             <div className="card-date">
                 <div className="clickables">
-                    <img className="trashCan" alt="trashCan" src={trashCanImage} draggable="false"/>
+                    <img className="trashCan" alt="trashCan" src={trashCanImage} draggable="false" onClick={this.deleteKudo}/>
                     <img className="edit" alt="edit" src={editImage} draggable="false" onClick={this.changeEditMode}/>
                 </div>
                 

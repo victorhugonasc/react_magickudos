@@ -5,6 +5,8 @@ export const FETCH_KUDOS = "FETCH_KUDOS";
 export const LOAD_KUDOS = "LOAD_KUDOS";
 export const UPDATE_KUDO = "UPDATE_KUDO";
 export const REQUEST_TO_UPDATE_KUDO = "REQUEST_TO_UPDATE_KUDO";
+export const DELETE_KUDO = "DELETE_KUDO";
+export const REQUEST_TO_REMOVE_KUDO = "REQUEST_TO_REMOVE_KUDO";
 export const FAILED_KUDOS = "FAILED_KUDOS";
 
 export function fetchKudos(){
@@ -45,6 +47,27 @@ export function requestToUpdateKudo(kudo){
    
     return{
         type: REQUEST_TO_UPDATE_KUDO,
+        value: kudo,
+    }
+}
+
+export function deleteKudo(kudo){
+
+    KudoService.deleteKudo(kudo)
+    .then( 
+        () => {StoreService.dispatchAction(removeKudo(kudo));},
+        (error) => {StoreService.dispatchAction(failedKudos(error));}
+    );
+
+    return{
+        type: DELETE_KUDO,
+    }
+}
+
+export function removeKudo(kudo){
+   
+    return{
+        type: REQUEST_TO_REMOVE_KUDO,
         value: kudo,
     }
 }
