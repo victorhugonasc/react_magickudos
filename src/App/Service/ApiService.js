@@ -11,7 +11,6 @@ export default class ApiService {
     }
 
     static doPut(path,params){
-        console.log('params put',params);
         return ApiService.doRequest("put", path, params); 
     }
 

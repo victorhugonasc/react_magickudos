@@ -53,9 +53,7 @@ class KudoCard extends Component{
     }
 
     requestUpdate = () => {
-        console.log("fazUpdate - ",this.state.isInEditMode );
         if(this.state.isInEditMode) {
-            console.log(this.state.kudo);
             this.props.updateKudo(this.state.kudo);
         }
     }
