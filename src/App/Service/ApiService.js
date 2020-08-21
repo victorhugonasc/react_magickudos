@@ -11,6 +11,7 @@ export default class ApiService {
     }
 
     static doPut(path,params){
+        console.log('params put',params);
         return ApiService.doRequest("put", path, params); 
     }
 
@@ -21,11 +22,11 @@ export default class ApiService {
     static doRequest(httpMethod, path, params)
     {
         if(params) {
-            return axios[httpMethod](process.env.REACT_APP_BACKEND_DOMAIN + path + '/' + params).then(ApiService.handleSuccessCallBack).catch(ApiService.handleFailureCallBack);
+            return axios[httpMethod](process.env.REACT_APP_BACKEND_DOMAIN + path + '/' + params.id,params).then(ApiService.handleSuccessCallBack).catch(ApiService.handleFailureCallBack);
         }
 
         else{
-            return axios[httpMethod](process.env.REACT_APP_BACKEND_DOMAIN + path, params).then(ApiService.handleSuccessCallBack).catch(ApiService.handleFailureCallBack);
+            return axios[httpMethod](process.env.REACT_APP_BACKEND_DOMAIN + path).then(ApiService.handleSuccessCallBack).catch(ApiService.handleFailureCallBack);
         }
         
     }

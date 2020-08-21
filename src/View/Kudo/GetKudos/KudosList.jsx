@@ -10,6 +10,7 @@ class KudosList extends Component{
         super(props);
         this.renderRows = this.renderRows.bind(this);
         this.deleteKudo = this.deleteKudo.bind(this);
+        this.updateKudo = this.updateKudo.bind(this);
     }
 
     componentDidMount() {
@@ -18,6 +19,10 @@ class KudosList extends Component{
 
     deleteKudo (kudo) {
         this.props.deleteKudo(kudo);
+    }
+
+    updateKudo = (kudo) => {
+        this.props.updateKudo(kudo);
     }
 
     render() { 
@@ -48,12 +53,8 @@ class KudosList extends Component{
 
     renderRow(kudo) {
         return (
-             <KudoCard kudo={kudo} id={kudo.id} key={kudo.id} deleteKudo={this.deleteKudo} />
+             <KudoCard kudo={kudo} id={kudo.id} key={kudo.id} deleteKudo={this.deleteKudo} updateKudo={this.updateKudo} />
         );
-    }
-
-    updateKudo = (kudo) => {
-        //this.props.updateKudo(kudo);
     }
 }
 

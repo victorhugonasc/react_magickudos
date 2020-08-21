@@ -12,7 +12,7 @@ class KudoService{
         return ApiService.doGet(PATH,params);
     }
 
-    updateKudos(params){
+    updateKudo(params){
         return ApiService.doPut(PATH,params);
     }
 

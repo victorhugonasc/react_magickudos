@@ -32,7 +32,7 @@ export function loadKudos(kudos){
 
 export function updateKudo(kudo){
 
-    KudoService.updateKudos(kudo)
+    KudoService.updateKudo(kudo)
     .then( 
         () => {StoreService.dispatchAction(requestToUpdateKudo(kudo));},
         (error) => {StoreService.dispatchAction(failedKudos(error));}
@@ -53,7 +53,7 @@ export function requestToUpdateKudo(kudo){
 
 export function deleteKudo(kudo){
 
-    KudoService.deleteKudo(kudo.id)
+    KudoService.deleteKudo(kudo)
     .then( 
         () => {StoreService.dispatchAction(removeKudo(kudo));},
         (error) => {StoreService.dispatchAction(failedKudos(error));}

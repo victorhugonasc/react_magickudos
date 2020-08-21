@@ -30,10 +30,11 @@ export const initialState = {
       return Object.assign({},state, {delete: true, error:false });
 
     case REQUEST_TO_UPDATE_KUDO:
-      return Object.assign({},state, {kudos:action.value, update: false, error:false,});
+      var updated = updateArray(state.kudos, action.value.id);
+      return Object.assign({},state, {kudos:updated, update: false, error:false,});
 
     case REQUEST_TO_REMOVE_KUDO:
-      var filtered = arrayRemove(state.kudos, action.value.id);
+      var filtered = removeFromArray(state.kudos, action.value.id);
       return Object.assign({},state, {kudos:filtered, delete: false, error:false,});  
       
     case FAILED_KUDOS:
@@ -46,8 +47,18 @@ export const initialState = {
 
   }
 
-  function arrayRemove(array, value) {
+  function removeFromArray(array, value) {
     return array.filter(function(element){
        return element.id !== value; 
-     });
- }
+    });
+  }
+
+  function updateArray(array, value) {
+    return array.filter(function(element){
+      if (element.id === value) {
+        return value;
+      } else {
+        return element; 
+      }
+    });
+  }
