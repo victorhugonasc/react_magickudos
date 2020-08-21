@@ -20,10 +20,6 @@ class KudosList extends Component{
         this.props.deleteKudo(kudo);
     }
 
-    /*deleteKudo = (kudo) => {
-        this.props.deleteKudo(kudo);
-    }*/
-
     render() { 
         const rows = this.renderRows(this.props.kudos);
         

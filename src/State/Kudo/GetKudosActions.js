@@ -53,7 +53,7 @@ export function requestToUpdateKudo(kudo){
 
 export function deleteKudo(kudo){
 
-    KudoService.deleteKudo(kudo)
+    KudoService.deleteKudo(kudo.id)
     .then( 
         () => {StoreService.dispatchAction(removeKudo(kudo));},
         (error) => {StoreService.dispatchAction(failedKudos(error));}
