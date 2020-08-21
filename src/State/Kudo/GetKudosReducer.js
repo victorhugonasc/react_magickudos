@@ -33,8 +33,9 @@ export const initialState = {
       return Object.assign({},state, {kudos:action.value, update: false, error:false,});
 
     case REQUEST_TO_REMOVE_KUDO:
-      return Object.assign({},state, {kudos:action.value, delete: false, error:false,});  
-
+      var filtered = arrayRemove(state.kudos, action.value.id);
+      return Object.assign({},state, {kudos:filtered, delete: false, error:false,});  
+      
     case FAILED_KUDOS:
       return Object.assign({},state, {fetch: false, error:true });
       
@@ -45,3 +46,8 @@ export const initialState = {
 
   }
 
+  function arrayRemove(array, value) {
+    return array.filter(function(element){
+       return element.id !== value; 
+     });
+ }

@@ -96,8 +96,6 @@ class UserForm extends Component{
 
         if(this.isTagValid()){
 
-            console.log(this.state.user.tags);
-
             if (this.state.user.tags.length !== 0)
             {
                 this.setState((prevState) => ({

@@ -61,7 +61,6 @@ class KudoCard extends Component{
     }
 
     deleteKudo = () => {
-        console.log("delete kudo - ",this.state.kudo );
         this.props.deleteKudo(this.state.kudo);
     }
 
@@ -151,7 +150,7 @@ class KudoCard extends Component{
             </div>
              
             <div className="card-from-to">
-                <h4>From: <input type="text" defaultValue={kudo.sender} maxLength={this.state.inputMaxLength} onLoad={console.log("a - ",this.state.kudo.sender)} onChange={event => this.updateSender(event.target.value)}/></h4>
+                <h4>From: <input type="text" defaultValue={kudo.sender} maxLength={this.state.inputMaxLength} onChange={event => this.updateSender(event.target.value)}/></h4>
                 <h4>To: <input type="text" defaultValue={kudo.receiver} maxLength={this.state.inputMaxLength} onChange={event => this.updateReceiver(event.target.value)}/></h4>
             </div>    
 
