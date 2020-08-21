@@ -3,15 +3,16 @@ import { Dropdown  } from 'react-bootstrap';
 import formatDate from './FormatDate';
 import TextEllipsis from 'react-text-ellipsis';
 import './KudoCard.css';
-import Figure from 'react-bootstrap/Figure';
 import greatJobImage from '../../../Images/Cards/greatJob.png';
 import congratsImage from '../../../Images/Cards/congrats.png';
 import veryAwesomeImage from '../../../Images/Cards/awesome.png';
 import thankYouImage from '../../../Images/Cards/thankYou.png';
 import staySafeImage from '../../../Images/Cards/staySafe.png';
+
 import trashCanImage from '../../../Images/Cards/trashCan.png';
 import editImage from '../../../Images/Cards/edit.png';
 import noEditImage from '../../../Images/Cards/noEdit.png';
+import newImage from '../../../Images/Cards/new.png';
 
 class KudoCard extends Component{
     state = {
@@ -117,12 +118,15 @@ class KudoCard extends Component{
         },this.requestUpdate());
 
     }
-
     renderEditView = (kudo,IMG_CARD) => {
         return(
             <div className= {kudo.layout} id = {this.props.id} draggable="false" onDragStart={this.drag} onDragOver={this.noAllowDrop}>
             <div className={IMG_CARD}>
-               
+                    <div className="type-figure">
+                        <img className={"newImageFigure-" + kudo.stored} alt="new" src={newImage} draggable="false"/>
+                        <h5 className="card-type">{this.getLayout(kudo.layout)}</h5>
+                    </div>
+                    <img className={"KudoFigure"} alt="kudoFigure" src={this.getImage(kudo.layout)} draggable="false"/>  
                 <Dropdown>
                     <Dropdown.Toggle variant="success" id="dropdown-basic">
                         <h5 className="card-type">{this.getLayout(kudo.layout)}</h5>

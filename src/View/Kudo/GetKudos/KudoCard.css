@@ -98,10 +98,25 @@
    /* color: var(--bg-field-color-default);*/
     background-color: none;
     border-color: var(--bg-field-color-default);
+  
+.type-figure{
+    height: 60px;
+    display: grid;
 }
 
 .card-type {
+    grid-area: type;
     font-size: 50px;
+    width: 600px;
+}
+
+.newImageFigure-yes{
+    grid-area: figure;
+    visibility: hidden;
+}
+
+.newImageFigure-no{
+    grid-area: figure;
 }
 
 .figure {
@@ -125,6 +140,7 @@
 .card-from-to input {
     height: 30px;
     width: 450px;
+
 }
 
 .greatJob .card-message{
@@ -226,4 +242,7 @@
     font-size: 200%;
 }
 
-  
+.KudoFigure{
+    width: 160px;
+    height: 100px;
+}
