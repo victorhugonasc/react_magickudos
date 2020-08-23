@@ -8,7 +8,7 @@ import congratsImage from '../../../Images/Cards/congrats.png';
 import veryAwesomeImage from '../../../Images/Cards/awesome.png';
 import thankYouImage from '../../../Images/Cards/thankYou.png';
 import staySafeImage from '../../../Images/Cards/staySafe.png';
-
+import Figure from 'react-bootstrap/Figure';
 import trashCanImage from '../../../Images/Cards/trashCan.png';
 import editImage from '../../../Images/Cards/edit.png';
 import noEditImage from '../../../Images/Cards/noEdit.png';
@@ -122,14 +122,9 @@ class KudoCard extends Component{
         return(
             <div className= {kudo.layout} id = {this.props.id} draggable="false" onDragStart={this.drag} onDragOver={this.noAllowDrop}>
             <div className={IMG_CARD}>
-                    <div className="type-figure">
-                        <img className={"newImageFigure-" + kudo.stored} alt="new" src={newImage} draggable="false"/>
-                        <h5 className="card-type">{this.getLayout(kudo.layout)}</h5>
-                    </div>
-                    <img className={"KudoFigure"} alt="kudoFigure" src={this.getImage(kudo.layout)} draggable="false"/>  
                 <Dropdown>
                     <Dropdown.Toggle variant="success" id="dropdown-basic">
-                        <h5 className="card-type">{this.getLayout(kudo.layout)}</h5>
+                        <h5 className="edit-card-type">{this.getLayout(kudo.layout)}</h5>
                     </Dropdown.Toggle>
 
                     <Dropdown.Menu onClick={event => this.updateLayout(event.target.text)}>
@@ -147,8 +142,7 @@ class KudoCard extends Component{
                         src={this.getImage(kudo.layout)}
                         draggable="false"
                     />
-                </Figure>
-                
+                </Figure>    
             </div>
              
             <div className="card-from-to">
@@ -178,7 +172,10 @@ class KudoCard extends Component{
         return(
             <div className= {kudo.layout} id = {this.props.id} draggable="true" onDragStart={this.drag} onDragOver={this.noAllowDrop}>
             <div className={IMG_CARD}>
-                <h5 className="card-type">{this.getLayout(kudo.layout)}</h5>
+                <div className="type-figure">
+                    <img className={"newImageFigure-" + kudo.stored} alt="new" src={newImage} draggable="false"/>
+                    <h5 className="card-type">{this.getLayout(kudo.layout)}</h5>
+                </div>
                 <Figure >
                     <Figure.Image
                         width={160}
@@ -187,7 +184,6 @@ class KudoCard extends Component{
                         draggable="false"
                     />
                 </Figure>
-                
             </div>
              
             <div className="card-from-to">
