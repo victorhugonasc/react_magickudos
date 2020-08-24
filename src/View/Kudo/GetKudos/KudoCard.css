@@ -3,8 +3,10 @@
     position: absolute; 
     display: grid;
     grid-template-columns: var(--card-width);
-    grid-template-rows: var(--image-height) 50px var(--text-height) var(--stats-height);
-    grid-template-areas: "image" "from-to" "text" "stats";
+    grid-template-rows: var(--image-height) 80px var(--text-height) var(--stats-height);
+    grid-template-areas:    'image'
+                            'from-to' 
+                            'text';
     border-radius: 18px;
     
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 9);
@@ -84,6 +86,20 @@
     background-size: 100% 100%;
 }
 
+.dropdown{
+    height: 60px;
+}
+
+.dropdown-toggle{
+    height: 60px;
+}
+
+.btn-success {
+    width: 50%;
+    background-color: none;
+    border-color: var(--bg-field-color-default);
+}
+
 .type-figure{
     height: 60px;
     display: grid;
@@ -93,6 +109,10 @@
     grid-area: type;
     font-size: 50px;
     width: 600px;
+}
+
+.edit-card-type{
+    font-size: 50px;
 }
 
 .newImageFigure-yes{
@@ -115,11 +135,17 @@
     font-size: 20px;
     text-align: left;
     margin-left: 5%;
-    height: 60px;
+    height: 80px;
 }
 
-.card-from-to h4{
+.card-from-to h4 {
     height: 30px;
+}
+
+.card-from-to input {
+    height: 30px;
+    width: 450px;
+
 }
 
 .greatJob .card-message{
@@ -144,7 +170,6 @@
 
 .card-message {
     grid-area: text;
-    margin-top: 30px;
     line-height: 80%;
     color: var(--bg-field-color-default);
     font-size: 30px;
@@ -157,11 +182,15 @@
     margin-top: 15px;
 }
 
+.card-message textarea {
+    width: 100%;
+    height: 150%;
+    font-size: 30px;
+}
+
 .card-date {
-    grid-area: stats;
     display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr;
+    grid-template-areas: 'clickables formatDate';
     border-bottom-left-radius: 18px;
     border-bottom-right-radius: 18px;
    
@@ -169,12 +198,28 @@
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 9);
 }
 
-.card-date h5 {
-    font-size: 26px;
-    color: white;
-    text-align: right;
-    margin-right: 5%;
+.clickables{
+    grid-area: clickables;
+    width: 100px;
 }
+
+.edit {
+   margin-left: 5%;
+}
+
+.formatDate {
+    grid-area: formatDate;
+    font-size: 26px;
+    text-align: right;
+    margin-right: 30px;
+    height: 100%;
+    color: white;
+}
+
+.formatDate h5 {
+    right: 5%;
+}
+
 
 .greatJob .card-date {
     background: var(--button-color-greatJob); 

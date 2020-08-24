@@ -6,13 +6,33 @@ export default class ApiService {
        return ApiService.doRequest("get", path, params); 
     }
 
-    static doPost(path,params){
-        return ApiService.doRequest("post", path, params); 
+    static doPost(path,params){//[PT-BR] nesse caso, params eh o body da requisicao.   //[EN-US] In the case, params is the request's body 
+        return ApiService.doRequestWithBody("post", path, params); 
+    }
+
+    static doPut(path,params){
+        return ApiService.doRequest("put", path, params); 
+    }
+
+    static doDelete(path,params){
+        return ApiService.doRequest("delete", path, params); 
     }
 
     static doRequest(httpMethod, path, params)
     {
-        return axios[httpMethod](process.env.REACT_APP_BACKEND_DOMAIN + path, params).then(ApiService.handleSuccessCallBack).catch(ApiService.handleFailureCallBack);
+        if(params) {
+            return axios[httpMethod](process.env.REACT_APP_BACKEND_DOMAIN + path + '/' + params.id,params).then(ApiService.handleSuccessCallBack).catch(ApiService.handleFailureCallBack);
+        }
+
+        else{
+            return axios[httpMethod](process.env.REACT_APP_BACKEND_DOMAIN + path).then(ApiService.handleSuccessCallBack).catch(ApiService.handleFailureCallBack);
+        }
+        
+    }
+
+    static doRequestWithBody(httpMethod, path, body)
+    {
+        return axios[httpMethod](process.env.REACT_APP_BACKEND_DOMAIN + path, body).then(ApiService.handleSuccessCallBack).catch(ApiService.handleFailureCallBack);
     }
 
     static handleSuccessCallBack(response){
