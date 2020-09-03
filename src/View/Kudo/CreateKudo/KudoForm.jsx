@@ -12,13 +12,15 @@ class KudoForm extends Component{
         inputMessage: "inputMessage-default",
         title: "title-default",
         buttonDiv: "createButton-default",
+
         welcomeMsg: "Choose a Layout:",
+
         inputMaxLength: 70,
         messageMaxLength: 280,
         qtdTyped: 0,
-        kudo: this.props.kudo
-    };
 
+        kudo: this.props.kudo,
+    };
 
     constructor (props) {
         super(props);
@@ -32,9 +34,7 @@ class KudoForm extends Component{
     STAY_SAFE = "staySafe";
 
     isValid = () => {
-
         if (!this.state.kudo.sender) {
-
             this.setState((prevState) => ({
                 kudo: {
                     ...prevState.kudo,
@@ -45,7 +45,6 @@ class KudoForm extends Component{
         }
         
         if (!this.state.kudo.receiver) {
-
             this.setState((prevState) => ({
                 kudo: {
                     ...prevState.kudo,
@@ -56,7 +55,6 @@ class KudoForm extends Component{
         }
         
         if (!this.state.kudo.message) {
-
             this.setState((prevState) => ({
                 kudo: {
                     ...prevState.kudo,
@@ -67,7 +65,6 @@ class KudoForm extends Component{
         }
         
         if (!this.state.kudo.layout) {
-
             this.setState((prevState) => ({
                 kudo: {
                     ...prevState.kudo,
@@ -89,7 +86,6 @@ class KudoForm extends Component{
     };
 
     onClickComboBox = (value) => {
-
         var inicialMessage;
         switch(value) {
             case this.GREAT_JOB: inicialMessage = "GREAT JOB"; break;
@@ -112,13 +108,10 @@ class KudoForm extends Component{
                 layout: value,
             },
             welcomeMsg : inicialMessage,
-            
         }));
     };
 
-
     updateSender = (value) => {
-
         this.setState((prevState) => ({
             kudo: {
                 ...prevState.kudo,
@@ -128,7 +121,6 @@ class KudoForm extends Component{
     };
 
     updateReceiver = (value) => {
-
         this.setState((prevState) => ({
             kudo: {
                 ...prevState.kudo,
@@ -138,26 +130,20 @@ class KudoForm extends Component{
     };
 
     updateMessageAndCounter = (value) => {
-       
         this.setState((prevState) => ({
             kudo: {
                 ...prevState.kudo,
                 message: value,
             },
             qtdTyped: value.length,
-
         }));
     };
 
-
     render()
     {
-    
         return(
-
             <div>
                 <form method="post" noValidate>
-
                     <div className ={this.state.login}>
                         <h5 className="form-welcome-msg">{this.state.welcomeMsg}</h5>
                         <div className="foto-table" >
@@ -169,7 +155,6 @@ class KudoForm extends Component{
                                 <Button className="foto-staySafe" value={this.STAY_SAFE} variant="secondary"></Button>
                             </ButtonGroup>
                         </div>
-                        
                         <div className="fields">
                             <input id={this.state.inputSender} placeholder="Sender" type="text" maxLength={this.state.inputMaxLength} value={this.state.kudo.sender} required onChange={event => this.updateSender(event.target.value)}/>
                             <input id={this.state.inputReceiver} placeholder="Receiver" type="text" maxLength={this.state.inputMaxLength} value={this.state.kudo.receiver} required onChange={event => this.updateReceiver(event.target.value)} />
@@ -180,7 +165,6 @@ class KudoForm extends Component{
                         </div>
                     </div>
                 </form>
-               
             </div>
         );
     }

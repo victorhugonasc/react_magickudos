@@ -63,6 +63,16 @@ class UserForm extends Component{
         }));
     };
 
+    updateTeam = (value) => {
+
+        this.setState((prevState) => ({
+            user: {
+                ...prevState.user,
+                team: value,
+            }
+        }));
+    };
+
     updateEmail = (value) => {
 
         this.setState((prevState) => ({
@@ -189,6 +199,7 @@ class UserForm extends Component{
                         <h5 className="form-welcome-msg">{this.state.welcomeMsg}</h5>
                         <div className="fields">
                             <input id="inputName" placeholder="name" type="text" value={this.state.user.name} required onChange={event => this.updateName(event.target.value)}/>
+                            <input id="inputName" placeholder="team" type="text" value={this.state.user.team} required onChange={event => this.updateTeam(event.target.value)}/>
                             <input id="inputEmail" placeholder="email" type="text" value={this.state.user.email} required onChange={event => this.updateEmail(event.target.value)}/>
                             <input id="inputPassword" placeholder="password" type="password" value={this.state.user.password} required onChange={event => this.updatePassword(event.target.value)}/>
                             <div className="divTag">
