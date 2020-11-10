@@ -43,22 +43,10 @@
 
     --nav-footer-color:#1da88a;
 
-
-    --template-width: 700px;/*KudoForm dimension*/
-    --template-height: 675px;
-    
 }
 
 :root {/*Variables used in KudoCard*/
-
     --background-card: white;
-
-    --card-width: 600px;
-
-    --image-height: 200px;
-    --to-from-height: 80px;
-    --text-height: 250px;
-    --stats-height: 40px;
 }
 
 
@@ -79,6 +67,6 @@ body {
 
 form {
     margin: 5vh auto;
-    width: var(--template-width);
-    height: var(--template-height);
+    width: 700px;
+    height: 675px;
 }

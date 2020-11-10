@@ -1,9 +1,6 @@
-
 .greatJob, .congrats, .veryAwesome, .thankYou, .staySafe {
     position: absolute; 
     display: grid;
-    grid-template-columns: var(--card-width);
-    grid-template-rows: var(--image-height) 80px var(--text-height) var(--stats-height);
     grid-template-areas:    'image'
                             'from-to' 
                             'text';
@@ -12,9 +9,6 @@
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 9);
     text-align: center;
     font-family: 'Amatic SC', cursive;
-
-    margin-left: 150px;
-    margin-top: 60px;
 }
 
 .greatJob:hover,
@@ -209,7 +203,6 @@
 
 .formatDate {
     grid-area: formatDate;
-    font-size: 26px;
     text-align: right;
     margin-right: 30px;
     height: 100%;
