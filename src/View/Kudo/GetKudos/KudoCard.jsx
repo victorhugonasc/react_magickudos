@@ -122,7 +122,6 @@ class KudoCard extends Component{
     }
 
     render() {
-        console.log(this.state.isInEditMode);
         return(
             <div className= {this.state.kudo.layout} id = {this.props.id} draggable="true" onDragStart={this.drag} onDragOver={this.noAllowDrop}>
             <div className="logo--image">

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types'; 
 import KudoCard from './KudoCard';
 import Droppable from './Droppable';
-import './Droppable.css';
+import './KudosList.css';
 
 class KudosList extends Component{
 
@@ -32,15 +32,10 @@ class KudosList extends Component{
             <div className= "kudoList" >
                 <div className= "left-main-div">
                     <h5 className="title-message">To be read</h5>
-                    <Droppable id = "left-drop" >
-                        {rows}
-                    </Droppable>
                 </div>
                 
                 <div className= "right-main-div">
                     <h5 className="title-message">Have been read</h5>
-                    <Droppable id = "right-drop" >
-                    </Droppable>
                 </div>
             </div>
         );
