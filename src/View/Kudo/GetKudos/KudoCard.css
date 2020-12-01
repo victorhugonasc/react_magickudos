@@ -7,21 +7,14 @@
     border-radius: 18px;
     
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 9);
-    text-align: center;
     font-family: 'Amatic SC', cursive;
 }
 
-.greatJob:hover,
-.congrats:hover,
-.veryAwesome:hover,
-.thankYou:hover,
-.staySafe:hover
-{
-    -webkit-transform: rotate(-7deg);
-     transform: rotate(-7deg);
-    
-    -webkit-transition: all 0.5s ease;
-     transition: all 0.5s ease;
+.greatJob, .congrats, .veryAwesome, .thankYou, .staySafe {
+    grid-template-columns: 600px;
+    grid-template-rows: 200px 80px 250px 40px;
+    margin-left: 150px;
+    margin-top: 60px;
 }
 
 
@@ -29,93 +22,66 @@
     background: var(--background-card);
 }
 
-.greatJob-image {
-    background-color: var(--main-color-greatJob );
-    border-bottom: 2px solid var(--button-color-greatJob);
-    max-width: 100%;
-    max-height: 100%;
-}
-
 .congrats {
     background: var(--background-card);
-}
-
-.congrats-image {
-    background-color: var(--main-color-congrats);
-    border-bottom: 2px solid var(--button-color-congrats);
 }
 
 .veryAwesome  {
     background: var(--background-card);
 }
 
-.veryAwesome-image {
-    background-color: var(--main-color-veryAwesome);
-    border-bottom: 2px solid var(--button-color-veryAwesome);
-}
-
 .thankYou {
     background: var(--background-card);
-}
-
-.thankYou-image {
-    background-color: var(--main-color-thankYou);
-    border-bottom: 2px solid var(--button-color-thankYou);
 }
 
 .staySafe {
     background: var(--background-card);
 }
 
-.staySafe-image {
-    background-color: var(--main-color-staySafe);
-    background-size: 50% 50%;
-    border-bottom: 2px solid var(--button-color-staySafe);
-}
-
-.greatJob-image,.congrats-image, .veryAwesome-image, .thankYou-image, .staySafe-image {
+.logo--image {
+    background-color: var(--main-color-veryAwesome);
+    border-bottom: 2px solid var(--button-color-veryAwesome);
     grid-area: image;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
     background-size: 100% 100%;
 }
 
-.dropdown{
-    height: 60px;
+.type-figure,
+.kudofigure {
+    display: inline-block;
+    width: 100%;
 }
 
-.dropdown-toggle{
-    height: 60px;
+.type-figure img{
+    position: absolute;
+    width: 50px;
+    height: 50px;
 }
 
-.btn-success {
-    width: 50%;
-    background-color: none;
-    border-color: var(--bg-field-color-default);
-}
-
-.type-figure{
-    height: 60px;
-    display: grid;
-}
-
-.card-type {
-    grid-area: type;
+.type-figure h5 {
+    display: inline-block;
     font-size: 50px;
-    width: 600px;
+    width: 100%;
+    justify-content: center;
 }
 
-.edit-card-type{
-    font-size: 50px;
+.kudofigure img{
+    display:block;
+    margin:auto;
+    width: 160px;
+    height: 100px;
 }
 
-.newImageFigure-yes{
-    grid-area: figure;
-    visibility: hidden;
+.dropdown {
+    display: inline-block;
+    width: 100%;
+    justify-content: center;
+   
 }
 
-.newImageFigure-no{
-    grid-area: figure;
+.dropdown-toggle {
+    border-radius: 15px;
 }
 
 .figure {
@@ -124,22 +90,22 @@
 }
 
 .card-from-to {
-    grid-area: from-to;
+    display: inline-block;
+    width: 100%;
     color: var(--bg-field-color-default);
     font-size: 20px;
     text-align: left;
-    margin-left: 5%;
-    height: 80px;
 }
 
 .card-from-to h4 {
-    height: 30px;
+    height: 50%;
+    width: inherit;
+    padding: 0px 30px;
 }
 
 .card-from-to input {
-    height: 30px;
-    width: 450px;
-
+    width: 80%;
+    height: 70%;
 }
 
 .greatJob .card-message{
@@ -170,21 +136,29 @@
     font-weight: 300;
 }
 
-.card-message p {
-    width: 100%;
+.card-message p,
+.card-message textarea {
     height: 100%;
+    display: inline-block;
+    justify-content: center;
+    text-align: center;
+}
+
+.card-message p {
     margin-top: 15px;
 }
 
 .card-message textarea {
     width: 100%;
-    height: 150%;
     font-size: 30px;
+    font-weight: 300; 
+    background-color: beige;
 }
 
 .card-date {
-    display: grid;
-    grid-template-areas: 'clickables formatDate';
+    display: inline-block;
+    width: 100%;
+
     border-bottom-left-radius: 18px;
     border-bottom-right-radius: 18px;
    
@@ -193,26 +167,28 @@
 }
 
 .clickables{
-    grid-area: clickables;
-    width: 100px;
+    display: inline-block;
+    width: 50%;
+    cursor: pointer;    
 }
 
-.edit {
-   margin-left: 5%;
+.trashCan, .edit {
+    margin-left: 20px;
+    transform: scale(1);
+    transition: all ease 0.2s;
+}
+
+.trashCan:hover, .edit:hover {
+    transform: scale(1.2);
 }
 
 .formatDate {
-    grid-area: formatDate;
-    text-align: right;
-    margin-right: 30px;
-    height: 100%;
+    display: inline-block;
+    width: 50%;
     color: white;
+    text-align: center;
+    font-size: 26px;
 }
-
-.formatDate h5 {
-    right: 5%;
-}
-
 
 .greatJob .card-date {
     background: var(--button-color-greatJob); 
@@ -234,13 +210,63 @@
     background: var(--button-color-staySafe); 
 }
 
-.quotes, .unquotes {
-    color: var(--bg-field-color-default);
-    font-family: 'Tangerine', cursive;
-    font-size: 200%;
-}
+@media (max-height:760px) {
+    .greatJob, .congrats, .veryAwesome, .thankYou, .staySafe {
+        grid-template-columns: 450px;
+        grid-template-rows: 51px 40px 156.5px 30px;
+        margin-left: 50px;
+        margin-top: 60px;
+    }
 
-.KudoFigure{
-    width: 160px;
-    height: 100px;
+    .formatDate {
+        font-size: 19px;
+    }
+
+    .staySafe-image {
+        background-color: var(--main-color-staySafe);
+        background-size: 50% 50%;
+        border-bottom: 2px solid var(--button-color-staySafe);
+    }
+    
+    .staySafe-image {
+        grid-area: image;
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+        background-size: 100% 100%;
+    }
+
+    .card-from-to {
+        display: inline-block;
+        width: 100%;
+    }
+
+    .card-from-to h4 {
+        display: inline-block;
+        width: 50%;
+        justify-content: space-between;
+    }
+
+    .trashCan,.edit {
+        height: 24px;
+        width: 24px;
+    }
+
+    .type-figure{
+        display: inline-block;
+        width: 100%;
+    }
+
+    .type-figure img{
+        width: 35px;
+        height: 35px;
+    }
+    
+    .type-figure h5 {
+        font-size: 36px;
+    }
+
+    .kudofigure img{
+        visibility: hidden;
+    }
+    
 }

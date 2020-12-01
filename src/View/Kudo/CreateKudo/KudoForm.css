@@ -48,7 +48,7 @@
     padding: 20px 5px 5px 5px;
 }
 
-.fields input,textarea {
+.fields input,.fields textarea {
     border: none;
     outline: none;
     background: none;

@@ -120,85 +120,76 @@ class KudoCard extends Component{
         },this.requestUpdate());
 
     }
-    renderEditView = (kudo) => {
+
+    render() {
+        console.log(this.state.isInEditMode);
         return(
-            <div className= {kudo.layout} id = {this.props.id} draggable="false" onDragStart={this.drag} onDragOver={this.noAllowDrop}>
-            <div className={this.state.kudo.layout + "-image"}>
-                <Dropdown>
-                    <Dropdown.Toggle variant="success" id="dropdown-basic">
-                        <h5 className="edit-card-type">{this.getLayout(kudo.layout)}</h5>
-                    </Dropdown.Toggle>
+            <div className= {this.state.kudo.layout} id = {this.props.id} draggable="true" onDragStart={this.drag} onDragOver={this.noAllowDrop}>
+            <div className="logo--image">
+                <div className="type-figure">
+                    {this.state.kudo.stored === "no" &&
+                        <img alt="new" src={newImage} draggable="false"/>
+                    }
 
-                    <Dropdown.Menu onClick={event => this.updateLayout(event.target.text)}>
-                        <Dropdown.Item >{this.getLayout(this.state.types[0])}</Dropdown.Item>
-                        <Dropdown.Item >{this.getLayout(this.state.types[1])}</Dropdown.Item>
-                        <Dropdown.Item >{this.getLayout(this.state.types[2])}</Dropdown.Item>
-                        <Dropdown.Item >{this.getLayout(this.state.types[3])}</Dropdown.Item>
-                        <Dropdown.Item >{this.getLayout(this.state.types[4])}</Dropdown.Item>
-                    </Dropdown.Menu>
-                </Dropdown>
-                <img className={"KudoFigure"} alt="kudoFigure" src={this.getImage(kudo.layout)} draggable="false"/>  
-            </div>
-             
-            <div className="card-from-to">
-                <h4>From: <input type="text" defaultValue={kudo.sender} maxLength={this.state.inputMaxLength} onChange={event => this.updateSender(event.target.value)}/></h4>
-                <h4>To: <input type="text" defaultValue={kudo.receiver} maxLength={this.state.inputMaxLength} onChange={event => this.updateReceiver(event.target.value)}/></h4>
-            </div>    
+                {this.state.isInEditMode ?
+                    <Dropdown>
+                        <Dropdown.Toggle variant="success" id="dropdown-basic">
+                            <h5 className="type-figure--dropdown">{this.getLayout(this.state.kudo.layout)}</h5>
+                        </Dropdown.Toggle>
 
-            <div className="card-message" >
-                <TextEllipsis lines={6} tag={'p'} ellipsisChars={'...'}>
-                    <textarea type="text" rows="7" cols="40" defaultValue={kudo.message} maxLength={this.state.messageMaxLength} onChange={event => this.updateMessage(event.target.value)} />
-                </TextEllipsis>
-            </div>
-
-            <div className="card-date">
-                <div className="clickables">
-                    <img className="trashCan" alt="trashCan" src={trashCanImage} draggable="false" onClick={this.deleteKudo}/>
-                    <img className="edit" alt="noEdit" src={noEditImage} draggable="false" onClick={this.changeEditMode}/>
+                        <Dropdown.Menu onClick={event => this.updateLayout(event.target.text)}>
+                            <Dropdown.Item >{this.getLayout(this.state.types[0])}</Dropdown.Item>
+                            <Dropdown.Item >{this.getLayout(this.state.types[1])}</Dropdown.Item>
+                            <Dropdown.Item >{this.getLayout(this.state.types[2])}</Dropdown.Item>
+                            <Dropdown.Item >{this.getLayout(this.state.types[3])}</Dropdown.Item>
+                            <Dropdown.Item >{this.getLayout(this.state.types[4])}</Dropdown.Item>
+                        </Dropdown.Menu>
+                    </Dropdown> 
+                    : <h5>{this.getLayout(this.state.kudo.layout)}</h5>
+                }  
+                    
+                    
+                </div>
+                <div className="kudofigure">
+                    <img alt="kudoFigure" src={this.getImage(this.state.kudo.layout)} draggable="false"/>  
                 </div>
                 
-                <h5 className="formatDate">{formatDate(kudo.date)}</h5>
-            </div>   
-        </div>
-        )   
-    }
-
-    renderDefaultView = (kudo) => {
-        return(
-            <div className= {kudo.layout} id = {this.props.id} draggable="true" onDragStart={this.drag} onDragOver={this.noAllowDrop}>
-            <div className={this.state.kudo.layout + "-image"}>
-                <div className="type-figure">
-                    <img className={"newImageFigure-" + kudo.stored} alt="new" src={newImage} draggable="false"/>
-                    <h5 className="card-type">{this.getLayout(kudo.layout)}</h5>
-                </div>
-                <img className={"KudoFigure"} alt="kudoFigure" src={this.getImage(kudo.layout)} draggable="false"/>  
             </div>
              
             <div className="card-from-to">
-                <h4>From: {kudo.sender}</h4>
-                <h4>To: {kudo.receiver}</h4>
+                {this.state.isInEditMode 
+                    ?  <h4>From: <input type="text" defaultValue={this.state.kudo.sender} maxLength={this.state.inputMaxLength} onChange={event => this.updateSender(event.target.value)}/></h4> 
+                    :  <h4>From: {this.state.kudo.sender}</h4>
+                }
+
+                {this.state.isInEditMode 
+                    ? <h4>To: <input type="text" defaultValue={this.state.kudo.receiver} maxLength={this.state.inputMaxLength} onChange={event => this.updateReceiver(event.target.value)}/></h4> 
+                    : <h4>To: {this.state.kudo.receiver}</h4>
+                }    
             </div>    
 
             <div className="card-message">
                 <TextEllipsis lines={6} tag={'p'} ellipsisChars={'...'}>
-                    <span className = "quotes">" </span>{kudo.message}<span className = "unquotes"> "</span>
+                    {this.state.isInEditMode 
+                        ? <textarea type="text" rows="7" cols="40" defaultValue={this.state.kudo.message} maxLength={this.state.messageMaxLength} onChange={event => this.updateMessage(event.target.value)} /> 
+                        : "\" " + this.state.kudo.message + "\""
+                    }
                 </TextEllipsis>
             </div>
 
             <div className="card-date">
                 <div className="clickables">
                     <img className="trashCan" alt="trashCan" src={trashCanImage} draggable="false" onClick={this.deleteKudo}/>
-                    <img className="edit" alt="edit" src={editImage} draggable="false" onClick={this.changeEditMode}/>
+                    {this.state.isInEditMode 
+                        ?  <img className="edit" alt="edit" src={noEditImage} draggable="false" onClick={this.changeEditMode}/>
+                        : <img className="edit" alt="edit" src={editImage} draggable="false" onClick={this.changeEditMode}/>
+                    }
                 </div>
                 
-                <h5 className="formatDate">{formatDate(kudo.date)}</h5>
+                <h5 className="formatDate">{formatDate(this.state.kudo.date)}</h5>
             </div>   
         </div>
         )   
-    }
-
-    render() {
-        return this.state.isInEditMode ? this.renderEditView(this.state.kudo) : this.renderDefaultView(this.state.kudo)
     }
     
 }
