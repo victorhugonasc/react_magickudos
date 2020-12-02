@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types'; 
 import KudoCard from './KudoCard';
-import Droppable from './Droppable';
 import './KudosList.css';
 
 class KudosList extends Component{
@@ -13,8 +12,13 @@ class KudosList extends Component{
         this.updateKudo = this.updateKudo.bind(this);
     }
 
+    state = {
+        kudosUnread: 0
+    }
+
     componentDidMount() {
         this.props.fetchKudos();
+        this.updateKudosUnread(this.props.kudos.length);
     }
 
     deleteKudo (kudo) {
@@ -25,18 +29,19 @@ class KudosList extends Component{
         this.props.updateKudo(kudo);
     }
 
+    updateKudosUnread = (value) => {
+        console.log(value);
+        this.setState({
+            kudosUnread: value,
+        });
+    };
+
     render() { 
         const rows = this.renderRows(this.props.kudos);
-        
         return(
-            <div className= "kudoList" >
-                <div className= "left-main-div">
-                    <h5 className="title-message">To be read</h5>
-                </div>
-                
-                <div className= "right-main-div">
-                    <h5 className="title-message">Have been read</h5>
-                </div>
+            <div className= "kudosList" >
+                <h5 className="header--message">{this.state.kudosUnread} Kudo{this.state.kudosUnread !== 1 ? 's' : '' } Unread</h5>
+                {rows}
             </div>
         );
     }
@@ -48,7 +53,7 @@ class KudosList extends Component{
 
     renderRow(kudo) {
         return (
-             <KudoCard kudo={kudo} id={kudo.id} key={kudo.id} deleteKudo={this.deleteKudo} updateKudo={this.updateKudo} />
+            <KudoCard kudo={kudo} id={kudo.id} key={kudo.id} deleteKudo={this.deleteKudo} updateKudo={this.updateKudo}/>
         );
     }
 }

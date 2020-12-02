@@ -49,18 +49,13 @@
     --background-card: white;
 }
 
-
 .app {
     height: 100vh;
 }
 
-h5 {
-    text-align: center;
-}
-
 body {
     margin: 0 auto;
-    overflow-x: hidden;
+    overflow: hidden;
     font-family: 'Amatic SC', cursive;
     font-weight: 700;
     align-items: center;

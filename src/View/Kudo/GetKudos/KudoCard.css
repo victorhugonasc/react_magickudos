@@ -1,46 +1,20 @@
-.greatJob, .congrats, .veryAwesome, .thankYou, .staySafe {
+.kudos {
     position: absolute; 
-    display: grid;
-    grid-template-areas:    'image'
-                            'from-to' 
-                            'text';
+    top: 25vh;
+    left: 0;
+    right: 0;
+    margin: auto;
     border-radius: 18px;
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 9);
     font-family: 'Amatic SC', cursive;
-}
 
-.greatJob, .congrats, .veryAwesome, .thankYou, .staySafe {
-    grid-template-columns: 600px;
-    margin-left: 150px;
-    margin-top: 60px;
-}
-
-
-.greatJob {
-    background: var(--background-card);
-}
-
-.congrats {
-    background: var(--background-card);
-}
-
-.veryAwesome  {
-    background: var(--background-card);
-}
-
-.thankYou {
-    background: var(--background-card);
-}
-
-.staySafe {
+    width: 600px;
     background: var(--background-card);
 }
 
 .logo--image {
-    height: 200px;
     background-color: var(--main-color-veryAwesome);
     border-bottom: 2px solid var(--button-color-veryAwesome);
-    grid-area: image;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
     background-size: 100% 100%;
@@ -62,7 +36,7 @@
     display: inline-block;
     font-size: 50px;
     width: 100%;
-    justify-content: center;
+    text-align: center;
 }
 
 .kudofigure img{
@@ -98,7 +72,6 @@
 
 .card-from-to h4 {
     height: 50%;
-    width: inherit;
     padding: 0px 30px;
 }
 
@@ -107,24 +80,8 @@
     height: 70%;
 }
 
-.greatJob .card-message{
+.kudos .card-message{
     border-top: 2px solid var(--button-color-greatJob);
-}
-
-.congrats .card-message{
-    border-top: 2px solid var(--button-color-congrats);
-}
-
-.veryAwesome .card-message{
-    border-top: 2px solid var(--button-color-veryAwesome);
-}
-
-.thankYou .card-message{
-    border-top: 2px solid var(--button-color-thankYou);
-}
-
-.staySafe .card-message{
-    border-top: 2px solid var(--button-color-staySafe);
 }
 
 .card-message,
@@ -134,7 +91,6 @@
 
 .card-message {
     height: 180px;
-    grid-area: text;
     line-height: 80%;
     color: var(--bg-field-color-default);
     font-weight: 300;
@@ -193,31 +149,14 @@
     font-size: 26px;
 }
 
-.greatJob .card-date {
+.kudos .card-date {
     background: var(--button-color-greatJob); 
 }
 
-.congrats .card-date {
-    background: var(--button-color-congrats); 
-}
-
-.thankYou .card-date {
-    background: var(--button-color-thankYou); 
-}
-
-.veryAwesome .card-date {
-    background: var(--button-color-veryAwesome); 
-}
-
-.staySafe .card-date {
-    background: var(--button-color-staySafe); 
-}
-
 @media (max-height:760px) {
-    .greatJob, .congrats, .veryAwesome, .thankYou, .staySafe {
+    .kudos {
         grid-template-columns: 450px;
-        margin-left: 50px;
-        margin-top: 60px;
+        top: 30vh;
     }
 
     .logo--image {
@@ -243,7 +182,6 @@
     }
     
     .staySafe-image {
-        grid-area: image;
         border-top-left-radius: 15px;
         border-top-right-radius: 15px;
         background-size: 100% 100%;
@@ -276,6 +214,10 @@
         width: 24px;
     }
 
+    .type-figure h5 {
+        font-size: 26px;
+    }
+
     .type-figure{
         display: inline-block;
         width: 100%;
@@ -284,10 +226,6 @@
     .type-figure img{
         width: 35px;
         height: 35px;
-    }
-    
-    .type-figure h5 {
-        font-size: 24px;
     }
 
     .kudofigure img{

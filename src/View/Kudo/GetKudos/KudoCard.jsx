@@ -123,28 +123,28 @@ class KudoCard extends Component{
 
     render() {
         return(
-            <div className= {this.state.kudo.layout} id = {this.props.id} draggable="true" onDragStart={this.drag} onDragOver={this.noAllowDrop}>
+            <div className="kudos" id = {this.props.id} draggable="false" onDragStart={this.drag} onDragOver={this.noAllowDrop}>
             <div className="logo--image">
                 <div className="type-figure">
                     {this.state.kudo.stored === "no" &&
                         <img alt="new" src={newImage} draggable="false"/>
                     }
 
-                {this.state.isInEditMode ?
-                    <Dropdown>
-                        <Dropdown.Toggle variant="success" id="dropdown-basic">
-                            <h5 className="type-figure--dropdown">{this.getLayout(this.state.kudo.layout)}</h5>
-                        </Dropdown.Toggle>
+                {this.state.isInEditMode 
+                    ?   <Dropdown>
+                            <Dropdown.Toggle variant="success" id="dropdown-basic">
+                                <h5 className="type-figure--dropdown">{this.getLayout(this.state.kudo.layout)}</h5>
+                            </Dropdown.Toggle>
 
-                        <Dropdown.Menu onClick={event => this.updateLayout(event.target.text)}>
-                            <Dropdown.Item >{this.getLayout(this.state.types[0])}</Dropdown.Item>
-                            <Dropdown.Item >{this.getLayout(this.state.types[1])}</Dropdown.Item>
-                            <Dropdown.Item >{this.getLayout(this.state.types[2])}</Dropdown.Item>
-                            <Dropdown.Item >{this.getLayout(this.state.types[3])}</Dropdown.Item>
-                            <Dropdown.Item >{this.getLayout(this.state.types[4])}</Dropdown.Item>
-                        </Dropdown.Menu>
-                    </Dropdown> 
-                    : <h5>{this.getLayout(this.state.kudo.layout)}</h5>
+                            <Dropdown.Menu onClick={event => this.updateLayout(event.target.text)}>
+                                <Dropdown.Item >{this.getLayout(this.state.types[0])}</Dropdown.Item>
+                                <Dropdown.Item >{this.getLayout(this.state.types[1])}</Dropdown.Item>
+                                <Dropdown.Item >{this.getLayout(this.state.types[2])}</Dropdown.Item>
+                                <Dropdown.Item >{this.getLayout(this.state.types[3])}</Dropdown.Item>
+                                <Dropdown.Item >{this.getLayout(this.state.types[4])}</Dropdown.Item>
+                            </Dropdown.Menu>
+                        </Dropdown> 
+                    :   <h5>{this.getLayout(this.state.kudo.layout)}</h5>
                 }  
                     
                     
