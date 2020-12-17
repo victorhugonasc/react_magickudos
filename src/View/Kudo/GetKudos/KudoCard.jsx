@@ -20,6 +20,7 @@ class KudoCard extends Component{
         inputMaxLength: 70,
         messageMaxLength: 280,
         types:["greatJob","congrats","veryAwesome","thankYou","staySafe"],
+        zIndex: this.props.zIndex,
     }
     
     getLayout = (layout) => {
@@ -29,7 +30,7 @@ class KudoCard extends Component{
             case "veryAwesome": return "VERY AWESOME";
             case "thankYou": return "THANK YOU";
             case "staySafe": return "STAY SAFE";
-        default: break;
+            default: break;
         }
     }
 
@@ -40,8 +41,23 @@ class KudoCard extends Component{
             case "veryAwesome": return veryAwesomeImage;
             case "thankYou": return thankYouImage;
             case "staySafe": return staySafeImage;
-        default: break;
+            default: break;
         }
+    }
+
+    addColorClass = (layout) => {
+
+       // var element = document.getElementsByClassName("kudos");
+
+       
+       /* switch(layout) {
+            case "greatJob": return element.classList.add("greatJob");
+            case "congrats": return element.classList.add("congrats");
+            case "veryAwesome": return element.classList.add("veryAwesome");
+            case "thankYou": return element.classList.add("thankYou");
+            case "staySafe": return element.classList.add("staySafe");
+            default: break;
+        }*/
     }
 
     drag = (event) => {
@@ -123,30 +139,30 @@ class KudoCard extends Component{
 
     render() {
         return(
-            <div className="kudos" id = {this.props.id} draggable="false" onDragStart={this.drag} onDragOver={this.noAllowDrop}>
+            <div className="kudos" style={{"zIndex": this.state.zIndex}} onLoad={this.addColorClass(this.state.kudo.layout)} id={this.props.id} draggable="false" onDragStart={this.drag} onDragOver={this.noAllowDrop}>
             <div className="logo--image">
                 <div className="type-figure">
+                    
                     {this.state.kudo.stored === "no" &&
                         <img alt="new" src={newImage} draggable="false"/>
                     }
 
-                {this.state.isInEditMode 
-                    ?   <Dropdown>
-                            <Dropdown.Toggle variant="success" id="dropdown-basic">
-                                <h5 className="type-figure--dropdown">{this.getLayout(this.state.kudo.layout)}</h5>
-                            </Dropdown.Toggle>
+                    {this.state.isInEditMode 
+                        ?   <Dropdown>
+                                <Dropdown.Toggle variant="success" id="dropdown-basic">
+                                    <h5 className="type-figure--dropdown">{this.getLayout(this.state.kudo.layout)}</h5>
+                                </Dropdown.Toggle>
 
-                            <Dropdown.Menu onClick={event => this.updateLayout(event.target.text)}>
-                                <Dropdown.Item >{this.getLayout(this.state.types[0])}</Dropdown.Item>
-                                <Dropdown.Item >{this.getLayout(this.state.types[1])}</Dropdown.Item>
-                                <Dropdown.Item >{this.getLayout(this.state.types[2])}</Dropdown.Item>
-                                <Dropdown.Item >{this.getLayout(this.state.types[3])}</Dropdown.Item>
-                                <Dropdown.Item >{this.getLayout(this.state.types[4])}</Dropdown.Item>
-                            </Dropdown.Menu>
-                        </Dropdown> 
-                    :   <h5>{this.getLayout(this.state.kudo.layout)}</h5>
-                }  
-                    
+                                <Dropdown.Menu onClick={event => this.updateLayout(event.target.text)}>
+                                    <Dropdown.Item >{this.getLayout(this.state.types[0])}</Dropdown.Item>
+                                    <Dropdown.Item >{this.getLayout(this.state.types[1])}</Dropdown.Item>
+                                    <Dropdown.Item >{this.getLayout(this.state.types[2])}</Dropdown.Item>
+                                    <Dropdown.Item >{this.getLayout(this.state.types[3])}</Dropdown.Item>
+                                    <Dropdown.Item >{this.getLayout(this.state.types[4])}</Dropdown.Item>
+                                </Dropdown.Menu>
+                            </Dropdown> 
+                        :   <h5>{this.getLayout(this.state.kudo.layout)}</h5>
+                    }  
                     
                 </div>
                 <div className="kudofigure">
@@ -157,8 +173,8 @@ class KudoCard extends Component{
              
             <div className="card-from-to">
                 {this.state.isInEditMode 
-                    ?  <h4>From: <input type="text" defaultValue={this.state.kudo.sender} maxLength={this.state.inputMaxLength} onChange={event => this.updateSender(event.target.value)}/></h4> 
-                    :  <h4>From: {this.state.kudo.sender}</h4>
+                    ? <h4>From: <input type="text" defaultValue={this.state.kudo.sender} maxLength={this.state.inputMaxLength} onChange={event => this.updateSender(event.target.value)}/></h4> 
+                    : <h4>From: {this.state.kudo.sender}</h4>
                 }
 
                 {this.state.isInEditMode 
@@ -180,7 +196,7 @@ class KudoCard extends Component{
                 <div className="clickables">
                     <img className="trashCan" alt="trashCan" src={trashCanImage} draggable="false" onClick={this.deleteKudo}/>
                     {this.state.isInEditMode 
-                        ?  <img className="edit" alt="edit" src={noEditImage} draggable="false" onClick={this.changeEditMode}/>
+                        ? <img className="edit" alt="edit" src={noEditImage} draggable="false" onClick={this.changeEditMode}/>
                         : <img className="edit" alt="edit" src={editImage} draggable="false" onClick={this.changeEditMode}/>
                     }
                 </div>

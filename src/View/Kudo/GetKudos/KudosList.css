@@ -4,6 +4,33 @@
     background-color: aqua;
 }
 
+.kudoContainer {
+    height: inherit;
+    width: 100vw;
+    display: flex;
+    background-color: red;
+    transition: all ease 0.3s;
+}
+
+.prev, .next{
+    cursor: pointer;
+    width: 60px;
+    position: absolute;
+    height: 100%;
+    top: 0;
+    z-index: 99;
+}
+
+.prev{
+    left: 0;
+    margin-left: 350px;
+}
+
+.next{
+    right: 0;
+    margin-right: 350px;
+}
+
 .header--message{
     padding-top: 20px;
     font-size: 36px;

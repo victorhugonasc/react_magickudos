@@ -1,23 +1,31 @@
+
+
 .kudos {
-    position: absolute; 
+    /*position: absolute; 
     top: 25vh;
     left: 0;
     right: 0;
-    margin: auto;
+    margin: auto;*/
+
+    height: 500px;
+    width: inherit;
+   /* margin-left: 50vw;
+    margin-top: 10vh;*/
     border-radius: 18px;
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 9);
     font-family: 'Amatic SC', cursive;
-
-    width: 600px;
     background: var(--background-card);
 }
 
 .logo--image {
+    height: 200px;
+    width: inherit;
     background-color: var(--main-color-veryAwesome);
     border-bottom: 2px solid var(--button-color-veryAwesome);
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
     background-size: 100% 100%;
+  
 }
 
 .type-figure,
@@ -62,9 +70,10 @@
 }
 
 .card-from-to {
-    display: inline-block;
-    width: 100%;
     height: 80px;
+    width: inherit;
+    
+    display: inline-block;
     color: var(--bg-field-color-default);
     font-size: 20px;
     text-align: left;
@@ -91,6 +100,8 @@
 
 .card-message {
     height: 180px;
+    width: inherit;
+
     line-height: 80%;
     color: var(--bg-field-color-default);
     font-weight: 300;
@@ -115,9 +126,11 @@
 }
 
 .card-date {
-    display: inline-block;
-    width: 100%;
     height: 40px;
+    width: inherit;
+    display: inline-block;
+    
+    
     border-bottom-left-radius: 18px;
     border-bottom-right-radius: 18px;
    
@@ -157,10 +170,13 @@
     .kudos {
         grid-template-columns: 450px;
         top: 30vh;
+
+        height: 270px;
+
     }
 
     .logo--image {
-        height: 51px;
+        height: 50px;
     }
 
     .formatDate {
@@ -173,18 +189,6 @@
 
     .card-date {
         height: 30px;
-    }
-
-    .staySafe-image {
-        background-color: var(--main-color-staySafe);
-        background-size: 50% 50%;
-        border-bottom: 2px solid var(--button-color-staySafe);
-    }
-    
-    .staySafe-image {
-        border-top-left-radius: 15px;
-        border-top-right-radius: 15px;
-        background-size: 100% 100%;
     }
 
     .card-from-to {
