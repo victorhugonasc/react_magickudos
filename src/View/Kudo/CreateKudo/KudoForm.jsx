@@ -152,12 +152,9 @@ class KudoForm extends Component{
 
     render()
     {
-    
         return(
-
-            <div>
+            <div className="central">
                 <form method="post" noValidate>
-
                     <div className ={this.state.login}>
                         <h5 className="form-welcome-msg">{this.state.welcomeMsg}</h5>
                         <div className="foto-table" >
@@ -169,15 +166,23 @@ class KudoForm extends Component{
                                 <Button className="foto-staySafe" value={this.STAY_SAFE} variant="secondary"></Button>
                             </ButtonGroup>
                         </div>
-                        
+
                         <div className="fields">
                             <input id={this.state.inputSender} placeholder="Sender" type="text" maxLength={this.state.inputMaxLength} value={this.state.kudo.sender} required onChange={event => this.updateSender(event.target.value)}/>
                             <input id={this.state.inputReceiver} placeholder="Receiver" type="text" maxLength={this.state.inputMaxLength} value={this.state.kudo.receiver} required onChange={event => this.updateReceiver(event.target.value)} />
-                            <textarea id={this.state.inputMessage} placeholder="Type your message here" rows="7" cols="40" maxLength={this.state.messageMaxLength} value={this.state.kudo.message} required onChange={event => this.updateMessageAndCounter(event.target.value)}/>
-                            <h5 className="qtdCaracteres">{this.state.qtdTyped}/{this.state.messageMaxLength}</h5>
-                            <button className={this.state.buttonDiv} onClick={this.onSubmit}>Post it!</button>
-                            <h5 className= "inputError">{this.state.kudo.error}</h5>
                         </div>
+                        
+                        <div className="centralize">
+                            <textarea className="textAreaInput" id={this.state.inputMessage} placeholder="Type your message here" rows="7" cols="40" maxLength={this.state.messageMaxLength} value={this.state.kudo.message} required onChange={event => this.updateMessageAndCounter(event.target.value)}/>
+                        </div>
+
+                        <h5 className="qtdCaracteres">{this.state.qtdTyped}/{this.state.messageMaxLength}</h5>
+                       
+                        <div className ="centralize">
+                            <button className={this.state.buttonDiv} onClick={this.onSubmit}>Post it!</button>
+                        </div>
+
+                        <h5 className= "inputError">{this.state.kudo.error}</h5>
                     </div>
                 </form>
                

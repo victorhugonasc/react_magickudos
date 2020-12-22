@@ -45,21 +45,6 @@ class KudoCard extends Component{
         }
     }
 
-    addColorClass = (layout) => {
-
-       // var element = document.getElementsByClassName("kudos");
-
-       
-       /* switch(layout) {
-            case "greatJob": return element.classList.add("greatJob");
-            case "congrats": return element.classList.add("congrats");
-            case "veryAwesome": return element.classList.add("veryAwesome");
-            case "thankYou": return element.classList.add("thankYou");
-            case "staySafe": return element.classList.add("staySafe");
-            default: break;
-        }*/
-    }
-
     drag = (event) => {
         event.dataTransfer.setData('transfer',event.target.id);
     }
@@ -139,7 +124,7 @@ class KudoCard extends Component{
 
     render() {
         return(
-            <div className="kudos" style={{"zIndex": this.state.zIndex}} onLoad={this.addColorClass(this.state.kudo.layout)} id={this.props.id} draggable="false" onDragStart={this.drag} onDragOver={this.noAllowDrop}>
+            <div className="kudos" style={{"zIndex": this.state.zIndex}} id={this.props.id} draggable="false" onDragStart={this.drag} onDragOver={this.noAllowDrop}>
             <div className="logo--image">
                 <div className="type-figure">
                     

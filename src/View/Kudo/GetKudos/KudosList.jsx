@@ -17,6 +17,7 @@ class KudosList extends Component{
     state = {
         counter: 0,
         kudosUnread: 0,
+        index: 0,
     }
 
     componentDidMount() {
@@ -50,6 +51,7 @@ class KudosList extends Component{
 
     handleNextClick = (value) => {
         let counter = this.state.counter + 1;
+        console.log(counter,this.state.kudosUnread)
         if(counter < value)
         {
             this.setState({ counter},() => {
@@ -72,8 +74,8 @@ class KudosList extends Component{
 
     render() { 
         
-        const rows = this.props.kudos.map((kudo,index) => {
-            return <KudoCard kudo={kudo} id={kudo.id} key={kudo.id} deleteKudo={this.deleteKudo} updateKudo={this.updateKudo} zIndex={index}/>
+        const rows = this.props.kudos.map((kudo) => {
+            return <KudoCard kudo={kudo} id={kudo.id} key={kudo.id} deleteKudo={this.deleteKudo} updateKudo={this.updateKudo}/>
         });
 
         return(
@@ -86,7 +88,7 @@ class KudosList extends Component{
                     </div>
                    
                     <div className="nextButton">
-                        <img className="next" src={nextImage} alt="next" onClick={this.handleNextClick.bind(this, rows.length)} />
+                        <img className="next" src={nextImage} alt="next" onClick={this.handleNextClick.bind(this, rows.length, rows.index)} />
                     </div>
                     
                     {rows}

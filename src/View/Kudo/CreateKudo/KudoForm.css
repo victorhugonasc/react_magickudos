@@ -1,102 +1,60 @@
-
-.form-welcome-msg {
-    font-family: 'Amatic SC', cursive;
-    font-size: 50px;
-}
-
-.login-default,.login-greatJob,.login-veryAwesome,.login-thankYou,.login-congrats,.login-staySafe {
-    padding: 0px 10px 0px 10px;
+.login-default,.login-greatJob,.login-veryAwesome,.login-thankYou,.login-congrats,.login-staySafe { /*This can be one class if color issues were resolved*/
+    background: var(--main-color-default);
+    width: 700px;
+    height: 675px;
     border-radius: 40px;
     box-shadow: 20px 20px 0px var(--box-shallow-first),
     -20px -20px 20px var(--box-shallow-second);
 }
 
-.login-default {
-    background: var(--main-color-default);
-    width: 100%;
-    height: 100%;
-   
+.login-greatJob { background: var(--main-color-greatJob); }
+
+.login-veryAwesome {background: var(--main-color-veryAwesome);}
+
+.login-thankYou {background: var(--main-color-thankYou);}
+
+.login-congrats {background: var(--main-color-congrats); }
+
+.login-staySafe {background: var(--main-color-staySafe);}
+
+.form-welcome-msg,.qtdCaracteres,.inputError,.fields input,.textAreaInput,
+.createButton-default,.createButton-greatJob,.createButton-congrats,
+.createButton-veryAwesome,.createButton-thankYou,.createButton-staySafe {
+    font-family: 'Amatic SC', cursive;
+    text-align: center;
 }
 
-.login-greatJob {
-    background: var(--main-color-greatJob);
-   
-}
-
-.login-veryAwesome {
-    background: var(--main-color-veryAwesome);
-   
-}
-
-.login-thankYou {
-    background: var(--main-color-thankYou);
-   
-}
-
-.login-congrats {
-    background: var(--main-color-congrats);
-   
-}
-
-.login-staySafe {
-    background: var(--main-color-staySafe);
-   
+.form-welcome-msg {
+    width: inherit;
+    height: 60px;
+    font-size: 50px;
 }
 
 .fields {
-    width: 100%;
-    padding: 20px 5px 5px 5px;
+    width: inherit;
+    height: 70px;
+    display: flex;
+    justify-content: space-evenly;
 }
 
-.fields input,.fields textarea {
+.fields input {
+    width: 40%;
+    height: inherit;
+}
+
+.fields input,.textAreaInput {
     border: none;
-    outline: none;
     background: none;
-    text-align: center;
-    font-size: 18px;
-    padding: 20px 10px 20px 5px;
-}
-
-.fields input,textarea {
     color: var(--bg-field-color-default);
-}
-
-.fields textarea {
-    resize: none;
-    overflow: hidden;
-    width: 100%;
-}
-
-#inputSender-default,#inputReceiver-default,#inputMessage-default,
-#inputSender-greatJob,#inputReceiver-greatJob,#inputMessage-greatJob,
-#inputSender-congrats,#inputReceiver-congrats,#inputMessage-congrats,
-#inputSender-veryAwesome,#inputReceiver-veryAwesome,#inputMessage-veryAwesome,
-#inputSender-thankYou,#inputReceiver-thankYou,#inputMessage-thankYou,
-#inputSender-staySafe,#inputReceiver-staySafe,#inputMessage-staySafe {
     border-radius: 25px;
-    font-family: 'Amatic SC', cursive;
     font-size: 26px;
 }
 
-#inputSender-default,#inputReceiver-default,
-#inputSender-greatJob,#inputReceiver-greatJob,
-#inputSender-congrats,#inputReceiver-congrats,
-#inputSender-veryAwesome,#inputReceiver-veryAwesome,
-#inputSender-thankYou,#inputReceiver-thankYou,
-#inputSender-staySafe,#inputReceiver-staySafe {
-    margin: 20px;
-    width: 275px;
-    height: 70px;
-}
-
-#inputMessage-default,
-#inputMessage-greatJob,
-#inputMessage-congrats,
-#inputMessage-veryAwesome,
-#inputMessage-thankYou,
-#inputMessage-staySafe {
-    width: 670px;
-    height: 230px;
+.textAreaInput {
+    width: 95%;
+    resize: none;
+    overflow: hidden;
+    margin-top: 2%;
 }
 
 #inputSender-default,#inputReceiver-default,#inputMessage-default {
@@ -130,26 +88,32 @@
 }
 
 .qtdCaracteres{
-    text-align: right;
-    margin-right: 50px;
-    font-family: 'Amatic SC', cursive;
+    width: inherit;
+    height: 30px;
     font-size: 26px;
     font-weight: 700;
 }
 
+.central {
+    align-items: center;
+    height: 85%;
+}
+
+.centralize,.central {
+    display: flex;
+    justify-content: center;
+}
 
 .createButton-default,.createButton-greatJob,.createButton-congrats,
 .createButton-veryAwesome,.createButton-thankYou,.createButton-staySafe {
     outline: none;
     border: none;
     cursor: pointer;
-    width: 100%;
+    width: 80%;
     height: 60px;
     border-radius: 30px;
     font-size: 40px;
     font-weight: 700;
-    font-family: 'Amatic SC', cursive;
-    text-align: center;
     color: var(--box-shallow-second);
     transition: 0.5s;  
 }
@@ -202,26 +166,45 @@
     background: var(--hover-color-staySafe);
 }
 
-
 .inputError {
-    padding-top: 20px;
-    text-align: center;
+    width: inherit;
+    height: 35px;
     font-family: 'Lato',sans-serif;
     color: rgb(223, 3, 3);
     font-size: 12px;
 }
 
 .foto-table {
-    margin-left: 95px;
     display: grid;
     grid-template-columns: 510px;
     grid-template-rows: 102px;
-    grid-template-areas: "greatJob-foto-table" "congrats-foto-table" "veryAwesome-foto-table" "thankYou-foto-table" "staySafe-foto-table" ;
+    width: inherit;
+    height: 120px;
+    justify-content: center; 
 }
 
 .foto-table .foto-greatJob {
-    grid-area: greatJob-foto-table;
     background: url("../../../Images/Miniatures/greatJob.png");
+}
+
+.foto-table .foto-congrats {
+    background: url("../../../Images/Miniatures/congrats.png");
+}
+
+.foto-table .foto-veryAwesome {
+    background: url("../../../Images/Miniatures/awesome.png");
+}
+
+.foto-table .foto-thankYou {
+    background: url("../../../Images/Miniatures/thankYou.png");
+}
+
+.foto-table .foto-staySafe {
+    background: url("../../../Images/Miniatures/staySafe.png");
+}
+
+.foto-table .foto-greatJob, .foto-table .foto-congrats, .foto-table .foto-veryAwesome,
+.foto-table .foto-thankYou, .foto-table .foto-staySafe {
     background-size: 100% 100%;
     background-repeat: no-repeat; 
 }
@@ -230,30 +213,47 @@
     border:none;
 }
 
-.foto-table .foto-congrats {
-    grid-area: congrats-foto-table;
-    background: url("../../../Images/Miniatures/congrats.png");
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-}
 
-.foto-table .foto-veryAwesome {
-    grid-area: veryAwesome-foto-table;
-    background: url("../../../Images/Miniatures/awesome.png");
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-}
+/*Responsive*/
 
-.foto-table .foto-thankYou {
-    grid-area: thankYou-foto-table;
-    background: url("../../../Images/Miniatures/thankYou.png");
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-}
+@media (max-height:760px) {
+    .login-default,.login-greatJob,.login-veryAwesome,.login-thankYou,.login-congrats,.login-staySafe { /*This can be one class if color issues were resolved*/
+        width: 500px;
+        height: 420px;
+        border-radius: 20px;
+    }
 
-.foto-table .foto-staySafe {
-    grid-area: staySafe-foto-table;
-    background: url("../../../Images/Miniatures/staySafe.png");
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
+    .form-welcome-msg {
+        height: 30px;
+        font-size: 30px;
+    }
+
+    .fields {
+        height: 40px;
+    }
+
+    .textAreaInput {
+        height: 130px;
+    }
+
+    .fields input, .textAreaInput{
+        border-radius: 10px;
+    }
+
+    .qtdCaracteres{
+        height: 18px;
+        font-size: 18px;
+    }
+
+    .createButton-default,.createButton-greatJob,.createButton-congrats,
+    .createButton-veryAwesome,.createButton-thankYou,.createButton-staySafe {
+        height: 30px;
+        border-radius: 15px;
+        font-size: 20px;
+    }
+    
+    .inputError {
+        height: 10px;
+        font-size: 10px;
+    }
 }

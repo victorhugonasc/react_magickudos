@@ -51,21 +51,14 @@
 
 .app {
     height: 100vh;
+    width: 100vw;
 }
 
 body {
     margin: 0 auto;
     overflow: hidden;
-    font-family: 'Amatic SC', cursive;
-    font-weight: 700;
     align-items: center;
     justify-content: center;
     color: var(--bg-field-color-default);
     background: var(--main-color-default);
-}
-
-form {
-    margin: 5vh auto;
-    width: 700px;
-    height: 675px;
 }
