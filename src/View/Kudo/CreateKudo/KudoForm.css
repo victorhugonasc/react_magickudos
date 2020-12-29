@@ -1,12 +1,11 @@
-.login-default,.login-greatJob,.login-veryAwesome,.login-thankYou,.login-congrats,.login-staySafe { /*This can be one class if color issues were resolved*/
-    background: var(--main-color-default);
+.login { /*This can be one class if color issues were resolved*/
     width: 700px;
     height: 675px;
     border-radius: 40px;
     box-shadow: 20px 20px 0px var(--box-shallow-first),
     -20px -20px 20px var(--box-shallow-second);
 }
-
+/*
 .login-greatJob { background: var(--main-color-greatJob); }
 
 .login-veryAwesome {background: var(--main-color-veryAwesome);}
@@ -15,7 +14,7 @@
 
 .login-congrats {background: var(--main-color-congrats); }
 
-.login-staySafe {background: var(--main-color-staySafe);}
+.login-staySafe {background: var(--main-color-staySafe);}*/
 
 .form-welcome-msg,.qtdCaracteres,.inputError,.fields input,.textAreaInput,
 .createButton-default,.createButton-greatJob,.createButton-congrats,
@@ -217,7 +216,7 @@
 /*Responsive*/
 
 @media (max-height:760px) {
-    .login-default,.login-greatJob,.login-veryAwesome,.login-thankYou,.login-congrats,.login-staySafe { /*This can be one class if color issues were resolved*/
+    .login { /*This can be one class if color issues were resolved*/
         width: 500px;
         height: 420px;
         border-radius: 20px;

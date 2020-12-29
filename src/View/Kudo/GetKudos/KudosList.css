@@ -1,38 +1,44 @@
 .kudosList{
     display: block;
     height: 100%;
-    background-color: aqua;
 }
 
 .kudoContainer {
-    height: inherit;
-    width: 100vw;
+    overflow-x: hidden;
+}
+
+.kudoRow {
+    padding-left: 60px;
+    transition: all ease 0.2s;
+}
+
+.prevButton, .nextButton {
+    width: 60px;
+    height: 500px;
+    position: absolute;
+    z-index: 99;
     display: flex;
-    background-color: red;
-    transition: all ease 0.3s;
+    align-items: center;
+    justify-items: center;
+}
+
+.prevButton {
+    left: 0;
+}
+
+.nextButton {
+    right: 0;
 }
 
 .prev, .next{
     cursor: pointer;
-    width: 60px;
-    position: absolute;
-    height: 100%;
-    top: 0;
-    z-index: 99;
-}
-
-.prev{
-    left: 0;
-    margin-left: 350px;
-}
-
-.next{
-    right: 0;
-    margin-right: 350px;
+    width: inherit;
+    height: 60px;
 }
 
 .header--message{
     padding-top: 20px;
-    font-size: 36px;
+    font-size: 48px;
     text-align: center;
+    font-family: 'Amatic SC', cursive;
 }

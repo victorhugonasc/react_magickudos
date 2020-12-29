@@ -16,8 +16,62 @@ class KudoForm extends Component{
         inputMaxLength: 70,
         messageMaxLength: 280,
         qtdTyped: 0,
-        kudo: this.props.kudo
+        kudo: this.props.kudo,
+        pallete: {
+            logoImageColor: "#ecf0f3",// colors values should be send by backend
+            buttonColor: "ecf0f3",
+            abc: "#777"
+        },
     };
+
+    getColorPallete = () => {
+        let pallete;
+        switch(this.state.kudo.layout) {
+            case "greatJob":
+                pallete = {
+                    logoImageColor:"#c4ffd9",
+                    buttonColor: "#ee6262",
+                    abc: "#111",
+                };
+            break;
+            case "congrats":
+                pallete = {
+                    logoImageColor:"#aadffd",
+                    buttonColor: "#8acda2",
+                    abc: "#222",
+                };
+            break;
+            case "veryAwesome":
+                pallete = {
+                    logoImageColor:"#fddb96",
+                    buttonColor: "#a16476",
+                    abc: "#333333",
+                };
+            break;
+            case "thankYou":
+                pallete = {
+                    logoImageColor:"#fddae6",
+                    buttonColor: "#835943",
+                    abc: "#444",
+                };
+            break;
+            case "staySafe":
+                pallete = {
+                    logoImageColor:"#a1f0f1",
+                    buttonColor: "#7b7da0",
+                    abc: "#555",
+                };
+            break;
+            default:
+                pallete = {
+                    logoImageColor:"#ecf0f3",
+                    buttonColor: "ecf0f3",
+                    abc: "#666",
+                };
+            break;
+        }
+        this.setState({pallete});
+    }
 
 
     constructor (props) {
@@ -116,7 +170,6 @@ class KudoForm extends Component{
         }));
     };
 
-
     updateSender = (value) => {
 
         this.setState((prevState) => ({
@@ -149,13 +202,14 @@ class KudoForm extends Component{
         }));
     };
 
-
     render()
     {
         return(
-            <div className="central">
+            <div className="central" onLoad={this.getColorPallete}>
                 <form method="post" noValidate>
-                    <div className ={this.state.login}>
+                    <div className="login" style={{
+                        background: this.state.pallete.abc
+                    }}>
                         <h5 className="form-welcome-msg">{this.state.welcomeMsg}</h5>
                         <div className="foto-table" >
                             <ButtonGroup aria-label="Basic example" onClick={event => this.onClickComboBox(event.target.value)}>
@@ -185,7 +239,6 @@ class KudoForm extends Component{
                         <h5 className= "inputError">{this.state.kudo.error}</h5>
                     </div>
                 </form>
-               
             </div>
         );
     }

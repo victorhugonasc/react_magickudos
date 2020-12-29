@@ -20,7 +20,53 @@ class KudoCard extends Component{
         inputMaxLength: 70,
         messageMaxLength: 280,
         types:["greatJob","congrats","veryAwesome","thankYou","staySafe"],
-        zIndex: this.props.zIndex,
+        pallete: {
+            logoImageColor: "#ecf0f3",// colors values should be send by backend
+            buttonColor: "ecf0f3",
+        },
+    }
+
+    getColorPallete = () => {
+        let pallete;
+        switch(this.state.kudo.layout) {
+            case "greatJob":
+                pallete = {
+                    logoImageColor:"#c4ffd9",
+                    buttonColor: "#ee6262",
+                };
+            break;
+            case "congrats":
+                pallete = {
+                    logoImageColor:"#aadffd",
+                    buttonColor: "#8acda2",
+                };
+            break;
+            case "veryAwesome":
+                pallete = {
+                    logoImageColor:"#fddb96",
+                    buttonColor: "#a16476",
+                };
+            break;
+            case "thankYou":
+                pallete = {
+                    logoImageColor:"#fddae6",
+                    buttonColor: "#835943",
+                };
+            break;
+            case "staySafe":
+                pallete = {
+                    logoImageColor:"#a1f0f1",
+                    buttonColor: "#7b7da0",
+                };
+            break;
+            default:
+                pallete = {
+                    logoImageColor:"#ecf0f3",
+                    buttonColor: "ecf0f3",
+                };
+            break;
+        }
+        this.setState({pallete});
     }
     
     getLayout = (layout) => {
@@ -62,8 +108,7 @@ class KudoCard extends Component{
     deleteKudo = () => {
         if (window.confirm("Do you really want to delete this kudo?")) { 
             this.props.deleteKudo(this.state.kudo);
-          }
-        
+        }
     }
 
     updateLayout = (text) => {
@@ -84,7 +129,6 @@ class KudoCard extends Component{
             },
         }));
     };
-
 
     updateSender = (value) => {
         
@@ -124,8 +168,11 @@ class KudoCard extends Component{
 
     render() {
         return(
-            <div className="kudos" style={{"zIndex": this.state.zIndex}} id={this.props.id} draggable="false" onDragStart={this.drag} onDragOver={this.noAllowDrop}>
-            <div className="logo--image">
+            <div className="kudos" id={this.props.id} draggable="false" onLoad={this.getColorPallete} onDragStart={this.drag} onDragOver={this.noAllowDrop}>
+            <div className="logo--image" style={{
+                        backgroundColor: this.state.pallete.logoImageColor,
+                        borderBottom: `2px solid ${this.state.pallete.buttonColor}`
+                    }}>
                 <div className="type-figure">
                     
                     {this.state.kudo.stored === "no" &&
@@ -168,7 +215,9 @@ class KudoCard extends Component{
                 }    
             </div>    
 
-            <div className="card-message">
+            <div className="card-message" style={{
+                borderTop: `2px solid ${this.state.pallete.buttonColor}`,
+            }}>
                 <TextEllipsis lines={6} tag={'p'} ellipsisChars={'...'}>
                     {this.state.isInEditMode 
                         ? <textarea type="text" rows="7" cols="40" defaultValue={this.state.kudo.message} maxLength={this.state.messageMaxLength} onChange={event => this.updateMessage(event.target.value)} /> 
@@ -177,7 +226,9 @@ class KudoCard extends Component{
                 </TextEllipsis>
             </div>
 
-            <div className="card-date">
+            <div className="card-date" style={{
+                background: this.state.pallete.buttonColor,
+            }}>
                 <div className="clickables">
                     <img className="trashCan" alt="trashCan" src={trashCanImage} draggable="false" onClick={this.deleteKudo}/>
                     {this.state.isInEditMode 

@@ -1,12 +1,17 @@
-
-
 .kudos {
     height: 500px;
-    width: inherit;
+    width: 600px;
     border-radius: 18px;
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 9);
     font-family: 'Amatic SC', cursive;
     background: var(--background-card);
+    display: inline-block;
+    transform: scale(0.9);
+    transition: all ease 0.2s;
+}
+
+.kudos:hover {
+    transform: scale(1);
 }
 
 .logo--image {
@@ -15,7 +20,6 @@
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
     background-size: 100% 100%;
-  
 }
 
 .type-figure,
@@ -62,9 +66,8 @@
 .card-from-to {
     height: 80px;
     width: inherit;
-    
     display: inline-block;
-    color: var(--bg-field-color-default);
+    color: #555555;
     font-size: 20px;
     text-align: left;
 }
@@ -79,8 +82,6 @@
     height: 70%;
 }
 
-
-
 .card-message,
 .card-message textarea {
     font-size: 30px;
@@ -89,9 +90,8 @@
 .card-message {
     height: 180px;
     width: inherit;
-
     line-height: 80%;
-    color: var(--bg-field-color-default);
+    color: #555555;
     font-weight: 300;
 }
 
@@ -117,11 +117,8 @@
     height: 40px;
     width: inherit;
     display: inline-block;
-    
-    
     border-bottom-left-radius: 18px;
     border-bottom-right-radius: 18px;
-   
     border-top: 2px solid black;
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 9);
 }
@@ -149,23 +146,6 @@
     text-align: center;
     font-size: 26px;
 }
-
-
-/*Colors*/
-
-.logo--image {
-    background-color: var(--main-color-veryAwesome);
-    border-bottom: 2px solid var(--button-color-veryAwesome);
-}
-
-.kudos .card-message{
-    border-top: 2px solid var(--button-color-greatJob);
-}
-
-.kudos .card-date {
-    background: var(--button-color-greatJob); 
-}
-
 
 /*Responsive*/
 
