@@ -11,14 +11,11 @@ class KudosList extends Component{
     state = {
         kudosUnread: 0,
         scrollX: 0,
-        palletes: [],
     }
 
     componentDidMount() {
         this.props.fetchKudos();
-        let palletes = this.props.fetchColorPallete();
-        console.log(palletes);
-        this.setState({ palletes });
+        this.props.fetchColorPallete();
     }
 
     deleteKudo (kudo) {
@@ -59,9 +56,9 @@ class KudosList extends Component{
     }
 
     render() { 
-        console.log(this.state.palletes);
         const rows = this.props.kudos.map((kudo) => {
-            return <KudoCard kudo={kudo} id={kudo.id} key={kudo.id} deleteKudo={this.deleteKudo.bind(this)} updateKudo={this.updateKudo.bind(this)}/>
+            const colorPallete = this.props.pallete.filter(color => kudo.layout === color.kudosType);
+            return <KudoCard kudo={kudo} colorPallete={colorPallete} key={kudo.id} deleteKudo={this.deleteKudo.bind(this)} updateKudo={this.updateKudo.bind(this)} />
         });
 
         return(

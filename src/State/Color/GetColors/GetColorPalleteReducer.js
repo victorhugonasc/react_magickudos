@@ -15,7 +15,7 @@ export default function GetColorPalleteReducer(state = inicialState, action) {
                 fetch: true,
                 error: false
             });
-
+ 
         case LOAD_COLORS:
             return Object.assign({}, state, {
                 pallete: action.value,

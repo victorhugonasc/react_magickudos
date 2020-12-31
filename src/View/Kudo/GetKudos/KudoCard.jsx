@@ -19,53 +19,15 @@ class KudoCard extends Component{
         isInEditMode: false,
         inputMaxLength: 70,
         messageMaxLength: 280,
-        types:["greatJob","congrats","veryAwesome","thankYou","staySafe"],
+        types: ["greatJob", "congrats", "veryAwesome", "thankYou", "staySafe"],
         pallete: {
-            logoImageColor: "#ecf0f3",// colors values should be send by backend
-            buttonColor: "ecf0f3",
-        },
+            logoImage:"#ecf0f3",
+            button: "ecf0f3",
+        },     
     }
 
     getColorPallete = () => {
-        let pallete;
-        switch(this.state.kudo.layout) {
-            case "greatJob":
-                pallete = {
-                    logoImageColor:"#c4ffd9",
-                    buttonColor: "#ee6262",
-                };
-            break;
-            case "congrats":
-                pallete = {
-                    logoImageColor:"#aadffd",
-                    buttonColor: "#8acda2",
-                };
-            break;
-            case "veryAwesome":
-                pallete = {
-                    logoImageColor:"#fddb96",
-                    buttonColor: "#a16476",
-                };
-            break;
-            case "thankYou":
-                pallete = {
-                    logoImageColor:"#fddae6",
-                    buttonColor: "#835943",
-                };
-            break;
-            case "staySafe":
-                pallete = {
-                    logoImageColor:"#a1f0f1",
-                    buttonColor: "#7b7da0",
-                };
-            break;
-            default:
-                pallete = {
-                    logoImageColor:"#ecf0f3",
-                    buttonColor: "ecf0f3",
-                };
-            break;
-        }
+        let pallete = this.props.colorPallete[0];
         this.setState({pallete});
     }
     
@@ -168,10 +130,10 @@ class KudoCard extends Component{
 
     render() {
         return(
-            <div className="kudos" id={this.props.id} draggable="false" onLoad={this.getColorPallete} onDragStart={this.drag} onDragOver={this.noAllowDrop}>
+            <div className="kudos" draggable="false" onLoad={this.getColorPallete} onDragStart={this.drag} onDragOver={this.noAllowDrop}>
             <div className="logo--image" style={{
-                        backgroundColor: this.state.pallete.logoImageColor,
-                        borderBottom: `2px solid ${this.state.pallete.buttonColor}`
+                        backgroundColor: this.state.pallete.logoImage,
+                        borderBottom: `2px solid ${this.state.pallete.button}`
                     }}>
                 <div className="type-figure">
                     
@@ -216,7 +178,7 @@ class KudoCard extends Component{
             </div>    
 
             <div className="card-message" style={{
-                borderTop: `2px solid ${this.state.pallete.buttonColor}`,
+                borderTop: `2px solid ${this.state.pallete.button}`,
             }}>
                 <TextEllipsis lines={6} tag={'p'} ellipsisChars={'...'}>
                     {this.state.isInEditMode 
@@ -227,7 +189,7 @@ class KudoCard extends Component{
             </div>
 
             <div className="card-date" style={{
-                background: this.state.pallete.buttonColor,
+                background: this.state.pallete.button,
             }}>
                 <div className="clickables">
                     <img className="trashCan" alt="trashCan" src={trashCanImage} draggable="false" onClick={this.deleteKudo}/>
