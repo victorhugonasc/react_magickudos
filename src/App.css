@@ -4,41 +4,40 @@
 
 :root{/*Variables used in KudoForm*/
     --main-color-default : #ecf0f3; /*logoImage login*/
-    --box-shallow-first: #cbced1;
-    --box-shallow-second: #ffffff;
-    --box-shallow-third-default: #b1b1b1;
+    --box-shallow-first: #cbced1; /*topBoxShallow*/
+    --box-shallow-second: #ffffff; /*bottomBoxShallow*/
     --button-color-default:#8acda2; /*button*/
-    --hover-color-default:#1da88a;
+    --hover-color-default:#1da88a; /*hover*/
 
     --main-color-greatJob : #c4ffd9; /*logoImage login*/
-    --box-shallow-top-greatJob: #5bad78;
-    --box-shallow-bottom-greatJob: #82c299;
+    --box-shallow-top-greatJob: #5bad78; /*topBoxShallow*/
+    --box-shallow-bottom-greatJob: #82c299; /*bottomBoxShallow*/
     --button-color-greatJob:#ee6262; /*button*/
-    --hover-color-greatJob:#a82d1d;
+    --hover-color-greatJob:#a82d1d; /*hover*/
 
     --main-color-congrats : #aadffd; /*logoImage login*/
-    --box-shallow-top-congrats: #6fc1f0;
-    --box-shallow-bottom-congrats: #85bad8;
+    --box-shallow-top-congrats: #6fc1f0; /*topBoxShallow*/
+    --box-shallow-bottom-congrats: #85bad8; /*bottomBoxShallow*/
     --button-color-congrats:#8acda2; /*button*/
-    --hover-color-congrats:#1da88a;
+    --hover-color-congrats:#1da88a; /*hover*/
 
     --main-color-veryAwesome : #fddb96; /*logoImage login*/
-    --box-shallow-top-veryAwesome: #f5cc79;
-    --box-shallow-bottom-veryAwesome: #dab978;
+    --box-shallow-top-veryAwesome: #f5cc79; /*topBoxShallow*/
+    --box-shallow-bottom-veryAwesome: #dab978; /*bottomBoxShallow*/
     --button-color-veryAwesome:#a16476; /*button*/
-    --hover-color-veryAwesome:#794051;
+    --hover-color-veryAwesome:#794051; /*hover*/
 
     --main-color-thankYou : #fddae6; /*logoImage login*/
-    --box-shallow-top-thankYou: #f7abc6;
-    --box-shallow-bottom-thankYou: #e4b5c5;
+    --box-shallow-top-thankYou: #f7abc6; /*topBoxShallow*/
+    --box-shallow-bottom-thankYou: #e4b5c5; /*bottomBoxShallow*/
     --button-color-thankYou:#835943; /*button*/
-    --hover-color-thankYou:#582e23;
+    --hover-color-thankYou:#582e23; /*hover*/
 
     --main-color-staySafe : #a1f0f1; /*logoImage login*/
-    --box-shallow-top-staySafe: #34dfe2;
-    --box-shallow-bottom-staySafe: #40b6b8;
+    --box-shallow-top-staySafe: #34dfe2; /*topBoxShallow*/
+    --box-shallow-bottom-staySafe: #40b6b8; /*bottomBoxShallow*/
     --button-color-staySafe:#7b7da0;; /*button*/
-    --hover-color-staySafe:#63669c;
+    --hover-color-staySafe:#63669c; /*hover*/
 
     --nav-footer-color:#1da88a;
 
@@ -59,5 +58,5 @@ body {
     align-items: center;
     justify-content: center;
     color: #555555;
-    background: var(--main-color-default);
+    background: #ecf0f3;
 }

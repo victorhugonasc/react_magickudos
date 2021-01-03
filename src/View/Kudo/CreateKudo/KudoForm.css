@@ -2,23 +2,10 @@
     width: 700px;
     height: 675px;
     border-radius: 40px;
-    box-shadow: 20px 20px 0px var(--box-shallow-first),
-    -20px -20px 20px var(--box-shallow-second);
 }
-/*
-.login-greatJob { background: var(--main-color-greatJob); }
-
-.login-veryAwesome {background: var(--main-color-veryAwesome);}
-
-.login-thankYou {background: var(--main-color-thankYou);}
-
-.login-congrats {background: var(--main-color-congrats); }
-
-.login-staySafe {background: var(--main-color-staySafe);}*/
 
 .form-welcome-msg,.qtdCaracteres,.inputError,.fields input,.textAreaInput,
-.createButton-default,.createButton-greatJob,.createButton-congrats,
-.createButton-veryAwesome,.createButton-thankYou,.createButton-staySafe {
+.button--create {
     font-family: 'Amatic SC', cursive;
     text-align: center;
 }
@@ -56,36 +43,6 @@
     margin-top: 2%;
 }
 
-#inputSender-default,#inputReceiver-default,#inputMessage-default {
-    box-shadow: inset 8px 8px 8px var(--box-shallow-first),
-                inset -8px -8px 8px var(--box-shallow-second);
-}
-
-#inputSender-greatJob,#inputReceiver-greatJob,#inputMessage-greatJob {
-    box-shadow: inset 8px 8px 8px var(--box-shallow-top-greatJob),
-                inset -8px -8px 8px var(--box-shallow-bottom-greatJob);
-}
-
-#inputSender-congrats,#inputReceiver-congrats,#inputMessage-congrats {
-    box-shadow: inset 8px 8px 8px var(--box-shallow-top-congrats),
-                inset -8px -8px 8px var(--box-shallow-bottom-congrats);
-}
-
-#inputSender-veryAwesome,#inputReceiver-veryAwesome,#inputMessage-veryAwesome {
-    box-shadow: inset 8px 8px 8px var(--box-shallow-top-veryAwesome),
-                inset -8px -8px 8px var(--box-shallow-bottom-veryAwesome);
-}
-
-#inputSender-thankYou,#inputReceiver-thankYou,#inputMessage-thankYou {
-    box-shadow: inset 8px 8px 8px var(--box-shallow-top-thankYou),
-                inset -8px -8px 8px var(--box-shallow-bottom-thankYou);
-}
-
-#inputSender-staySafe,#inputReceiver-staySafe,#inputMessage-staySafe {
-    box-shadow: inset 8px 8px 8px var(--box-shallow-top-staySafe),
-                inset -8px -8px 8px var(--box-shallow-bottom-staySafe);
-}
-
 .qtdCaracteres{
     width: inherit;
     height: 30px;
@@ -103,8 +60,7 @@
     justify-content: center;
 }
 
-.createButton-default,.createButton-greatJob,.createButton-congrats,
-.createButton-veryAwesome,.createButton-thankYou,.createButton-staySafe {
+.button--create {
     outline: none;
     border: none;
     cursor: pointer;
@@ -113,52 +69,27 @@
     border-radius: 30px;
     font-size: 40px;
     font-weight: 700;
-    color: var(--box-shallow-second);
     transition: 0.5s;  
-}
-
-.createButton-default {
-    background-color: var(--button-color-default);
 }
 
 .createButton-default:hover {
     background: var(--hover-color-default);
 }
 
-.createButton-greatJob {
-    background-color: var(--button-color-greatJob);
-}
-
 .createButton-greatJob:hover {
     background: var(--hover-color-greatJob);
-}
-
-.createButton-congrats {
-    background-color: var(--button-color-congrats);
 }
 
 .createButton-congrats:hover {
     background: var(--hover-color-congrats);
 }
 
-.createButton-veryAwesome {
-    background-color: var(--button-color-veryAwesome);
-}
-
 .createButton-veryAwesome:hover {
     background: var(--hover-color-veryAwesome);
 }
 
-.createButton-thankYou {
-    background-color: var(--button-color-thankYou);
-}
-
 .createButton-thankYou:hover {
     background: var(--hover-color-thankYou);
-}
-
-.createButton-staySafe {
-    background-color: var(--button-color-staySafe);
 }
 
 .createButton-staySafe:hover {
@@ -191,7 +122,7 @@
 }
 
 .foto-table .foto-veryAwesome {
-    background: url("../../../Images/Miniatures/awesome.png");
+    background: url("../../../Images/Miniatures/veryAwesome.png");
 }
 
 .foto-table .foto-thankYou {
@@ -212,9 +143,7 @@
     border:none;
 }
 
-
 /*Responsive*/
-
 @media (max-height:760px) {
     .login { /*This can be one class if color issues were resolved*/
         width: 500px;
@@ -244,8 +173,7 @@
         font-size: 18px;
     }
 
-    .createButton-default,.createButton-greatJob,.createButton-congrats,
-    .createButton-veryAwesome,.createButton-thankYou,.createButton-staySafe {
+    .button--create {
         height: 30px;
         border-radius: 15px;
         font-size: 20px;
