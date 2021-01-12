@@ -2,7 +2,7 @@
 import { fetchKudos, updateKudo, deleteKudo } from '../../../State/Kudo/GetKudosActions';
 import { fetchColorPallete } from '../../../State/Color/GetColors/GetColorPalleteActions';
 import { connect } from 'react-redux';
-import KudosList from './KudosList';
+import KudosList from './KudosList/KudosList';
 
 function mapStateToProps(state) {
     return {

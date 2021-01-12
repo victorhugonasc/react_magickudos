@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types'; 
 import Carousel from 'react-bootstrap/Carousel';
-import KudoCard from './KudoCard';
+import KudoCard from '../KudoCard/KudoCard';
 import './KudosList.css';
 
 class KudosList extends Component{
@@ -23,7 +23,7 @@ class KudosList extends Component{
         return (
             <div className= "kudosList">
                 <div className="kudoContainer">
-                    <Carousel fade="true" interval={null}>
+                    <Carousel fade={true} interval={null}>
                         {this.props.kudos.map((kudo) => {
                             const colorPallete = this.props.pallete.filter(color => kudo.layout === color.kudosType);
                             return (

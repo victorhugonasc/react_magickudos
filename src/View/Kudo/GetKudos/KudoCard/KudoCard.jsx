@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
 import { Dropdown  } from 'react-bootstrap';
-import formatDate from './FormatDate';
+import formatDate from '../FormatDate';
 import TextEllipsis from 'react-text-ellipsis';
 import './KudoCard.css';
-import greatJobImage from '../../../Images/Cards/greatJob.png';
-import congratsImage from '../../../Images/Cards/congrats.png';
-import veryAwesomeImage from '../../../Images/Cards/awesome.png';
-import thankYouImage from '../../../Images/Cards/thankYou.png';
-import staySafeImage from '../../../Images/Cards/staySafe.png';
-import trashCanImage from '../../../Images/Cards/trashCan.png';
-import editImage from '../../../Images/Cards/edit.png';
-import noEditImage from '../../../Images/Cards/noEdit.png';
-import newImage from '../../../Images/Cards/new.png';
+import greatJobImage from '../../../../Images/Cards/greatJob.png';
+import congratsImage from '../../../../Images/Cards/congrats.png';
+import veryAwesomeImage from '../../../../Images/Cards/awesome.png';
+import thankYouImage from '../../../../Images/Cards/thankYou.png';
+import staySafeImage from '../../../../Images/Cards/staySafe.png';
+import trashCanImage from '../../../../Images/Cards/trashCan.png';
+import editImage from '../../../../Images/Cards/edit.png';
+import noEditImage from '../../../../Images/Cards/noEdit.png';
+import newImage from '../../../../Images/Cards/new.png';
 
 class KudoCard extends Component{
     state = {
