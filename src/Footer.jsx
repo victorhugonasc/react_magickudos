@@ -12,8 +12,7 @@ class Footer extends Component {
                     <a href="https://github.com/victorhugonasc?tab=repositories"> Get Open Source Code </a>
                     <a href="https://forms.gle/8nN5u8vGsJJpBJbw6"> Give us a feedback </a>
                 </div>
-                
-          </MDBFooter>
+            </MDBFooter>
         );
     }
 }

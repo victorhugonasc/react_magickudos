@@ -4,41 +4,44 @@
 }
 
 .kudoContainer {
-    overflow-x: hidden;
-}
-
-.kudoRow {
-    padding-left: 60px;
-    transition: all ease 0.2s;
-}
-
-.prevButton, .nextButton {
-    width: 60px;
-    height: 500px;
-    position: absolute;
-    z-index: 99;
+    height: 100%;
+    margin: 0 auto;
+    justify-content: center;
     display: flex;
-    align-items: center;
-    justify-items: center;
+    background-color: #fdc495e8;
+    transition: ease-out 2s;
 }
 
-.prevButton {
-    left: 0;
+.kudoContainer:hover {
+    background-color: #bce6b0e8;
 }
 
-.nextButton {
-    right: 0;
+.carousel {
+    position: inherit;
 }
 
-.prev, .next{
-    cursor: pointer;
-    width: inherit;
+.carousel-indicators {
+    position: inherit;
+}
+
+.carousel-control-next-icon, .carousel-control-prev-icon {
     height: 60px;
+    width: 60px;
+}
+.carousel-control-prev, .carousel-control-next {
+    margin-top: 61px;
+    height: 88.5%;
 }
 
-.header--message{
-    padding-top: 20px;
-    font-size: 48px;
-    text-align: center;
-    font-family: 'Amatic SC', cursive;
+.carousel-inner {
+    height: auto !important;
+}
+
+/*Responsive*/
+
+@media (max-height:760px) {
+    .carousel-control-prev, .carousel-control-next {
+        margin-top: 55px;
+        height: 83%;
+    }
 }

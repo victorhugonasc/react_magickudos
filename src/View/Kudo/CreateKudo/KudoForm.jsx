@@ -125,7 +125,7 @@ class KudoForm extends Component{
                 {this.state.colorPallete &&
                     <div className="login" style={{
                         background: this.state.colorPallete.logoImage,
-                        boxShadow: `0px 0px 500px 500px ${this.state.colorPallete.topBoxShallow}`,
+                        boxShadow: `0px 0px 500px 500px ${this.state.colorPallete.loginBoxShallow}`,
                     }}>
                         <h5 className="form-welcome-msg">{this.state.colorPallete.headerMessage}</h5>
                         <div className="foto-table">
@@ -140,19 +140,19 @@ class KudoForm extends Component{
                         <div className="fields">
                             <input placeholder="Sender" type="text" required maxLength={this.state.inputMaxLength} value={this.state.kudo.sender}
                                 onChange={event => this.updateSender(event.target.value)} style={{
-                                    boxShadow: `0px 0px 8px 8px ${this.state.colorPallete.bottomBoxShallow}`,
+                                    boxShadow: `0px 0px 8px 8px ${this.state.colorPallete.fieldsBoxShallow}`,
                                 }}
                             />
                             <input placeholder="Receiver" type="text" required maxLength={this.state.inputMaxLength} value={this.state.kudo.receiver}
                                 onChange={event => this.updateReceiver(event.target.value)} style={{
-                                    boxShadow: `0px 0px 8px 8px ${this.state.colorPallete.bottomBoxShallow}`,
+                                    boxShadow: `0px 0px 8px 8px ${this.state.colorPallete.fieldsBoxShallow}`,
                                 }}
                             />
                         </div>
                         <div className="centralize">
                             <textarea className="textAreaInput" placeholder="Type your message here" rows="7" cols="40" required
                                 maxLength={this.state.messageMaxLength} value={this.state.kudo.message} onChange={event => this.updateMessageAndCounter(event.target.value)} style={{
-                                    boxShadow: `0px 0px 8px 8px ${this.state.colorPallete.bottomBoxShallow}`,
+                                    boxShadow: `0px 0px 8px 8px ${this.state.colorPallete.fieldsBoxShallow}`,
                                 }}
                             />
                         </div>
@@ -160,7 +160,7 @@ class KudoForm extends Component{
                         <div className="centralize">
                             <button className="button--create" onClick={this.onSubmit} style={{
                                 background: this.state.colorPallete.button,
-                                color: this.state.colorPallete.topBoxShallow
+                                color: this.state.colorPallete.buttonText
                             }}>Post it!</button>
                         </div>
                         <h5 className= "inputError">{this.state.kudo.error}</h5>

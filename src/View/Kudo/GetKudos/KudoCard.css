@@ -2,16 +2,9 @@
     height: 500px;
     width: 600px;
     border-radius: 18px;
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 9);
     font-family: 'Amatic SC', cursive;
-    background: var(--background-card);
+    background: #fff;
     display: inline-block;
-    transform: scale(0.9);
-    transition: all ease 0.2s;
-}
-
-.kudos:hover {
-    transform: scale(1);
 }
 
 .logo--image {
@@ -120,7 +113,6 @@
     border-bottom-left-radius: 18px;
     border-bottom-right-radius: 18px;
     border-top: 2px solid black;
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 9);
 }
 
 .clickables{
