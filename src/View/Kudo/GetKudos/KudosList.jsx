@@ -1,59 +1,40 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types'; 
+import Carousel from 'react-bootstrap/Carousel';
 import KudoCard from './KudoCard';
-import Droppable from './Droppable';
-import './Droppable.css';
+import './KudosList.css';
 
 class KudosList extends Component{
 
-    constructor (props){
-        super(props);
-        this.renderRows = this.renderRows.bind(this);
-        this.deleteKudo = this.deleteKudo.bind(this);
-        this.updateKudo = this.updateKudo.bind(this);
-    }
-
     componentDidMount() {
         this.props.fetchKudos();
+        this.props.fetchColorPallete();
     }
 
-    deleteKudo (kudo) {
+    deleteKudo = (kudo) => {
         this.props.deleteKudo(kudo);
     }
 
     updateKudo = (kudo) => {
         this.props.updateKudo(kudo);
     }
-
+    
     render() { 
-        const rows = this.renderRows(this.props.kudos);
-        
-        return(
-            <div className= "kudoList" >
-                <div className= "left-main-div">
-                    <h5 className="title-message">To be read</h5>
-                    <Droppable id = "left-drop" >
-                        {rows}
-                    </Droppable>
-                </div>
-                
-                <div className= "right-main-div">
-                    <h5 className="title-message">Have been read</h5>
-                    <Droppable id = "right-drop" >
-                    </Droppable>
+        return (
+            <div className= "kudosList">
+                <div className="kudoContainer">
+                    <Carousel fade="true" interval={null}>
+                        {this.props.kudos.map((kudo) => {
+                            const colorPallete = this.props.pallete.filter(color => kudo.layout === color.kudosType);
+                            return (
+                                <Carousel.Item key={kudo.id}>
+                                    <KudoCard kudo={kudo} colorPallete={colorPallete} key={kudo.id} deleteKudo={this.deleteKudo.bind(this)} updateKudo={this.updateKudo.bind(this)} />
+                                </Carousel.Item>
+                            )
+                        })}
+                    </Carousel>
                 </div>
             </div>
-        );
-    }
-
-    renderRows(kudos) {
-        const rows = kudos.map(this.renderRow,this);
-        return rows;
-    }
-
-    renderRow(kudo) {
-        return (
-             <KudoCard kudo={kudo} id={kudo.id} key={kudo.id} deleteKudo={this.deleteKudo} updateKudo={this.updateKudo} />
         );
     }
 }

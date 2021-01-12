@@ -6,35 +6,23 @@ import { Button, ButtonGroup } from 'react-bootstrap';
 class KudoForm extends Component{
 
     INICIAL_STATE = {
-        login: "login-default",
-        inputSender: "inputSender-default",
-        inputReceiver: "inputReceiver-default",
-        inputMessage: "inputMessage-default",
-        title: "title-default",
-        buttonDiv: "createButton-default",
-        welcomeMsg: "Choose a Layout:",
         inputMaxLength: 70,
         messageMaxLength: 280,
         qtdTyped: 0,
-        kudo: this.props.kudo
+        kudo: this.props.kudo,
     };
-
 
     constructor (props) {
         super(props);
         this.state = this.INICIAL_STATE;
     }
 
-    GREAT_JOB = "greatJob";
-    VERY_AWESOME = "veryAwesome";
-    THANK_YOU = "thankYou";
-    CONGRATS = "congrats";
-    STAY_SAFE = "staySafe";
+    componentDidMount() {
+        this.props.fetchColorPallete();
+    }
 
     isValid = () => {
-
         if (!this.state.kudo.sender) {
-
             this.setState((prevState) => ({
                 kudo: {
                     ...prevState.kudo,
@@ -45,7 +33,6 @@ class KudoForm extends Component{
         }
         
         if (!this.state.kudo.receiver) {
-
             this.setState((prevState) => ({
                 kudo: {
                     ...prevState.kudo,
@@ -56,7 +43,6 @@ class KudoForm extends Component{
         }
         
         if (!this.state.kudo.message) {
-
             this.setState((prevState) => ({
                 kudo: {
                     ...prevState.kudo,
@@ -67,7 +53,6 @@ class KudoForm extends Component{
         }
         
         if (!this.state.kudo.layout) {
-
             this.setState((prevState) => ({
                 kudo: {
                     ...prevState.kudo,
@@ -89,36 +74,13 @@ class KudoForm extends Component{
     };
 
     onClickComboBox = (value) => {
-
-        var inicialMessage;
-        switch(value) {
-            case this.GREAT_JOB: inicialMessage = "GREAT JOB"; break;
-            case this.VERY_AWESOME: inicialMessage = "VERY AWESOME"; break;
-            case this.THANK_YOU: inicialMessage = "THANK YOU"; break;
-            case this.CONGRATS: inicialMessage = "CONGRATULATIONS"; break;
-            case this.STAY_SAFE: inicialMessage = "STAY SAFE"; break;
-            default: break;
-        }
-
-        this.setState((prevState) => ({
-            login: "login-" + value,
-            inputSender: "inputSender-" + value,
-            inputReceiver: "inputReceiver-" + value,
-            inputMessage: "inputMessage-" + value,
-            title: "title-" + value,
-            buttonDiv: "createButton-" + value,
-            kudo: {
-                ...prevState.kudo,
-                layout: value,
-            },
-            welcomeMsg : inicialMessage,
-            
-        }));
+        const pallete = this.props.pallete.filter(color => color.kudosType === value);
+        const colorPallete = pallete[0];
+        this.setState({ colorPallete });
+        this.updateLayout(value);
     };
 
-
     updateSender = (value) => {
-
         this.setState((prevState) => ({
             kudo: {
                 ...prevState.kudo,
@@ -128,7 +90,6 @@ class KudoForm extends Component{
     };
 
     updateReceiver = (value) => {
-
         this.setState((prevState) => ({
             kudo: {
                 ...prevState.kudo,
@@ -138,49 +99,92 @@ class KudoForm extends Component{
     };
 
     updateMessageAndCounter = (value) => {
-       
         this.setState((prevState) => ({
             kudo: {
                 ...prevState.kudo,
                 message: value,
             },
             qtdTyped: value.length,
-
         }));
     };
 
+    updateLayout = (value) => {
+        this.setState((prevState) => ({
+            kudo: {
+                ...prevState.kudo,
+                layout: value,
+            },
+        }));
+    };
 
     render()
     {
-    
         return(
-
-            <div>
+        <div className="central">
                 <form method="post" noValidate>
-
-                    <div className ={this.state.login}>
-                        <h5 className="form-welcome-msg">{this.state.welcomeMsg}</h5>
-                        <div className="foto-table" >
+                {this.state.colorPallete &&
+                    <div className="login" style={{
+                        background: this.state.colorPallete.logoImage,
+                        boxShadow: `0px 0px 500px 500px ${this.state.colorPallete.loginBoxShallow}`,
+                    }}>
+                        <h5 className="form-welcome-msg">{this.state.colorPallete.headerMessage}</h5>
+                        <div className="foto-table">
                             <ButtonGroup aria-label="Basic example" onClick={event => this.onClickComboBox(event.target.value)}>
-                                <Button className="foto-greatJob" value= {this.GREAT_JOB} variant="secondary" ></Button>
-                                <Button className="foto-congrats" value={this.CONGRATS}  variant="secondary"></Button>
-                                <Button className="foto-veryAwesome" value={this.VERY_AWESOME} variant="secondary"></Button>
-                                <Button className="foto-thankYou" value={this.THANK_YOU} variant="secondary"></Button>
-                                <Button className="foto-staySafe" value={this.STAY_SAFE} variant="secondary"></Button>
+                                <Button className="foto-greatJob" value= "greatJob" variant="secondary" ></Button>
+                                <Button className="foto-congrats" value="congrats"  variant="secondary"></Button>
+                                <Button className="foto-veryAwesome" value="veryAwesome" variant="secondary"></Button>
+                                <Button className="foto-thankYou" value="thankYou" variant="secondary"></Button>
+                                <Button className="foto-staySafe" value="staySafe" variant="secondary"></Button>
                             </ButtonGroup>
                         </div>
-                        
                         <div className="fields">
-                            <input id={this.state.inputSender} placeholder="Sender" type="text" maxLength={this.state.inputMaxLength} value={this.state.kudo.sender} required onChange={event => this.updateSender(event.target.value)}/>
-                            <input id={this.state.inputReceiver} placeholder="Receiver" type="text" maxLength={this.state.inputMaxLength} value={this.state.kudo.receiver} required onChange={event => this.updateReceiver(event.target.value)} />
-                            <textarea id={this.state.inputMessage} placeholder="Type your message here" rows="7" cols="40" maxLength={this.state.messageMaxLength} value={this.state.kudo.message} required onChange={event => this.updateMessageAndCounter(event.target.value)}/>
-                            <h5 className="qtdCaracteres">{this.state.qtdTyped}/{this.state.messageMaxLength}</h5>
-                            <button className={this.state.buttonDiv} onClick={this.onSubmit}>Post it!</button>
-                            <h5 className= "inputError">{this.state.kudo.error}</h5>
+                            <input placeholder="Sender" type="text" required maxLength={this.state.inputMaxLength} value={this.state.kudo.sender}
+                                onChange={event => this.updateSender(event.target.value)} style={{
+                                    boxShadow: `0px 0px 8px 8px ${this.state.colorPallete.fieldsBoxShallow}`,
+                                }}
+                            />
+                            <input placeholder="Receiver" type="text" required maxLength={this.state.inputMaxLength} value={this.state.kudo.receiver}
+                                onChange={event => this.updateReceiver(event.target.value)} style={{
+                                    boxShadow: `0px 0px 8px 8px ${this.state.colorPallete.fieldsBoxShallow}`,
+                                }}
+                            />
+                        </div>
+                        <div className="centralize">
+                            <textarea className="textAreaInput" placeholder="Type your message here" rows="7" cols="40" required
+                                maxLength={this.state.messageMaxLength} value={this.state.kudo.message} onChange={event => this.updateMessageAndCounter(event.target.value)} style={{
+                                    boxShadow: `0px 0px 8px 8px ${this.state.colorPallete.fieldsBoxShallow}`,
+                                }}
+                            />
+                        </div>
+                        <h5 className="qtdCaracteres">{this.state.qtdTyped}/{this.state.messageMaxLength}</h5>
+                        <div className="centralize">
+                            <button className="button--create" onClick={this.onSubmit} style={{
+                                background: this.state.colorPallete.button,
+                                color: this.state.colorPallete.buttonText
+                            }}>Post it!</button>
+                        </div>
+                        <h5 className= "inputError">{this.state.kudo.error}</h5>
+                    </div>
+                }
+                    
+                    {!this.state.colorPallete &&
+                    <div className="login" style={{
+                        background: "#ecf0f3",
+                        boxShadow: `0px 0px 500px 500px #cbced1`,
+                    }}> 
+                        <h5 className="form-welcome-msg">Choose a Layout:</h5>
+                        <div className="foto-table" >
+                        <ButtonGroup aria-label="Basic example" onClick={event => this.onClickComboBox(event.target.value)}>
+                                <Button className="foto-greatJob" value= "greatJob" variant="secondary" ></Button>
+                                <Button className="foto-congrats" value="congrats"  variant="secondary"></Button>
+                                <Button className="foto-veryAwesome" value="veryAwesome" variant="secondary"></Button>
+                                <Button className="foto-thankYou" value="thankYou" variant="secondary"></Button>
+                                <Button className="foto-staySafe" value="staySafe" variant="secondary"></Button>
+                        </ButtonGroup>
                         </div>
                     </div>
+                }
                 </form>
-               
             </div>
         );
     }

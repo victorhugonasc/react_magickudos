@@ -1,0 +1,47 @@
+.kudosList{
+    display: block;
+    height: 100%;
+}
+
+.kudoContainer {
+    height: 100%;
+    margin: 0 auto;
+    justify-content: center;
+    display: flex;
+    background-color: #fdc495e8;
+    transition: ease-out 2s;
+}
+
+.kudoContainer:hover {
+    background-color: #bce6b0e8;
+}
+
+.carousel {
+    position: inherit;
+}
+
+.carousel-indicators {
+    position: inherit;
+}
+
+.carousel-control-next-icon, .carousel-control-prev-icon {
+    height: 60px;
+    width: 60px;
+}
+.carousel-control-prev, .carousel-control-next {
+    margin-top: 61px;
+    height: 88.5%;
+}
+
+.carousel-inner {
+    height: auto !important;
+}
+
+/*Responsive*/
+
+@media (max-height:760px) {
+    .carousel-control-prev, .carousel-control-next {
+        margin-top: 55px;
+        height: 83%;
+    }
+}

@@ -18,33 +18,53 @@ export const initialState = {
     {
 
     case FETCH_KUDOS:
-      return Object.assign({},state, {fetch: true, error:false });
+      return Object.assign({}, state, {
+        fetch: true,
+        error: false
+      });
 
     case LOAD_KUDOS:
-      return Object.assign({},state, {kudos:action.value, fetch: false, error:false,});
+      return Object.assign({}, state, {
+        kudos: action.value,
+        fetch: false,
+        error: false,
+      });
 
     case UPDATE_KUDO:
-      return Object.assign({},state, {update: true, error:false });
+      return Object.assign({}, state, {
+        update: true,
+        error: false
+      });
 
     case DELETE_KUDO:
-      return Object.assign({},state, {delete: true, error:false });
+      return Object.assign({}, state, {
+        delete: true,
+        error: false
+      });
 
     case REQUEST_TO_UPDATE_KUDO:
       var updated = updateArray(state.kudos, action.value.id);
-      return Object.assign({},state, {kudos:updated, update: false, error:false,});
+      return Object.assign({}, state, {
+        kudos: updated,
+        update: false,
+        error: false,
+      });
 
     case REQUEST_TO_REMOVE_KUDO:
       var filtered = removeFromArray(state.kudos, action.value.id);
-      return Object.assign({},state, {kudos:filtered, delete: false, error:false,});  
+      return Object.assign({}, state, {
+        kudos: filtered,
+        delete: false,
+        error: false,
+      });
       
     case FAILED_KUDOS:
-      return Object.assign({},state, {fetch: false, error:true });
+      return Object.assign({}, state, {
+        fetch: false,
+        error: true
+      });
       
-    default:
-      return state;
-  
-    }
-
+    default: return state; }
   }
 
   function removeFromArray(array, value) {

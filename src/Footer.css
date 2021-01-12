@@ -1,4 +1,4 @@
-.font-small{
+.footerItems{
     background-color: var(--nav-footer-color);
     color: white;
     font-size: 20px;
@@ -7,37 +7,19 @@
     bottom: 0;
     width: 100%;
     height: 40px;
+    font-family: 'Amatic SC', cursive;
+    font-weight: 700;
+    display: flex;
+    justify-content: space-around;
+   
 }
 
-.py-3,.pt-4, .py-4  {
-    padding-top: 0rem !important;
-}
-
-.iconsRef {
-    position: absolute;
-    left: 5vw;
-}
-
-.openSource {
-    position: absolute;
-    margin-left: 45vw;
-}
-
-.feedback {
-    position: absolute;
-    right: 5vw;
-}
-
-.iconsRef a,
-.openSource a,
-.feedback a {
+.footerItems a {
     text-decoration: none;
     color: white;
 }
 
-.iconsRef a:hover,
-.openSource a:hover,
-.feedback a:hover {
+.footerItems a:hover {
     font-size: 150%; 
     transition: 0.5s; 
 }
