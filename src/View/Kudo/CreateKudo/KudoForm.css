@@ -108,8 +108,8 @@
     display: grid;
     grid-template-columns: 510px;
     grid-template-rows: 102px;
+    margin-bottom: 30px;
     width: inherit;
-    height: 120px;
     justify-content: center; 
 }
 
@@ -182,5 +182,10 @@
     .inputError {
         height: 10px;
         font-size: 10px;
+    }
+
+    .foto-table {
+        grid-template-columns: 450px;
+        grid-template-rows: 90px;
     }
 }
