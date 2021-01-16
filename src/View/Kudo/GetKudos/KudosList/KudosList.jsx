@@ -4,6 +4,11 @@ import Carousel from 'react-bootstrap/Carousel';
 import KudoCard from '../KudoCard/KudoCard';
 import './KudosList.css';
 
+import { FloatingButton, Item } from "react-floating-button";
+import plusIcon from '../../../../Images/Icons/plus.svg';
+import perfilIcon from '../../../../Images/Icons/perfil.svg';
+import sendIcon from '../../../../Images/Icons/send.svg';
+
 class KudosList extends Component{
 
     componentDidMount() {
@@ -17,6 +22,10 @@ class KudosList extends Component{
 
     updateKudo = (kudo) => {
         this.props.updateKudo(kudo);
+    }
+
+    storeKudos = () => {
+        this.props.storeKudos();
     }
     
     render() { 
@@ -33,6 +42,34 @@ class KudosList extends Component{
                             )
                         })}
                     </Carousel>
+
+                    <FloatingButton backgroundColor="#1da88a">
+                        <Item
+                            imgSrc={plusIcon}
+                            backgroundColor="#fff"
+                            onClick={() => {
+                                console.log("plus click");
+                                //mandar pra pagina de criar kudos
+                            }}
+                        />
+                        <Item
+                            imgSrc={perfilIcon}
+                            backgroundColor="#fff"
+                            onClick={() => {
+                                console.log("perfil click");
+                                //mandar pra pagina de perfil
+                            }}
+                        />
+                        <Item
+                            imgSrc={sendIcon}
+                            backgroundColor="#fff"
+                            onClick={() => {
+                                console.log("send click");
+                                this.storeKudos();
+                                //mandar pra pagina de perfil
+                            }}
+                        />
+                    </FloatingButton>
                 </div>
             </div>
         );
