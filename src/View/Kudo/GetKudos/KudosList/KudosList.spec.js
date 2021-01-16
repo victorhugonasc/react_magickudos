@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow,configure} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import KudosList from './KudosList';
-import {fetchKudos} from '../../../State/Kudo/GetKudosActions';
+import {fetchKudos} from '../../../../State/Kudo/GetKudosActions';
 
 configure({adapter: new Adapter() });
 

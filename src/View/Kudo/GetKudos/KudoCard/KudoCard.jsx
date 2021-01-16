@@ -1,17 +1,20 @@
 import React, { Component } from 'react';
-import { Dropdown  } from 'react-bootstrap';
-import formatDate from './FormatDate';
-import TextEllipsis from 'react-text-ellipsis';
+
+import formatDate from '../FormatDate';
 import './KudoCard.css';
-import greatJobImage from '../../../Images/Cards/greatJob.png';
-import congratsImage from '../../../Images/Cards/congrats.png';
-import veryAwesomeImage from '../../../Images/Cards/awesome.png';
-import thankYouImage from '../../../Images/Cards/thankYou.png';
-import staySafeImage from '../../../Images/Cards/staySafe.png';
-import trashCanImage from '../../../Images/Cards/trashCan.png';
-import editImage from '../../../Images/Cards/edit.png';
-import noEditImage from '../../../Images/Cards/noEdit.png';
-import newImage from '../../../Images/Cards/new.png';
+
+import greatJobImage from '../../../../Images/Cards/greatJob.png';
+import congratsImage from '../../../../Images/Cards/congrats.png';
+import veryAwesomeImage from '../../../../Images/Cards/awesome.png';
+import thankYouImage from '../../../../Images/Cards/thankYou.png';
+import staySafeImage from '../../../../Images/Cards/staySafe.png';
+import trashCanImage from '../../../../Images/Cards/trashCan.png';
+import editImage from '../../../../Images/Cards/edit.png';
+import noEditImage from '../../../../Images/Cards/noEdit.png';
+import newImage from '../../../../Images/Cards/new.png';
+
+import { Dropdown  } from 'react-bootstrap';
+import TextEllipsis from 'react-text-ellipsis';
 
 class KudoCard extends Component{
     state = {
@@ -93,14 +96,12 @@ class KudoCard extends Component{
     };
 
     updateSender = (value) => {
-        
         this.setState((prevState) => ({
             kudo: {
                 ...prevState.kudo,
                 sender: value,
             },
         }));
-
     };
 
     updateReceiver = (value) => {
@@ -125,7 +126,6 @@ class KudoCard extends Component{
         this.setState({
             isInEditMode: !this.state.isInEditMode
         },this.requestUpdate());
-
     }
 
     render() {
@@ -136,7 +136,6 @@ class KudoCard extends Component{
                         borderBottom: `2px solid ${this.state.pallete.button}`
                     }}>
                 <div className="type-figure">
-                    
                     {this.state.kudo.stored === "no" &&
                         <img alt="new" src={newImage} draggable="false"/>
                     }
@@ -157,7 +156,6 @@ class KudoCard extends Component{
                             </Dropdown> 
                         :   <h5>{this.getLayout(this.state.kudo.layout)}</h5>
                     }  
-                    
                 </div>
                 <div className="kudofigure">
                     <img alt="kudoFigure" src={this.getImage(this.state.kudo.layout)} draggable="false"/>  
@@ -204,7 +202,6 @@ class KudoCard extends Component{
         </div>
         )   
     }
-    
 }
 
 export default KudoCard;

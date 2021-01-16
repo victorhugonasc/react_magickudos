@@ -27,7 +27,6 @@ export default class ApiService {
         else{
             return axios[httpMethod](process.env.REACT_APP_BACKEND_DOMAIN + path).then(ApiService.handleSuccessCallBack).catch(ApiService.handleFailureCallBack);
         }
-        
     }
 
     static doRequestWithBody(httpMethod, path, body)

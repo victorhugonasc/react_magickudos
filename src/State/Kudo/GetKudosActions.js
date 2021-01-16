@@ -47,6 +47,24 @@ export function requestToUpdateKudo(kudo){
     }
 }
 
+export function storeKudos(){
+    KudoService.updateKudo()
+    .then( 
+        () => {StoreService.dispatchAction(requestToStoreKudos());},
+        (error) => {StoreService.dispatchAction(failedKudos(error));}
+    );
+
+    return{
+        type: UPDATE_KUDO,
+    }
+}
+
+export function requestToStoreKudos(){
+    return{
+        type: REQUEST_TO_UPDATE_KUDO,
+    }
+}
+
 export function deleteKudo(kudo){
     KudoService.deleteKudo(kudo)
     .then( 
