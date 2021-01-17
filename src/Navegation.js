@@ -13,6 +13,7 @@ export default function Navegation(){
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mr-auto">
             <Nav.Link href="/createKudos">Give a kudo</Nav.Link>
+            <Nav.Link href="/history">History</Nav.Link>
             <Nav.Link href="https://forms.gle/8nN5u8vGsJJpBJbw6">Give a Feedback</Nav.Link>
           </Nav>
         </Navbar.Collapse>

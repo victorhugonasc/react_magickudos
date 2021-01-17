@@ -16,13 +16,25 @@ export function fetchKudos(){
         (error) => {StoreService.dispatchAction(failedKudos(error));}
     );
 
-    return{
+    return {
+        type: FETCH_KUDOS,
+    }
+}
+
+export function fetchAllKudos(){
+    KudoService.getAllKudos()
+    .then( 
+        (data) => {StoreService.dispatchAction(loadKudos(data));},
+        (error) => {StoreService.dispatchAction(failedKudos(error));}
+    );
+
+    return {
         type: FETCH_KUDOS,
     }
 }
 
 export function loadKudos(kudos){
-    return{
+    return {
         type: LOAD_KUDOS,
         value: kudos,
     }
@@ -35,13 +47,13 @@ export function updateKudo(kudo){
         (error) => {StoreService.dispatchAction(failedKudos(error));}
     );
 
-    return{
+    return {
         type: UPDATE_KUDO,
     }
 }
 
 export function requestToUpdateKudo(kudo){
-    return{
+    return {
         type: REQUEST_TO_UPDATE_KUDO,
         value: kudo,
     }
@@ -54,13 +66,13 @@ export function storeKudos(){
         (error) => {StoreService.dispatchAction(failedKudos(error));}
     );
 
-    return{
+    return {
         type: UPDATE_KUDO,
     }
 }
 
 export function requestToStoreKudos(){
-    return{
+    return {
         type: REQUEST_TO_UPDATE_KUDO,
     }
 }
@@ -72,20 +84,20 @@ export function deleteKudo(kudo){
         (error) => {StoreService.dispatchAction(failedKudos(error));}
     );
 
-    return{
+    return {
         type: DELETE_KUDO,
     }
 }
 
 export function removeKudo(kudo){
-    return{
+    return {
         type: REQUEST_TO_REMOVE_KUDO,
         value: kudo,
     }
 }
 
 export function failedKudos(error){
-    return{
+    return {
         type: FAILED_KUDOS,
         value: error,
     }

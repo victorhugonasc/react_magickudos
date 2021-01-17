@@ -12,6 +12,10 @@ class KudoService{
         return ApiService.doGet(PATH,params);
     }
 
+    getAllKudos(params){
+        return ApiService.doGet(`${PATH}/all`,params);
+    }
+
     updateKudo(params){
         return ApiService.doPut(PATH,params);
     }
