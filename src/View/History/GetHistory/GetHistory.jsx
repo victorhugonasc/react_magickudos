@@ -1,32 +1,44 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types'; 
+import HistoryRow from './HistoryRow/HistoryRow';
 
 class GetHistory extends Component {
-
+    
     state = {
-        teams: this.props.teams,
+        types: ["greatJob", "congrats", "veryAwesome", "thankYou", "staySafe"],
+        pallete: {
+            logoImage:"#ecf0f3",
+            button: "ecf0f3",
+        },     
     }
 
     componentDidMount() {
+        this.props.fetchTeams();
         this.props.fetchAllKudos();
         this.props.fetchUsers();
-        this.props.fetchTeams();
         this.props.fetchColorPallete();
     }
 
     render() {
-        console.log(this.state);
         return (
-            <div>
-                ascasc
+            <div className="historyPage">
+                <section className="historyList">
+                    <h2> History </h2>
+                    {this.props.teams.map((team, key) => {
+                        
+                        const filteredUsers = this.props.users.filter(user => user.team.includes(team.name));
+                        return (
+                            <div key={key}>
+                                <h1>{team.name}</h1>
+                                {filteredUsers.map((user,anotherKey) => {
+                                    return <HistoryRow key={anotherKey} user={user} kudos={this.props.kudos} pallete={this.props.pallete} />
+                                })}
+                            </div>
+                        )})
+                    }
+                </section>
             </div>
         );
     }
-}
-
-GetHistory.propTypes = {
-    kudos: PropTypes.array.isRequired,
-    fetchAllKudos: PropTypes.func.isRequired,
 }
 
 export default GetHistory;
