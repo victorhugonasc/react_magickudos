@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './HistoryRow.css';
 import KudoCard from '../../../Kudo/GetKudos/KudoCard/KudoCard';
+import NavigateBeforeIcon from '@material-ui/icons/NavigateBefore';
+import NavigateNextIcon from '@material-ui/icons/NavigateNext';
 
 class HistoryRow extends Component {
 
@@ -8,6 +10,7 @@ class HistoryRow extends Component {
         user: this.props.user,
         kudos: this.props.kudos,
         pallete: this.props.pallete,
+        scrollX: 0,
     }
 
     filterKudos = () => {
@@ -15,19 +18,59 @@ class HistoryRow extends Component {
         //FILTRAR TAMBEM POR NICKNAMES
     }
 
+    handlePreviousClick = () => {
+        let newScrollX = this.state.scrollX + Math.round(window.innerWidth / 2);
+        if (newScrollX > 0) {
+            newScrollX = 0
+        }
+
+        this.setState({
+            scrollX: newScrollX
+        });
+    }
+
+    handleNextClick = (value) => {
+        let newScrollX = this.state.scrollX - Math.round(window.innerWidth / 2);
+        let listWitdh = value * 600;
+
+        if ((window.innerWidth - listWitdh) > newScrollX) {
+            newScrollX = (window.innerWidth - listWitdh);
+        }
+        this.setState({
+            scrollX: newScrollX
+        });
+    }
+
     render() {
         const filteredKudo = this.filterKudos();
         return (
-            <div>
+            <div className="historyRow">
+
                 <h4> {this.state.user.name} </h4>
+                   
                 {filteredKudo.length > 0 &&
-                    filteredKudo.map((kudo, key) => {
-                        const colorPallete = this.props.pallete.filter(color => kudo.layout === color.kudosType);
-                        return <KudoCard kudo={kudo} colorPallete={colorPallete} key={key} />
-                    })
                     
+                    <div className="historyArea">
+                        {filteredKudo.length > 3 &&
+                            <div>
+                                <div className="historyRow--previous" onClick={this.handlePreviousClick}>
+                                    <NavigateBeforeIcon style={{ fontsize: 50 }} />
+                                </div>
+                            
+                                <div className="historyRow--next" onClick={this.handleNextClick.bind(this, filteredKudo.length)}>
+                                    <NavigateNextIcon style={{ fontsize: 50 }} />
+                                </div>
+                            </div>
+                        }
+                        
+                        <div className="historyList" style={{ marginLeft: this.state.scrollX }}>
+                            {filteredKudo.map((kudo, key) => {
+                                const colorPallete = this.props.pallete.filter(color => kudo.layout === color.kudosType);
+                                return <KudoCard kudo={kudo} colorPallete={colorPallete} key={key} />
+                            })}
+                        </div>
+                    </div>
                 }
-                
             </div>
         )
     }

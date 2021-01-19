@@ -11,6 +11,7 @@ function mapStateToProps(state) {
         kudos: state.getKudoReducer.kudos,
         users: state.getUsers.users,
         pallete: state.getColorReducer.pallete,
+        fetch: state.getColorReducer.fetch,
     }
 }
 
