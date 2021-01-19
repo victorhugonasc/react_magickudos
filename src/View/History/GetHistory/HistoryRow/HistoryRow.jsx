@@ -63,7 +63,7 @@ class HistoryRow extends Component {
                             </div>
                         }
                         
-                        <div className="historyList" style={{ marginLeft: this.state.scrollX }}>
+                        <div className="historyList" style={{ marginLeft: this.state.scrollX, width: (600 * filteredKudo.length) }}>
                             {filteredKudo.map((kudo, key) => {
                                 const colorPallete = this.props.pallete.filter(color => kudo.layout === color.kudosType);
                                 return <KudoCard kudo={kudo} colorPallete={colorPallete} key={key} />

@@ -12,6 +12,11 @@ class GetHistory extends Component {
         this.props.fetchColorPallete();
     }
 
+    handleVisibility = (team) => {
+        team.visible = !team.visible;
+        this.forceUpdate();
+    }
+
     render() {
         return (
             <div className="historyPage">
@@ -22,18 +27,18 @@ class GetHistory extends Component {
                 }
                 <div className="historyList">
                     
-                    <h2> History </h2>
+                    <h1 className="historyHeader"> Kudos' Museum </h1>
 
                     {this.props.teams.map((team, key) => {
 
                         const filteredUsers = this.props.users.filter(user => user.team.includes(team.name));
 
                         return (
-                            <div key={key}>
+                            <div className="historyContainer" key={key}>
 
-                                <h1>{team.name}</h1>
+                                <h2 className="teamNameHeader" onClick={this.handleVisibility.bind(this, team)} >{team.name}</h2>
 
-                                {filteredUsers.map((user, anotherKey) => {
+                                {team.visible && filteredUsers.map((user, anotherKey) => {
 
                                     const filteredKudos = this.props.kudos.filter(kudo => kudo.receiver === user.name);
 

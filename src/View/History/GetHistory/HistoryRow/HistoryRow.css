@@ -10,10 +10,10 @@
 .historyArea {
     overflow-x: hidden;
     padding-left: 30px;
+    box-shadow: 0px 0px 200px 5px rgb(240, 240, 240);
 }
 
 .historyList {
-    width: 99999px;
     transition: all ease 0.5s;
 }
 
@@ -25,7 +25,6 @@
 
 .historyRow .kudos:hover{
     transform: scale(1);
-
 }
 
 .historyRow--previous,
