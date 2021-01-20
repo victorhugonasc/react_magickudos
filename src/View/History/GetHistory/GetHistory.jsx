@@ -17,6 +17,26 @@ class GetHistory extends Component {
         this.forceUpdate();
     }
 
+    filterKudos = (user) => {
+        return this.props.kudos.reverse().filter(function (kudo) {
+            if (user.name === kudo.receiver) {
+                return kudo;
+            }
+
+            if (user.nicknames) {
+               let b = user.nicknames.filter(function (nickname) {
+                   if (kudo.receiver === nickname) {
+                        return kudo;
+                    }
+               })
+
+               if (b.length > 0) {
+                   return b;
+               }
+            }
+        });
+    }
+
     render() {
         return (
             <div className="historyPage">
@@ -40,10 +60,11 @@ class GetHistory extends Component {
 
                                 {team.visible && filteredUsers.map((user, anotherKey) => {
 
-                                    const filteredKudos = this.props.kudos.filter(kudo => kudo.receiver === user.name);
+                                    const filteredKudos = this.filterKudos(user);
+                                    console.log(filteredKudos);
 
                                     if (filteredKudos.length > 0) {
-                                        return <HistoryRow key={anotherKey} user={user} kudos={this.props.kudos} pallete={this.props.pallete} />
+                                        return <HistoryRow key={anotherKey} user={user} kudos={filteredKudos} pallete={this.props.pallete} />
                                     }
                                 })}
                             </div>
