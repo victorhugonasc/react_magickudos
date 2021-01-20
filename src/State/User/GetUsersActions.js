@@ -1,14 +1,11 @@
 import UserService from '../../App/Service/User/UserService';
 import StoreService from '../../App/Service/Utils/StoreService';
 
-
 export const FETCH_USERS = "FETCH_USERS";
 export const LOAD_USERS = "LOAD_USERS";
 export const FAILED_USERS = "FAILED_USERS";
 
-
 export function fetchUsers(){
-
     UserService.getUsers()
     .then( 
         (data) => {StoreService.dispatchAction(loadUsers(data));},
@@ -21,7 +18,6 @@ export function fetchUsers(){
 }
 
 export function loadUsers(users){
-   
     return{
         type: LOAD_USERS,
         value: users,

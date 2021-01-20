@@ -1,0 +1,38 @@
+h1,h2 {
+    font-family: 'Amatic SC', cursive;
+}
+.loading {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.historyPage {
+    background-color: #bce6b0e8;
+}
+
+.historyContainer {
+    background-color: #bce6b0e8;
+}
+
+.historyHeader,
+.teamNameHeader {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+}
+
+.historyHeader {
+    height: 100px;
+    align-items: center;
+}
+
+.teamNameHeader {
+    box-shadow: 0px 0px 5px 5px  rgb(8, 8, 8);
+    cursor: pointer;
+}

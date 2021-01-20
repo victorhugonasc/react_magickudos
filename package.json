@@ -12,6 +12,7 @@
     "react-bootstrap": "^1.4.3",
     "react-dom": "^16.13.1",
     "react-floating-button": "^1.1.1",
+    "react-loading": "^2.0.3",
     "react-notification-center-component": "^1.0.9",
     "react-redux": "7.2.0",
     "react-router-dom": "^5.2.0",
