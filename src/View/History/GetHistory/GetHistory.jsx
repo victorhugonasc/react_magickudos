@@ -18,7 +18,9 @@ class GetHistory extends Component {
     }
 
     filterKudos = (user) => {
-        return this.props.kudos.reverse().filter(function (kudo) {
+        	
+        const sortedKudos = this.props.kudos.sort((a, b) => b.date > a.date ? 1 : -1);
+        return sortedKudos.filter(function (kudo) {
             if (user.name === kudo.receiver) {
                 return kudo;
             }
@@ -61,7 +63,6 @@ class GetHistory extends Component {
                                 {team.visible && filteredUsers.map((user, anotherKey) => {
 
                                     const filteredKudos = this.filterKudos(user);
-                                    console.log(filteredKudos);
 
                                     if (filteredKudos.length > 0) {
                                         return <HistoryRow key={anotherKey} user={user} kudos={filteredKudos} pallete={this.props.pallete} />

@@ -19,6 +19,7 @@ import TextEllipsis from 'react-text-ellipsis';
 class KudoCard extends Component{
     state = {
         kudo: this.props.kudo,
+        isEditable: this.props.isEditable,
         isInEditMode: false,
         inputMaxLength: 70,
         messageMaxLength: 280,
@@ -26,11 +27,12 @@ class KudoCard extends Component{
         pallete: {
             logoImage:"#ecf0f3",
             button: "ecf0f3",
-        },     
+        },
     }
 
     getColorPallete = () => {
         let pallete = this.props.colorPallete[0];
+        console.log(pallete);
         this.setState({pallete});
     }
     
@@ -54,14 +56,6 @@ class KudoCard extends Component{
             case "staySafe": return staySafeImage;
             default: break;
         }
-    }
-
-    drag = (event) => {
-        event.dataTransfer.setData('transfer',event.target.id);
-    }
-
-    noAllowDrop = (event) => {
-        event.stopPropagation();
     }
 
     requestUpdate = () => {
@@ -130,7 +124,7 @@ class KudoCard extends Component{
 
     render() {
         return(
-            <div className="kudos" draggable="false" onLoad={this.getColorPallete} onDragStart={this.drag} onDragOver={this.noAllowDrop}>
+            <div className="kudos" draggable="false" onLoad={this.getColorPallete}>
             <div className="logo--image" style={{
                         backgroundColor: this.state.pallete.logoImage,
                         borderBottom: `2px solid ${this.state.pallete.button}`
@@ -147,11 +141,9 @@ class KudoCard extends Component{
                                 </Dropdown.Toggle>
 
                                 <Dropdown.Menu onClick={event => this.updateLayout(event.target.text)}>
-                                    <Dropdown.Item >{this.getLayout(this.state.types[0])}</Dropdown.Item>
-                                    <Dropdown.Item >{this.getLayout(this.state.types[1])}</Dropdown.Item>
-                                    <Dropdown.Item >{this.getLayout(this.state.types[2])}</Dropdown.Item>
-                                    <Dropdown.Item >{this.getLayout(this.state.types[3])}</Dropdown.Item>
-                                    <Dropdown.Item >{this.getLayout(this.state.types[4])}</Dropdown.Item>
+                                    {this.state.types.map((type) => { 
+                                        return <Dropdown.Item >{this.getLayout(type)}</Dropdown.Item>
+                                    })}
                                 </Dropdown.Menu>
                             </Dropdown> 
                         :   <h5>{this.getLayout(this.state.kudo.layout)}</h5>
@@ -190,10 +182,14 @@ class KudoCard extends Component{
                 background: this.state.pallete.button,
             }}>
                 <div className="clickables">
-                    <img className="trashCan" alt="trashCan" src={trashCanImage} draggable="false" onClick={this.deleteKudo}/>
-                    {this.state.isInEditMode 
-                        ? <img className="edit" alt="edit" src={noEditImage} draggable="false" onClick={this.changeEditMode}/>
-                        : <img className="edit" alt="edit" src={editImage} draggable="false" onClick={this.changeEditMode}/>
+                    {this.state.isEditable &&
+                        <div>
+                            <img className="trashCan" alt="trashCan" src={trashCanImage} draggable="false" onClick={this.deleteKudo}/>
+                            {this.state.isInEditMode 
+                                ? <img className="edit" alt="edit" src={noEditImage} draggable="false" onClick={this.changeEditMode}/>
+                                : <img className="edit" alt="edit" src={editImage} draggable="false" onClick={this.changeEditMode}/>
+                            }
+                        </div>
                     }
                 </div>
                 
