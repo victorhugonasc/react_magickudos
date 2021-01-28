@@ -8,7 +8,7 @@ export default function formatDate(date) {
     const hoursInMili = minutesInMili * 60;
     const daysInMili = hoursInMili * 24;
     const monthsInMili = daysInMili * 30;
-    const yearsInMili = monthsInMili * 365;
+    const yearsInMili = (monthsInMili * 12) + (daysInMili * 5);
 
     if (diff > yearsInMili) {
 
@@ -60,7 +60,6 @@ export default function formatDate(date) {
         return `${timeMinutes} minutes ago`;
     }
 
-    
     let timeSeconds = Math.round(diff / 1000);
     
     if (timeSeconds === 1) {
@@ -68,5 +67,4 @@ export default function formatDate(date) {
     }
 
     return `${timeSeconds} seconds ago`;
-
 }

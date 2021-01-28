@@ -27,11 +27,15 @@
     height: 50px;
 }
 
-.type-figure h5 {
-    display: inline-block;
+.kudoHeaderText,
+.type-figure h5{
     font-size: 50px;
+    justify-content: center;
+}
+
+.type-figure h5 {
+    display: flex;
     width: 100%;
-    text-align: center;
 }
 
 .kudofigure img{
@@ -42,7 +46,7 @@
 }
 
 .dropdown {
-    display: inline-block;
+    display: flex;
     width: 100%;
     justify-content: center;
 }
@@ -94,10 +98,6 @@
     display: inline-block;
     justify-content: center; 
     text-align: center;
-}
-
-.card-message p {
-    margin-top: 15px;
 }
 
 .card-message textarea {

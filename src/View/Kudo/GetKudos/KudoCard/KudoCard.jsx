@@ -32,7 +32,6 @@ class KudoCard extends Component{
 
     getColorPallete = () => {
         let pallete = this.props.colorPallete[0];
-        console.log(pallete);
         this.setState({pallete});
     }
     
@@ -141,12 +140,12 @@ class KudoCard extends Component{
                                 </Dropdown.Toggle>
 
                                 <Dropdown.Menu onClick={event => this.updateLayout(event.target.text)}>
-                                    {this.state.types.map((type) => { 
-                                        return <Dropdown.Item >{this.getLayout(type)}</Dropdown.Item>
+                                    {this.state.types.map((type, key) => { 
+                                        return <Dropdown.Item key={key} >{this.getLayout(type)}</Dropdown.Item>
                                     })}
                                 </Dropdown.Menu>
                             </Dropdown> 
-                        :   <h5>{this.getLayout(this.state.kudo.layout)}</h5>
+                        :   <h5 className="kudoHeaderText">{this.getLayout(this.state.kudo.layout)}</h5>
                     }  
                 </div>
                 <div className="kudofigure">
