@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import { DeleteOutlined, EditOutlined, EditFilled } from '@ant-design/icons';
 import formatDate from '../FormatDate';
 import './KudoCard.css';
 
@@ -8,9 +8,6 @@ import congratsImage from '../../../../Images/Cards/congrats.png';
 import veryAwesomeImage from '../../../../Images/Cards/awesome.png';
 import thankYouImage from '../../../../Images/Cards/thankYou.png';
 import staySafeImage from '../../../../Images/Cards/staySafe.png';
-import trashCanImage from '../../../../Images/Cards/trashCan.png';
-import editImage from '../../../../Images/Cards/edit.png';
-import noEditImage from '../../../../Images/Cards/noEdit.png';
 import newImage from '../../../../Images/Cards/new.png';
 
 import { Dropdown  } from 'react-bootstrap';
@@ -183,10 +180,10 @@ class KudoCard extends Component{
                 <div className="clickables">
                     {this.state.isEditable &&
                         <div>
-                            <img className="trashCan" alt="trashCan" src={trashCanImage} draggable="false" onClick={this.deleteKudo}/>
+                            <DeleteOutlined className="trashCan" style={{ fontSize: '28px', color: '#000' }} onClick={this.deleteKudo} />
                             {this.state.isInEditMode 
-                                ? <img className="edit" alt="edit" src={noEditImage} draggable="false" onClick={this.changeEditMode}/>
-                                : <img className="edit" alt="edit" src={editImage} draggable="false" onClick={this.changeEditMode}/>
+                                ? <EditFilled  className="edit"  style={{ fontSize: '28px', color: '#000' }} onClick={this.changeEditMode}/>
+                                : <EditOutlined className="edit"  style={{ fontSize: '28px', color: '#000' }} onClick={this.changeEditMode}/>
                             }
                         </div>
                     }
