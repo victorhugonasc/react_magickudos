@@ -7,23 +7,43 @@
     transition: ease-out 2s;
 }
 
-.kudosList:hover {
-    background-color: #bce6b0e8;
+.kudoContainer {
+    display: flex;
+    width: inherit;
+    justify-content: center;
 }
 
-.carousel,
+.carousel {
+    width: 100vw;
+}
+
 .carousel-indicators {
     position: inherit;
-    margin: 0;
+}
+
+.carousel-inner {
+    display: flex;
+justify-content: space-evenly;
+align-content: center;
+}
+
+.carousel-fade .carousel-item {
+    display: unset !important;
+}
+
+.carousel-item.active {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+}
+
+.kudosList:hover {
+    background-color: #bce6b0e8;
 }
 
 .carousel-control-next-icon, .carousel-control-prev-icon {
     height: 60px;
     width: 60px;
-}
-
-.carousel-inner {
-    height: auto !important;
 }
 
 .noKudosToShow {
@@ -46,8 +66,5 @@
 /*Responsive*/
 
 @media (max-height:760px) {
-    .carousel-control-prev, .carousel-control-next {
-        margin-top: 55px;
-        height: 83%;
-    }
+    
 }

@@ -44,8 +44,10 @@ class HistoryRow extends Component {
                 <h4> {this.state.user.name} </h4>
                    
                 {this.state.kudos.length > 0 &&
-                    
                     <div className="historyArea">
+                    
+                    <h5> {this.state.kudos.length} </h5>
+                    
                         {this.state.kudos.length > 3 &&
                             <div>
                                 <div className="historyRow--previous" onClick={this.handlePreviousClick}>

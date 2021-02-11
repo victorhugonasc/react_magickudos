@@ -126,7 +126,7 @@ class KudoCard extends Component{
                         borderBottom: `2px solid ${this.state.pallete.button}`
                     }}>
                 <div className="type-figure">
-                    {this.state.kudo.stored === "no" &&
+                    {this.state.kudo.olderKudo === "no" &&
                         <img alt="new" src={newImage} draggable="false"/>
                     }
 

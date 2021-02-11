@@ -3,7 +3,6 @@ FROM node:13.12.0-alpine
 
 # set working directory
 WORKDIR /usr/src/app
-
  
 # Copies package.json and package-lock.json to Docker environment
 COPY package*.json ./
@@ -16,7 +15,6 @@ COPY . .
 
 #exposing port 3000
 EXPOSE 3000
-
 
 # add `/app/node_modules/.bin` to $PATH
 ENV PATH /app/node_modules/.bin:$PATH
