@@ -10,6 +10,7 @@ class KudoForm extends Component{
         messageMaxLength: 280,
         qtdTyped: 0,
         kudo: this.props.kudo,
+        types: ["greatJob", "congrats", "veryAwesome", "thankYou", "staySafe"],
     };
 
     constructor (props) {
@@ -130,11 +131,9 @@ class KudoForm extends Component{
                         <h5 className="form-welcome-msg">{this.state.colorPallete.headerMessage}</h5>
                         <div className="foto-table">
                             <ButtonGroup aria-label="Basic example" onClick={event => this.onClickComboBox(event.target.value)}>
-                                <Button className="foto-greatJob" value= "greatJob" variant="secondary" ></Button>
-                                <Button className="foto-congrats" value="congrats"  variant="secondary"></Button>
-                                <Button className="foto-veryAwesome" value="veryAwesome" variant="secondary"></Button>
-                                <Button className="foto-thankYou" value="thankYou" variant="secondary"></Button>
-                                <Button className="foto-staySafe" value="staySafe" variant="secondary"></Button>
+                                {this.state.types.map((type,key) => { 
+                                    return <Button className={`foto-${type}`} value={type} key={key} variant="secondary" ></Button>
+                                })}
                             </ButtonGroup>
                         </div>
                         <div className="fields">

@@ -1,47 +1,70 @@
-.kudosList{
-    display: block;
-    height: 100%;
-}
-
-.kudoContainer {
-    height: 100%;
-    margin: 0 auto;
+.kudosList {
+    flex: 1;
+    width: 100%;
     justify-content: center;
     display: flex;
     background-color: #fdc495e8;
     transition: ease-out 2s;
 }
 
-.kudoContainer:hover {
-    background-color: #bce6b0e8;
+.kudoContainer {
+    display: flex;
+    width: inherit;
+    justify-content: center;
 }
 
 .carousel {
-    position: inherit;
+    width: 100vw;
 }
 
 .carousel-indicators {
     position: inherit;
 }
 
+.carousel-inner {
+    display: flex;
+justify-content: space-evenly;
+align-content: center;
+}
+
+.carousel-fade .carousel-item {
+    display: unset !important;
+}
+
+.carousel-item.active {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+}
+
+.kudosList:hover {
+    background-color: #bce6b0e8;
+}
+
 .carousel-control-next-icon, .carousel-control-prev-icon {
     height: 60px;
     width: 60px;
 }
-.carousel-control-prev, .carousel-control-next {
-    margin-top: 61px;
-    height: 88.5%;
+
+.noKudosToShow {
+    width: 600px;
 }
 
-.carousel-inner {
-    height: auto !important;
+.noKudosToShow img {
+    width: 100%;
+    height: auto;
 }
 
+.noKudosToShow h5 {
+    display: flex;
+    justify-content: center;
+    margin-top: -60px;
+    font-size: 48px;
+    font-family: 'Amatic SC', cursive;
+    color: #fff;
+}
 /*Responsive*/
 
 @media (max-height:760px) {
-    .carousel-control-prev, .carousel-control-next {
-        margin-top: 55px;
-        height: 83%;
-    }
+    
 }

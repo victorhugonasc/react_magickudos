@@ -7,7 +7,8 @@ import KudosList from './KudosList/KudosList';
 function mapStateToProps(state) {
     return {
         kudos: state.getKudoReducer.kudos,
-        pallete: state.getColorReducer.pallete
+        pallete: state.getColorReducer.pallete,
+        fetch: state.getColorReducer.fetch,
     }
 }
 

@@ -18,14 +18,16 @@ class GetHistory extends Component {
     }
 
     filterKudos = (user) => {
-        return this.props.kudos.reverse().filter(function (kudo) {
-            if (user.name === kudo.receiver) {
+        	
+        const sortedKudos = this.props.kudos.sort((a, b) => b.date > a.date ? 1 : -1);
+        return sortedKudos.filter(function (kudo) {
+            if (user.name.toLowerCase() === kudo.receiver.toLowerCase()) {
                 return kudo;
             }
 
             if (user.nicknames) {
                let b = user.nicknames.filter(function (nickname) {
-                   if (kudo.receiver === nickname) {
+                   if (kudo.receiver.toLowerCase() === nickname.toLowerCase()) {
                         return kudo;
                     }
                })
@@ -59,11 +61,9 @@ class GetHistory extends Component {
                                 <h2 className="teamNameHeader" onClick={this.handleVisibility.bind(this, team)} >{team.name}</h2>
 
                                 {team.visible && filteredUsers.map((user, anotherKey) => {
-
                                     const filteredKudos = this.filterKudos(user);
-                                    console.log(filteredKudos);
 
-                                    if (filteredKudos.length > 0) {
+                                    if (filteredKudos.length > 0 && !user.hiddenPerson) {
                                         return <HistoryRow key={anotherKey} user={user} kudos={filteredKudos} pallete={this.props.pallete} />
                                     }
                                 })}
@@ -71,7 +71,6 @@ class GetHistory extends Component {
                         )})
                     }
                 </div>
-                
             </div>
         );
     }

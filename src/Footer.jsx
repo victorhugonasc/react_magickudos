@@ -9,7 +9,7 @@ class Footer extends Component {
     render()
     {
         return (
-            <MDBFooter color="blue" className="font-small pt-4 mt-4">
+            <MDBFooter color="blue" className="font-small">
                 <div className="footerItems">
                     <span className="iconsRef">Icons made by <a href="https://www.artstation.com/pedrocruzc">Pedro Carvalho</a></span>
                     <AwesomeButtonSocial type="github" href="https://github.com/victorhugonasc?tab=repositories">
