@@ -1,0 +1,215 @@
+.kudos {
+    height: 500px;
+    width: 600px;
+    border-radius: 18px;
+    font-family: 'Amatic SC', cursive;
+    background: #fff;
+    display: inline-block;
+}
+
+.logo--image {
+    height: 200px;
+    width: inherit;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-size: 100% 100%;
+}
+
+.type-figure,
+.kudofigure {
+    display: inline-block;
+    width: 100%;
+}
+
+.type-figure img{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+}
+
+.kudoHeaderText,
+.type-figure h5{
+    font-size: 50px;
+    justify-content: center;
+}
+
+.type-figure h5 {
+    display: flex;
+    width: 100%;
+}
+
+.kudofigure img{
+    display:block;
+    margin:auto;
+    width: 160px;
+    height: 100px;
+}
+
+.dropdown {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.dropdown-toggle {
+    border-radius: 15px;
+}
+
+.figure {
+    height: 160px;
+    width: 160px;
+}
+
+.card-from-to {
+    height: 80px;
+    width: inherit;
+    display: inline-block;
+    color: #555555;
+    font-size: 20px;
+    text-align: left;
+}
+
+.card-from-to h4 {
+    height: 50%;
+    padding: 0px 30px;
+}
+
+.card-from-to input {
+    width: 80%;
+    height: 70%;
+}
+
+.card-message,
+.card-message textarea {
+    font-size: 30px;
+}
+
+.card-message {
+    height: 180px;
+    width: inherit;
+    line-height: 80%;
+    color: #555555;
+    font-weight: 300;
+}
+
+.card-message p,
+.card-message textarea {
+    height: 100%;
+    display: inline-block;
+    justify-content: center; 
+    text-align: center;
+}
+
+.card-message textarea {
+    width: 100%;
+    font-weight: 300; 
+    background-color: beige;
+}
+
+.card-date {
+    height: 40px;
+    width: inherit;
+    display: inline-block;
+    border-bottom-left-radius: 18px;
+    border-bottom-right-radius: 18px;
+    border-top: 2px solid black;
+}
+
+.clickables{
+    display: inline-block;
+    width: 50%;
+    cursor: pointer;    
+}
+
+.trashCan, .edit {
+    margin-left: 20px;
+    transform: scale(1);
+    transition: all ease 0.2s;
+}
+
+.trashCan:hover, .edit:hover {
+    transform: scale(1.2);
+}
+
+.formatDate {
+    display: inline-block;
+    width: 50%;
+    color: white;
+    text-align: center;
+    font-size: 26px;
+}
+
+/*Responsive*/
+
+@media (max-height:760px) {
+    .kudos {
+        grid-template-columns: 450px;
+        top: 30vh;
+        height: 270px;
+    }
+
+    .logo--image {
+        height: 50px;
+    }
+
+    .formatDate {
+        font-size: 18px;
+    }
+
+    .card-message {
+        height: 150px;
+    }
+
+    .card-date {
+        height: 30px;
+    }
+
+    .card-from-to {
+        height: 40px;
+        display: inline-block;
+        width: 100%;
+    }
+
+    .card-from-to h4 {
+        display: inline-block;
+        font-size: 16px;
+        width: 50%;
+        justify-content: space-between;
+    }
+
+    .card-from-to input {
+        height: 30px;
+    }
+
+    .card-message,
+    .card-message textarea {
+        font-size: 26px;
+    }
+
+    .type-figure h5 {
+        font-size: 26px;
+    }
+
+    .type-figure{
+        display: inline-block;
+        width: 100%;
+    }
+
+    .type-figure img{
+        width: 35px;
+        height: 35px;
+    }
+
+    .kudofigure img{
+        visibility: hidden;
+    }
+
+    .dropdown {
+        height: 40px;
+    }
+
+    .dropdown-toggle {
+        height: 100%;
+        border-radius: 10px;
+    }
+}

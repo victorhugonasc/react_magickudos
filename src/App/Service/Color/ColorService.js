@@ -1,28 +1,24 @@
 import ApiService from '../ApiService'
 
-const PATH = "/kudos"
+const PATH = "/colors"
 
-class KudoService{
+class ColorService{
 
-    createKudo(params){
+    createColorPallete(params){
         return ApiService.doPost(PATH,params);
     }
     
-    getKudos(params){
+    getAllColorsPallete(params){
         return ApiService.doGet(PATH,params);
     }
 
-    getAllKudos(params){
-        return ApiService.doGet(`${PATH}/all`,params);
-    }
-
-    updateKudo(params){
+    updateColorPallete(params){
         return ApiService.doPut(PATH,params);
     }
 
-    deleteKudo(params){
+    deleteColorPallete(params){
         return ApiService.doDelete(PATH,params);
     }
 }
 
-export default new KudoService();
+export default new ColorService();

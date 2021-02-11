@@ -4,7 +4,6 @@ import Routes from './Routes';
 import Footer from './Footer';
 import { BrowserRouter as Router} from "react-router-dom";
 import './App.css';
-
 require('dotenv').config();
 
 export default class App extends Component {
@@ -16,7 +15,7 @@ export default class App extends Component {
   render() {
     return (
       <Router>
-        <div className="App">
+        <div className="app">
           <Navegation />   
           <Routes />
           <Footer/>

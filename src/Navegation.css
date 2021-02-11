@@ -1,6 +1,9 @@
-
 .bg-dark {
-    background-color: var(--nav-footer-color)!important;
+    background-color: #1da88a !important;
+}
+
+.navbar{
+    padding: 0;
 }
 
 .navbar-brand {
@@ -14,3 +17,10 @@
     color: white !important;
 }
 
+/*Responsive*/
+
+@media (max-height:760px) {
+    .navbar{
+        height: 55px;
+    }
+}

@@ -1,0 +1,70 @@
+.kudosList {
+    flex: 1;
+    width: 100%;
+    justify-content: center;
+    display: flex;
+    background-color: #fdc495e8;
+    transition: ease-out 2s;
+}
+
+.kudoContainer {
+    display: flex;
+    width: inherit;
+    justify-content: center;
+}
+
+.carousel {
+    width: 100vw;
+}
+
+.carousel-indicators {
+    position: inherit;
+}
+
+.carousel-inner {
+    display: flex;
+justify-content: space-evenly;
+align-content: center;
+}
+
+.carousel-fade .carousel-item {
+    display: unset !important;
+}
+
+.carousel-item.active {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+}
+
+.kudosList:hover {
+    background-color: #bce6b0e8;
+}
+
+.carousel-control-next-icon, .carousel-control-prev-icon {
+    height: 60px;
+    width: 60px;
+}
+
+.noKudosToShow {
+    width: 600px;
+}
+
+.noKudosToShow img {
+    width: 100%;
+    height: auto;
+}
+
+.noKudosToShow h5 {
+    display: flex;
+    justify-content: center;
+    margin-top: -60px;
+    font-size: 48px;
+    font-family: 'Amatic SC', cursive;
+    color: #fff;
+}
+/*Responsive*/
+
+@media (max-height:760px) {
+    
+}

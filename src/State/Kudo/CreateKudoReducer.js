@@ -30,9 +30,6 @@ export const initialState = {
     case FAILED_TO_CREATE_KUDO:
       return Object.assign({},state, {fetch: false, error:true });
       
-    default:
-      return state;
-  
-    }
+    default: return state; }
 
   }

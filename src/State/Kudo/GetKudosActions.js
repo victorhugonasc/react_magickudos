@@ -10,71 +10,94 @@ export const REQUEST_TO_REMOVE_KUDO = "REQUEST_TO_REMOVE_KUDO";
 export const FAILED_KUDOS = "FAILED_KUDOS";
 
 export function fetchKudos(){
-
     KudoService.getKudos()
     .then( 
         (data) => {StoreService.dispatchAction(loadKudos(data));},
         (error) => {StoreService.dispatchAction(failedKudos(error));}
     );
 
-    return{
+    return {
+        type: FETCH_KUDOS,
+    }
+}
+
+export function fetchAllKudos(){
+    KudoService.getAllKudos()
+    .then( 
+        (data) => {StoreService.dispatchAction(loadKudos(data));},
+        (error) => {StoreService.dispatchAction(failedKudos(error));}
+    );
+
+    return {
         type: FETCH_KUDOS,
     }
 }
 
 export function loadKudos(kudos){
-   
-    return{
+    return {
         type: LOAD_KUDOS,
         value: kudos,
     }
 }
 
 export function updateKudo(kudo){
-
     KudoService.updateKudo(kudo)
     .then( 
         () => {StoreService.dispatchAction(requestToUpdateKudo(kudo));},
         (error) => {StoreService.dispatchAction(failedKudos(error));}
     );
 
-    return{
+    return {
         type: UPDATE_KUDO,
     }
 }
 
 export function requestToUpdateKudo(kudo){
-   
-    return{
+    return {
         type: REQUEST_TO_UPDATE_KUDO,
         value: kudo,
     }
 }
 
-export function deleteKudo(kudo){
+export function storeKudos(){
+    KudoService.updateKudo()
+    .then( 
+        () => {StoreService.dispatchAction(requestToStoreKudos());},
+        (error) => {StoreService.dispatchAction(failedKudos(error));}
+    );
 
+    return {
+        type: UPDATE_KUDO,
+    }
+}
+
+export function requestToStoreKudos(){
+    return {
+        type: REQUEST_TO_UPDATE_KUDO,
+    }
+}
+
+export function deleteKudo(kudo){
     KudoService.deleteKudo(kudo)
     .then( 
         () => {StoreService.dispatchAction(removeKudo(kudo));},
         (error) => {StoreService.dispatchAction(failedKudos(error));}
     );
 
-    return{
+    return {
         type: DELETE_KUDO,
     }
 }
 
 export function removeKudo(kudo){
-   
-    return{
+    return {
         type: REQUEST_TO_REMOVE_KUDO,
         value: kudo,
     }
 }
 
-
 export function failedKudos(error){
-    return{
+    return {
         type: FAILED_KUDOS,
         value: error,
     }

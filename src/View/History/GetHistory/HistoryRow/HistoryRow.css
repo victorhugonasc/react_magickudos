@@ -1,0 +1,57 @@
+.historyRow {
+    margin-bottom: 30px;
+}
+
+.historyRow h4 {
+    margin: 0px 0px 0px 30px;
+    font-family: 'Amatic SC', cursive;
+}
+
+.historyArea {
+    overflow-x: hidden;
+    padding-left: 30px;
+    box-shadow: 0px 0px 200px 5px rgb(240, 240, 240);
+}
+
+.historyList {
+    transition: all ease 0.5s;
+}
+
+.historyRow .kudos {
+    display: inline-block;
+    transform: scale(0.6);
+    transition: all ease 0.2s;
+}
+
+.historyRow .kudos:hover{
+    transform: scale(1);
+}
+
+.historyRow--previous,
+.historyRow--next {
+    position: absolute;
+    width: 30px;
+    height: 500px;
+    background-color: rgba(221, 103, 103, 0.6);
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    cursor: pointer;
+    opacity: 0;
+    transition: all ease 0.5s;
+}
+
+.historyRow--previous {
+   left: 0;
+}
+
+.historyRow--next {
+    right: 0;
+}
+
+ .historyRow:hover .historyRow--previous,
+ .historyRow:hover .historyRow--next {
+    opacity: 1;
+}
